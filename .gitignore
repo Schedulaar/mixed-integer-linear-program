@@ -1,3 +1,4 @@
+*.gz
 .directory
 *.log
 *.aux

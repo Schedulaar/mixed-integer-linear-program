@@ -5,11 +5,13 @@
 		notitlepage	% keine extra Titelseite
 		]{scrartcl}
 
+\usepackage[utf8]{inputenc}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Zusammenfassung einiger nützlicher Pakete und Befehle
+% Zusammenfassung einiger nÃ¼tzlicher Pakete und Befehle
 \input{Header/kopf}			    % Befehle und Pakete f\"ur Titelseite
 \input{Header/theorem}			% Mathematische Befehle und Pakete
-\input{Header/referenz}			% Befehle und Pakete für Referenzen
+\input{Header/referenz}			% Befehle und Pakete f?r Referenzen
 \input{Header/rest}			    % restliche Befehle und Pakete
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -17,7 +19,7 @@
 % Start des Dokuments
 \begin{document}		
 
-\ownautorefnames		% Änderung einiger automatischen Texte von hyperref (wie in referenz.tex definiert)
+\ownautorefnames		% ?nderung einiger automatischen Texte von hyperref (wie in referenz.tex definiert)
 \parindent0em 			% kein Einzug nach einer Leerzeile
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -26,7 +28,7 @@
 \begin{titlepage}
 \seminarkopf 			% Titelblatt (wie in kopf.tex definiert)
 \begin{abstract} 
-Hier sollte der Inhalt der Seminararbeit in ein paar Sätzen zusammengefasst
+Hier sollte der Inhalt der Seminararbeit in ein paar S?tzen zusammengefasst
 werden. 
 \end{abstract} 
 \end{titlepage}
@@ -35,18 +37,18 @@ werden.
 % Inhaltsverzeichnis
 \thispagestyle{empty}	
 \tableofcontents		% Inhaltsverzeichnis
-%\listoffigures			% Abbildungsverzeichnis (eventuell einfügen)
-%\listoftables			% Tabellenverzeichnis (eventuell einfügen)
+%\listoffigures			% Abbildungsverzeichnis (eventuell einf?gen)
+%\listoftables			% Tabellenverzeichnis (eventuell einf?gen)
 \setcounter{page}{0}% Eigentlicher Inhalt beginnt auf Seite 1
-\clearpage          % neue Seite für eigentlichen Inhalt
+\clearpage          % neue Seite f?r eigentlichen Inhalt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Eigentlicher Inhalt der Seminararbeit; die einzelnen Teile werden hier (aus Gründen der Übersichtlichkeit) über \input{file} eingebunden
+% Eigentlicher Inhalt der Seminararbeit; die einzelnen Teile werden hier (aus Gr?nden der ?bersichtlichkeit) ?ber \input{file} eingebunden
 
 \input{Kapitel/latex} 
 
 \input{Kapitel/literatur} 
 
-\clearpage          % neue Seite für Literaturverzeichnis
+\clearpage          % neue Seite f?r Literaturverzeichnis
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Literaturverzeichnis

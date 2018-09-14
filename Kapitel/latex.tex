@@ -1,29 +1,29 @@
-\section{Erläuterungen zu \LaTeX} 
+\section{ErlÃ¤uterungen zu \LaTeX} 
 
-Einige Beispiele für die mathematischen Umgebungen und deren Verwendung:
+Einige Beispiele fÃ¼r die mathematischen Umgebungen und deren Verwendung:
 
 \begin{satz}[Betrag ist nicht negativ]\label{Satz:Betrag}\hspace{0em}\\
- $ \betrag{x} $ beziehungsweise $ \norm{x} $ ist für $ x\in \mathbb{R} $ oder $ x \in \mathbb{R}^{n} $ immer nicht negativ.
+ $ \betrag{x} $ beziehungsweise $ \norm{x} $ ist fÃ¼r $ x\in \mathbb{R} $ oder $ x \in \mathbb{R}^{n} $ immer nicht negativ.
 \end{satz}
 
-Der Satz wird mit \verb+\label{Satz:Betrag}+ gekennzeichnet und anschließend im Beweis mit \verb+\autoref{Satz:Betrag}+ verknüpft, damit ergibt sich statt der Darstellung \ref{Satz:Betrag} mit dem einfachen Befehl \verb+\ref{Satz:Betrag}+, eine um die Bezeichnung Satz erweiterte Darstellung.
+Der Satz wird mit \verb+\label{Satz:Betrag}+ gekennzeichnet und anschlieÃŸend im Beweis mit \verb+\autoref{Satz:Betrag}+ verknÃ¼pft, damit ergibt sich statt der Darstellung \ref{Satz:Betrag} mit dem einfachen Befehl \verb+\ref{Satz:Betrag}+, eine um die Bezeichnung Satz erweiterte Darstellung.
 
 \begin{proof}[Beweis zu \autoref{Satz:Betrag}]
  Nun ja trivial.
 \end{proof}
 
-Weitere Beispiele für die unterschiedlichen Spielarten von Theoremen:
+Weitere Beispiele fÃ¼r die unterschiedlichen Spielarten von Theoremen:
 
 \begin{definition}[Seminar]\label{Def:Seminar}
- Ein Seminar besteht aus einer schriftlichen Ausarbeitung sowie einem mündlichen Vortrag über ein bestimmtes vom Betreuer vorgegebenes Thema.
+ Ein Seminar besteht aus einer schriftlichen Ausarbeitung sowie einem mÃ¼ndlichen Vortrag Ã¼ber ein bestimmtes vom Betreuer vorgegebenes Thema.
 \end{definition}
 
 \begin{bemerkung}
-Das Verständnis des dem Seminars aus \autoref{Def:Seminar} zugrunde liegenden Stoffes kann zusätzlich zum eigentlichen Vortrag durch weitergehende Fragen oder durch eine Diskussion geprüft werden.
+Das VerstÃ¤ndnis des dem Seminars aus \autoref{Def:Seminar} zugrunde liegenden Stoffes kann zusÃ¤tzlich zum eigentlichen Vortrag durch weitergehende Fragen oder durch eine Diskussion geprÃ¼ft werden.
 \end{bemerkung}
 
 \begin{notation} 
-Es ist stets darauf zu achten, mathematische Bezeichnungen in Mathemodus (\$ Zeichen \$) zu setzen, auch wenn diese aus nur einem Buchstaben bestehen, zum Beispiel Graph $G$, Index $k$, etc. Weiter ist es bei englischen Originaltexten oft verständlicher, auch die Notation ins Deutsche zu übertragen, z.B. anstatt von einer ungeraden Zahl $o$ zu sprechen (\textit{odd}), ist $u$ hier intuitiver.
+Es ist stets darauf zu achten, mathematische Bezeichnungen in Mathemodus (\$ Zeichen \$) zu setzen, auch wenn diese aus nur einem Buchstaben bestehen, zum Beispiel Graph $G$, Index $k$, etc. Weiter ist es bei englischen Originaltexten oft verstÃ¤ndlicher, auch die Notation ins Deutsche zu Ã¼bertragen, z.B. anstatt von einer ungeraden Zahl $o$ zu sprechen (\textit{odd}), ist $u$ hier intuitiver.
 \end{notation} 
 
 \vspace{1em}
@@ -31,11 +31,11 @@ Zitate aus Literaturstellen werden mit \verb+\cite{Jungnickel:1999}+ gekennzeich
 
 Das liefert dann folgende Ergebnisse:
 \begin{itemize}
- \item Ein einführendes Buch zur Optimierung ist zum Beispiel \cite{Jungnickel:1999}.
- \item Eine einführende übersicht zur Spieltheorie findet sich in \cite[Teil 4]{Borgwardt:2001}.
+ \item Ein einfÃ¼hrendes Buch zur Optimierung ist zum Beispiel \cite{Jungnickel:1999}.
+ \item Eine einfÃ¼hrende Ã¼bersicht zur Spieltheorie findet sich in \cite[Teil 4]{Borgwardt:2001}.
 \end{itemize}
 
-Werden mathematische Formeln in eine besondere mathematische Umgebung gesetzt (z.B. {\verb equation }), so wird diese nummeriert und über {\verb \label{EQ:key} } kann die Formel gekennzeichnet werden und dann über {\verb \eqref{EQ:key} } darauf Bezug genommen werden. 
+Werden mathematische Formeln in eine besondere mathematische Umgebung gesetzt (z.B. {\verb equation }), so wird diese nummeriert und Ã¼ber {\verb \label{EQ:key} } kann die Formel gekennzeichnet werden und dann Ã¼ber {\verb \eqref{EQ:key} } darauf Bezug genommen werden. 
 
 \begin{equation}\label{EQ:Potenzreihe}
  \sum_{i=0}^{\infty} r^{i} = \frac{1}{1 - r} \qquad \forall r \in (-1,1)
@@ -48,4 +48,4 @@ Komfortablere mehrzeilige mathematische Umgebungen als \textit{eqnarray} finden 
 \href{ftp://dante.ctan.org/tex-archive/macros/latex/required/amslatex/math/amsldoc.pdf}{ftp://dante.ctan.org/tex-archive/macros/latex/required/amslatex/math/amsldoc.pdf}                               
 \end{center}
 
-Weiterhin kann man auf den Webseiten des Lehrstuhls \lehrstuhl\, unter Nützliches $\rightarrow$ \LaTeX \ eine allgemeine Sammlung von interessanten Links zu \LaTeX \ finden.
+Weiterhin kann man auf den Webseiten des Lehrstuhls \lehrstuhl\, unter NÃ¼tzliches $\rightarrow$ \LaTeX \ eine allgemeine Sammlung von interessanten Links zu \LaTeX \ finden.
