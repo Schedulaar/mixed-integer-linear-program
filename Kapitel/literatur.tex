@@ -1,0 +1,110 @@
+% Literaturverzeichnis
+
+\section{Literaturverzeichnisse mit Bib\TeX}
+
+In wissenschaftlichen Arbeiten sollte man großen Wert auf ein korrektes Literaturverzeichnis legen. Mit Bib\TeX \ lassen sich sehr schöne und den Normen entsprechende Literaturverzeichnisse erstellen. Außerdem bietet dieses Tool die Möglichkeit, s"amtliche Bücher bzw. Arbeiten, welche man im Laufe seiner wissenschaftlichen Karriere verwendet hat, in einer "`virtuellen Bibliothek"' zu sammeln. Möchte man in der Folgezeit eine Arbeit mit \LaTeX \ verfassen und eines der gesammelten Werke zitieren, so kann man dies dann ganz unkompliziert und ohne großen Aufwand tun.
+
+\subsection*{Referenzen}
+
+Alle wesentlichen Informationen zur verwendeten Literatur werden in einer Datei mit der Endung \texttt{.bib} abgelegt. Diese Dateien beinhalten für jedes angegebene Werk einen Eintrag, der je nach Referenzart entsprechende Attribute besitzt.
+
+Hier ein Beispiel für den Eintrag eines (sehr guten :-) ) Buches über Netzwerkflussprobleme:
+
+{\small\begin{verbatim}
+@book{ahuja:93,
+  author = {Ahuja, Ravindra K. and Magnanti, Thomas L. and Orlin, James B.},
+  title = {Network Flows~: {Theory, Algorithms, and Applications}},
+  publisher = {Prentice Hall},
+  address	= {Englewood Cliffs, New Jersey},
+  ISBN = {013617549X},
+  year = {1993}
+}
+\end{verbatim}}
+
+Als Referenzarten stehen unter anderem folgende Typen zur Verfügung:
+
+\begin{table}[H]
+	\centering
+		\begin{tabular}[t]{|l|l|}
+		\hline
+		@book	& Ein Buch, publiziert von einem Verlag.\\
+		\hline
+		@booklet & Gedruckte Arbeit ohne einen expliziten Verleger.\\
+		\hline
+		@article & Ein in einem Magazin oder Journal veröffentlichter Artikel.\\
+		\hline
+		@incollection & Ein Teil eines Buches mit einem eigenen Titel.\\
+		\hline
+		@manual & Eine technische Dokumentation.\\
+		\hline
+		@mastersthesis & Diplomarbeit\\
+		\hline
+		@phdthesis & Doktorarbeit\\
+		\hline
+	  @proceedings & Verlauf einer Serie oder Sammlung.\\
+	  \hline
+    @techreport	& Ein Report, publiziert von einer Schule oder ähnlicher Institution\\ 
+    & (normalerweise innerhalb einer Serie von Reporten).\\
+    \hline
+    @unpublished & Ein Dokument mit Titel und Autor aber nicht formell publiziert.\\
+    \hline
+		@misc & Ein Werk, das sich in keine andere Kategorie einordnen lässt\\
+		\hline
+		\end{tabular}
+	\caption{Bib\TeX \ Referenzarten}
+\end{table}
+
+Je nach Referenzart sind manche Angaben zu einer Arbeit erforderlich, optional oder nicht nötig. Einen Überblick über die wichtigsten Attributfelder gibt folgende Tabelle:
+
+\begin{table}[H]
+		\begin{tabular}{|l|l|}
+			\hline
+			author & Name des Autors oder der Autoren\\
+			\hline
+			booktitle & Titel eines Buches oder eines Buchteils. Zum Verweis auf ein\\
+								& ganzes Buch steht das Feld \texttt{title} zur Verfügung.\\
+			\hline
+			chapter & Eine Kapitelnummer oder Kapitelbezeichnung.\\
+			\hline
+			edition & Auflage des Buches, kann eine Zahl oder eine ausgeschriebene Zahl sein.\\
+			\hline
+			institution & Institution, an der das Werk entstand.\\
+			\hline
+			journal & Name des Journals oder Magazins.\\
+			\hline
+			month & Monat der Veröffentlichung\\
+			\hline
+			pages & Eine oder mehrere Seitenzahlen,\\
+						& z.B. 12 -- 30 oder 23, 40, 57.\\
+			\hline
+			publisher & Name des Verlegers.\\
+			\hline
+			title & Titel der Arbeit.\\
+			\hline
+			year & Erscheinungsjahr\\
+			\hline
+			ISBN & International Standard Book Number\\
+			\hline
+			language & Sprache, in der die Arbeit verfasst ist.\\
+			\hline
+			URL & Universal Ressource Locator, Angabe einer Adresse im Web \\			
+			\hline
+		\end{tabular}
+	\caption{Literatur-Attributfelder}
+\end{table}
+
+\subsection*{Zitieren} 
+
+Nachdem die eigentlichen Angaben zur verwendeten Literatur in der .bib-Datei angelegt worden sind, müssen diese Angaben noch mit den passenden Stellen im Text, an denen das Werk zitiert wird, verknüpft werden. Hierzu wird der Befehl \texttt{cite{}} (für citation) verwendet:
+{\small\begin{verbatim}
+Details zur Implementierung des Netzwerk"=Simplexalgorithmus finden sich im 
+Buch "Network Flows: Theory, Algorithms, and Applications" \cite{ahuja:93}.
+\end{verbatim}}
+
+Die Ausgabe sieht, je nach Einstellung des Anzeigestiles etwa wie folgt aus:
+
+Details zur Implementierung des Netzwerk"=Simplexalgorithmus finden sich im Buch "`Network Flows: Theory, Algorithms, and Applications"'  \cite{ahuja:93}.
+
+\subsection*{Einbinden des Literaturverzeichnisses}
+
+Um das eigentliche Literaturverzeichnis zu erstellen und einzubinden, muss die Seminararbeit zweimal kompiliert werden.
