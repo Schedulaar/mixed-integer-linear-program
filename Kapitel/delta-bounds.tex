@@ -1,0 +1,62 @@
+
+\section{Abschätzungen in Abhängigkeit von $\Delta$}
+
+Um eine Abschätzung, die zusätzlich von der Dimension $n$ abhängt, leicht herzuleiten, nutzen wir das folgende Theorem, das von Cook u. a. in~\cite[Theorem 1 und Bemerkung 1]{Cook1986} formuliert wurde:
+
+\begin{theorem}[Cook u. a., 1986]\label{thm:cook}
+	Seien $I, J\subseteq\firstNumbers{n}$, sodass ($J$-\MIP) eine optimale Lösung hat und entweder $I=\emptyset$ oder $J=\emptyset$.
+	Dann existiert für jede optimale Lösung $x^*$ von ($I$-\MIP) eine optimale Lösung $y^*$ von ($J$-\MIP) mit $\norm{x^*-y^*}\leq n\cdot\Delta$.
+\end{theorem}
+
+Mit Hilfe dieses Theorems können wir nun eine ähnliche obere Grenze finden:
+\begin{corollary}
+	Seien $I,J\subseteq\firstNumbers{n}$, sodass ($J$-\MIP) eine optimale Lösung
+	hat. Dann existiert für jede optimale Lösung $x^*$ von ($I$-\MIP) eine optimale Lösung $y^*$ von ($J$-\MIP) mit $\norm{x^*-y^*}\leq2\cdot n\cdot\Delta$.
+\end{corollary}
+\begin{proof}
+	Sei $x^*$ optimale Lösung von ($I$-\MIP).
+	Nach Theorem~\ref{thm:cook} existiert eine optimale Lösung $z^*$ von ($\emptyset$-\MIP) mit $\norm{x^*-z^*}\leq n\cdot\Delta$ und eine optimale Lösung $y^*$ von ($J$-\MIP) mit $\norm{z^*-y^*}\leq n\cdot\Delta$.
+	Nach Dreiecksungleichung ist $\norm{x^*-y^*}\leq\norm{x^*-z^*}+\norm{z^*-y^*}\leq 2\cdot n\cdot\Delta$.
+\end{proof}
+
+In diesem Abschnitt wollen wir nun diese Aussage verstärken, indem wir in der Abschätzung $2\cdot n$ durch $\betrag{I\cup J}$, also der Anzahl der Variablen, die in ($I$-\MIP) oder ($J$-\MIP) ganzzahlig sind.
+
+\subsection{Folgerungen aus Davenport-Konstante von $p$-Gruppen}
+
+Ein wichtiges Hilfslemma dafür lässt sich aus der sogenannten Davenport-Konstante herleiten:
+
+\begin{definition}[Davenport-Konstante]
+	Sei $(G,+,0)$ eine endliche, abelsche Gruppe. Die {\em Davenport-Konstante} von $G$ ist
+	$$
+		D(G):=\min\{k\in\N \mid \forall g^1,\dots,g^k \in G~\exists I\subseteq\firstNumbers{k}\colon I\neq\emptyset \wedge \sum_{i\in I}g^i=0  \} .
+	$$
+\end{definition}
+
+Olson hat in~\cite{Olson1969} die Davenport-Konstante für sogenannte $p$-Gruppen ermittelt:
+\begin{definition}[$p$-Gruppe]
+	Sei $p$ eine Primzahl.
+	Eine $p$-Gruppe $G$ ist eine Gruppe, in der die Ordnung jedes Elements eine Potenz von $p$ ist.
+\end{definition}
+
+\begin{theorem}[Olson]\label{thm:olson}
+	Für eine endliche abelsche $p$-Gruppe $G$ mit Invarianten $p^{e_1},\dots,p^{e_r}$ ist die Davenport-Konstante $D(G)=1+\sum_{i=1}^r(p^{e_i}-1)$. 
+\end{theorem}
+
+Mit diesem Ergebnis können wir leicht eine für uns relevante Folgerung beschreiben:
+
+\begin{corollary}
+	Seien $d\in\N$ und $p\in\N$ eine Primzahl sowie $f^1,\dots,f^r\in\Z^d$ mit $r\geq 1+dp-d$. Dann existiert eine nicht-leere Menge $I\subseteq\firstNumbers{r}$ mit $\sum_{i\in I}f^i\in p\Z^d$.
+\end{corollary}
+\begin{proof}
+	Für die Invarianten $p^{e_1},\dots,p^{e_d}$ der $p$-Gruppe $\Z^d/p\Z^d$ gilt $p^{e_1}=\dots=p^{e_d}=p$ und mit Theorem~\ref{thm:olson} ist $D(\Z^d/p\Z^d)=1+\sum_{i=1}^d(p-1)=1+dp-d$.
+	
+	Nach Definition der Davenport-Konstante existiert eine nichtleere Menge $I\subseteq\firstNumbers{1+dp-d}$ mit $\sum_{i\in I}[f^i]_p=[0]_p=p\Z^d$.
+	Mit $\firstNumbers{1+dp-d}\subseteq\firstNumbers{r}$ und $\sum_{i\in I}[f^i]_p=[\sum_{i\in I}f^i]_p$ folgt die Behauptung.
+\end{proof}
+
+Damit können wir das folgende Lemma zeigen:
+
+\begin{lemma}
+	Seien $d,k\in\N, u^1,\dots, u^k\in\Z^d$ und $\alpha_1,\dots,\alpha_k\geq0$ mit $\sum_{i=1}^k \alpha_i\geq d$.
+	Für $i=1,\dots,k$ existieren $\beta_i\in[0,\alpha_i]$, wobei nicht alle $\beta_i=0$ und $\sum_{i=1}^k\beta_i u^i \in\Z^d$.
+\end{lemma}

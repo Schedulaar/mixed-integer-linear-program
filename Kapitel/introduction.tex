@@ -1,0 +1,33 @@
+\section{Einführung}\label{introduction}
+
+Diese Arbeit behandelt die Abschätzung von Abständen optimaler Lösungen
+gemischt-ganzzahliger Programme.
+Ein gemischt-ganzzahliges Programm ist dabei ein lineares Programm, bei dem die
+Matrix, die rechte Seite $b$ sowie einige Variablen ganzzahlig und die
+restlichen Variablen reell sind.
+Speziell erzeugen $A\in\Z^{n\times m}$, $b\in\Z^m$, $c\in\R^n$ und $I\subseteq\firstNumbers{n}:=\{1,\dots,n\}$ das gemischt-ganzzahlige Programm
+\begin{equation}\tag{$I$-\MIP}
+\begin{array}{lc}
+	&\max c\transpose x \\
+	\subjectTo &Ax\leq b\\
+	&\forall i\in I: x_i\in\Z
+\end{array}.
+\end{equation}
+
+Ist also beispielsweise $I=\emptyset$, erhält man ein Problem in Standardform; $I=\firstNumbers{n}$ bildet ein rein ganzzahliges lineares Programm.
+
+Gesucht ist nun für $I,J\subseteq\firstNumbers{n}$ und einer optimalen Lösung
+$x^*$ von ($I$-\MIP) eine optimale Lösung $y^*$ von ($J$-\MIP), sodass der Abstand $\norm{x^*-y^*}$ von $x^*$ und $y^*$ unter der Maximumsnorm kleiner als eine bestimmte Schranke wird.
+Diese Schranke soll außerdem nur von $A$, $b$ und $c$ abhängen.
+Definiert man
+$$\Delta:=\Delta(A):=\max\{\betrag{ \det(Q)} \mid Q \text{ quadratische Untermatrix von } A \},$$
+so erhält man die folgende in \cite{Paat2018} formulierte Vermutung.
+
+\begin{conjecture}
+	Es gibt eine Funktion $f: \N\rightarrow\R$, sodass für alle $I,J\subseteq\firstNumbers{n}$, unter denen ($J$-\MIP) eine optimale Lösung besitzt, gilt:
+	Besitzt ($I$-\MIP) eine optimale Lösung $x^*$, so existiert eine optimale 
+	Lösung $y^*$ von ($J$-\MIP) mit $\norm{x^* - y^*}\leq f(\Delta)$.
+\end{conjecture}
+
+In dieser Arbeit werden wir eine etwas schwächere Aussage in Theorem~\ref{th:theo2} zeigen, bei der der Abstand zusätzlich noch von $\betrag{I\cup J}$ abhängt.
+Des Weiteren werden wir in Abschnitt~\ref{sec:linear} Fälle diskutieren, in denen wir sogar die verstärkte Vermutung der Linearität von $f$ beweisen können.
