@@ -44,7 +44,7 @@ Olson hat in~\cite{Olson1969} die Davenport-Konstante für sogenannte $p$-Gruppe
 
 Mit diesem Ergebnis können wir leicht eine für uns relevante Folgerung beschreiben:
 
-\begin{corollary}
+\begin{corollary}\label{cor:olson}
 	Seien $d\in\N$ und $p\in\N$ eine Primzahl sowie $f^1,\dots,f^r\in\Z^d$ mit $r\geq 1+dp-d$. Dann existiert eine nicht-leere Menge $I\subseteq\firstNumbers{r}$ mit $\sum_{i\in I}f^i\in p\Z^d$.
 \end{corollary}
 \begin{proof}
@@ -54,9 +54,61 @@ Mit diesem Ergebnis können wir leicht eine für uns relevante Folgerung beschre
 	Mit $\firstNumbers{1+dp-d}\subseteq\firstNumbers{r}$ und $\sum_{i\in I}[f^i]_p=[\sum_{i\in I}f^i]_p$ folgt die Behauptung.
 \end{proof}
 
-Damit können wir das folgende Lemma zeigen:
+Damit können wir das folgende Lemma zeigen, das wir im nächsten Abschnitt benötigen werden:
 
 \begin{lemma}
 	Seien $d,k\in\N, u^1,\dots, u^k\in\Z^d$ und $\alpha_1,\dots,\alpha_k\geq0$ mit $\sum_{i=1}^k \alpha_i\geq d$.
 	Für $i=1,\dots,k$ existieren $\beta_i\in[0,\alpha_i]$, wobei nicht alle $\beta_i=0$ und $\sum_{i=1}^k\beta_i u^i \in\Z^d$.
 \end{lemma}
+\begin{proof}
+	\newcommand{\bbeta}{\tilde{\beta}}
+	Ohne Beschränkung der Allgemeinheit ist $\alpha_i>0$ für $i=1,\dots,k$, denn für $\alpha_i=0$ wird $\beta_i=0$ vorausgesetzt, wodurch das Resultat nicht verändert werden kann.
+	
+	Zunächst betrachten wir den Fall der Existenz einer Primzahl $p$, sodass   $\alpha_i=q_i / p$ mit $q_i\in\N$ für $i\in\firstNumbers{k}$.
+	Wir können nun Korollar~\ref{cor:olson} auf die Vektoren
+	$$\underbrace{u^1,\dots,u^1}_{q_1~\text{Einträge}},~\dots~,\underbrace{u^k,\dots,u^k}_{q_k~\text{Einträge}}$$
+	anwenden, da $r:=\sum_{i=1}^k q_i=(\sum_{i=1}^k \alpha_i)\cdot p\geq dp \geq 1+dp-d$ nach Annahme.
+	Dadurch erhalten wir $l_i\in\{0,\dots,q_i\}$ für $i\in\firstNumbers{k}$ mit nicht alle $l_i=0$ und $\sum_{i=1}^k l_i\cdot u^i\in p\Z^d$.
+	Teilen wir durch $p$ gelangen wir mit $\beta_i := l_i/p$ zu unserer Behauptung $\sum_{i=1}^k \beta_i\cdot u^i\in\Z^d$ und nicht alle $\beta_i=0$ sowie $\beta_i\in[0,\alpha]$, da $0\leq l_i/p\leq q_i/p=\alpha_i$.
+	
+	Den allgemeinen Fall führen wir auf den ersten zurück, indem wir $(\alpha_1,\dots,\alpha_k)\in\R^k$ durch Brüche mit Primzahlen im Nenner annähern.
+	Dazu definieren wir die Folge 
+	$$
+	(v_j)_{j\in\N}:=(q_{j,1}/p_j,\dots,q_{j,k}/p_j)_{j\in\N}$$
+	mit $q_{j,i}\in\N$, $p_j$ Primzahl und $q_{i,j}/p_j\in[\alpha_i, \alpha_i+j^{-1}]$.
+	Damit ist $\lim_{j\rightarrow\infty}v_j=(\alpha_1,\dots,\alpha_k)$ und für $j\in\N$ können wir den ersten Fall auf $u$ und $v_j$ anwenden und erhalten $\beta_{j,1},\dots,\beta_{j,k}$ mit $\beta_{j,i}\in[0,v_{j,i}]$ und nicht alle $\beta_{j,i}=0$ sowie $\sum_{i=1}^k\beta_{j,i}u^i \in\Z^d$.
+	Da die Folge $(\beta_{j,1},\dots,\beta_{j,k})_{j\in\N}$ in der kompakten Menge $[0,\alpha_1+1]\times\cdots\times[0,\alpha_k+1]$ liegt, existiert nach Satz von Bolzano-Weierstraß eine konvergente Teilfolge mit $\lim_{j\rightarrow\infty}(\beta_{\sigma(j),1},\dots,\beta_{\sigma(j),k})=:(\beta_1,\dots,\beta_k)$.
+	Da $\beta_{\sigma(j),i}\in[0,v_{\sigma(j),i}]$ und $\lim_{j\rightarrow\infty}v_{\sigma(j),i}=\alpha_i$ ist $\beta_i\in[0,\alpha_i]$.
+	Da es nur endlich viele $z\in\Z^d$ der Form $z=\sum_{i=1}^k\gamma_i u^i$ mit $\gamma_i\in[0,\alpha_i+1]$ gibt, existiert ein Punkt $z\in\Z^d$ für den $\sum_{i=1}^k \beta_{\sigma(j),i} u^i=z$ für unendlich viele $j$ gilt.
+	Also gibt es wegen der Konvergenz von $(\beta_{\sigma(j),i})_{j\in\N}$ ein $n$, sodass $\sum_{i=1}^k\beta_{\sigma(j),i}u^i=z$ für $j\geq n$ und damit $\sum_{i=1}^k\beta_i u^i=z$.
+	Sind nicht alle $\beta_i=0$, so erfüllen die $\beta_i$ die Behauptung.
+	Andernfalls ist $z=0$. Setze $\varepsilon>0$, sodass $\varepsilon\beta_{n,i}\in[0,\alpha_i]$ für $i\in\firstNumbers{k}$.
+	Dann sind nach Wahl der $\beta_{n,i}$ nicht alle der $\varepsilon\beta_{n,i}=0$ und $\sum_{i=1}^k\varepsilon\beta_{n,i}u^i=\varepsilon z=0\in\Z^d$.
+\end{proof}
+
+\subsection{Abschätzung in Abhängigkeit der Anzahl ganzzahliger Variablen}
+Dieser Abschnitt verfolgt das Ziel eine Abschätzung optimaler Lösungen zweier gemischt-ganzzahliger Programme	($I$-\MIP) und ($J$-\MIP) in Abhängigkeit von $\Delta$ und $\betrag{I\cup J}$ zu finden.
+
+Zunächst betrachten wir noch folgendes Hilfslemma über die Darstellung eines Kegels:
+\begin{lemma}
+	Sei $A\in\Z^{m\times n}$, dessen Zeilen in zwei Untermatrizen $A_1$ und $A_2$ aufgeteilt sind.
+	Die Menge $C:=\{ x\in\R^n \mid A_1x\leq 0, A_2x\geq0 \}$ ist ein Kegel und besitzt die Darstellung \[ C=\{\lambda_1 v^1+\dots+\lambda_kv^k \mid \forall i\in\firstNumbers{k} \colon\lambda_i\geq0 \}\] mit $v^i\in\Z^n$ und $\norm{v^i}\leq\Delta$ für $i\in\firstNumbers{k}$.
+\end{lemma}
+\begin{proof}
+	Seien $x\in C$ und $\alpha>0$ gegeben.
+	Dann $A_1 \alpha x=\alpha A_1 x\leq 0$ und $A_2\alpha x\geq0$, also $\alpha x\in C$ und damit $C$ ein Kegel.
+	
+	\todo{Darstellung: \glqq standard arguments involving Cramer's rule\grqq.}
+\end{proof}
+
+Nun formulieren wir unser Theorem:
+
+\begin{theorem}
+	Seien $I,J\subseteq\firstNumbers{n}$, sodass ($J$-\MIP) eine optimale Lösung hat.
+	Für jede optimale Lösung $x^*$ von ($I$-\MIP) existiert eine optimale Lösung $y^*$ von ($J$-\MIP) mit $\norm{x^*-y^*}\leq\betrag{I\cup J}\cdot\Delta$.
+\end{theorem}
+\begin{proof}
+	Zunächst tauschen wir alle ganzzahligen Variablen an die ersten Stellen und können $\betrag{I\cup J}=\firstNumbers{d}$ mit $d\in\firstNumbers{n}$ annehmen.
+	Es sei ein optimale Lösung $x^*$ von ($I$-\MIP) gegeben.
+	
+\end{proof}
