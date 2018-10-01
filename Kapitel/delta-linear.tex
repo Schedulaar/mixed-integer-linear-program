@@ -1,0 +1,119 @@
+\section{Lineare Abhängigkeit von $\Delta$}\label{sec:linear}
+
+Bisher haben wir Abschätzungen mit $b\in\R^m$ betrachtet.
+Schrijver hat in~\cite[Kapitel~17.2]{Schrijver1986} ein Beispiel angeführt, das $n\Delta$ als beste Abschätzung von optimalen Lösungen von ($\emptyset$-\MIPR) und ($\firstNumbers{n}$-\MIPR) besitzt.
+Für $b\in\Z^m$ erkennen wir mit folgendem Beispiel, dass der Abstand zumindest linear von $\Delta$ abhängt:
+\begin{example}
+	Für $\delta\in\N$ sei
+	$$A:=
+	\begin{pmatrix}
+	-\delta & 0  \\
+	\delta  & -1
+	\end{pmatrix},\quad
+	b:=\begin{pmatrix} -1 \\ 0 \end{pmatrix},\quad
+	c\transpose:=\begin{pmatrix}0 & -1\end{pmatrix}.
+	$$
+	Es wird also die zweite Komponente minimiert unter der Nebenbedingung $Ax\leq b$, also $\delta x_1-x_2\leq0\Leftrightarrow\delta x_1\leq x_2$ und $\delta x_1\geq 1$.
+	Es gilt $\Delta=\delta$ und die optimale Lösung von ($\emptyset$-\MIPI) und (\{2\}-\MIPI) ist $x^*=(1/\delta,1)$.
+	Die optimale Lösung von $(\{1\}-\MIPI)$ und ($\{1, 2\}$-\MIPI) ist jedoch $y^*=(1,\delta)$.
+	Entsprechend ist der Abstand $\norm{x^*-y^*}=\delta-1=\Omega(\Delta)$
+\end{example}
+
+Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV2009220}, um für einige Situationen die Vermutung~\ref{con:delta} zu bestätigen:
+\begin{lemma}\label{lem:veselov}
+	Sei $A\in\Z^{m\times n},b\in\Z^m,c\in\R^n$ mit $\rang(A)=n$, sodass der Absolutwert jeder Determinante einer $n\times n$ Teilmatrix kleinergleich 2 ist.
+	Seien $x^*$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q$ die konvexe Hülle aller ganzen Zahlen, die alle Ungleichungen aus $Ax\leq b$ erfüllen, die an $x^*$ straff sind.
+	Dann gelten:
+	\begin{enumerate}[(a)]
+		\item Jede Ecke von $Q$ liegt auf einer Kante von $P$, die $x^*$ enthält.
+		\item Jede Kante von $P$, die $x^*$ und einen ganzzahligen Punkt enthält, enthält auch einen Punkt $y^*$ mit $\norm{x^* -y^*}\leq 1$.
+	\end{enumerate}
+\end{lemma}
+
+\newcommand{\one}{\mathbbm{1}}
+\newcommand{\eq}[1]{\operatorname{eq}(#1)}
+\newcommand{\co}[1]{\operatorname{co}(#1)}
+
+\begin{lemma}\label{lem:bounded}
+	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $U\in\N$ gegeben.
+	Mit $$
+		\tilde{A}:=
+		\begin{pmatrix} A \\ -\one_n \\ \one_n \end{pmatrix},\quad
+		\tilde{b}:=\begin{pmatrix} b \\ U \\ U \end{pmatrix}
+	$$
+	% ist $\{ x\in\R^n \mid Ax\leq b \}\cap\{x\in\R^n \mid \forall i\in\firstNumbers{m}: -U \leq x_i \leq U \} = \{ x\in\R^n \mid \tilde{A}x\leq \tilde{b}  \}$ und es 
+	gilt $\Delta(A)=\Delta(\tilde{A})$.
+\end{lemma}
+\begin{proof}
+	Da jede Untermatrix von $A$ auch eine Untermatrix von $\tilde{A}$ ist, folgt die Ungleichung $\Delta(\tilde{A})\leq\Delta(A)$.
+	Sei nun $M$ eine quadratische Untermatrix von $\tilde{A}$.
+	Die ersten Zeilen $M_1$ von $M$ sind dabei eine Untermatrix von $A$, die letzten Zeilen $M_2$ eine Untermatrix von $(-\one, \one)\transpose$.
+	Existiert eine Spalte, in der in $M_2$ sowohl eine $-1$ als auch eine $1$ vorkommt, so sind die jeweiligen Zeilen linear abhängig und $\det(M)=0$.
+	Sonst lässt sich $M$ mit elementaren Zeilen- und Spaltentransformationen in die Form $$\tilde{M}:= \begin{pmatrix}
+		B & 0 \\
+		0 & \one
+	\end{pmatrix}$$ bringen mit $B$ Untermatrix von $A$ und $\det(M)=\det(\tilde{M})=\det(B)\leq\Delta(A)$.
+\end{proof}
+
+\begin{lemma}\label{lem:unimodular}
+	Seien $A\in\R^{m\times n},b\in\Z^m$ gegeben mit $A$ ist total unimodular, d.h. $\Delta(A)\leq 1$. Dann ist jede Ecke von $\{x\in\R^n \mid Ax\leq b \}$ ganzzahlig.
+\end{lemma}
+\begin{proof}
+	Sei $x$ eine Ecke. Dann ist $\rang(\tilde{A})=n$, wobei $\tilde{A} := A_{\eq(\{x\})}$ und $\tilde{b}:=b_{\eq(\{x\})}$ aus den Zeilen von $A$ und $b$ besteht, die straffe Bedingungen an $x$ darstellen, d.h. $\tilde{A} x = \tilde{b}$.
+	Nun kann $x$ mit der Cramerschen Regel eindeutig gelöst werden mit $x_i=\det(\tilde{A}_i)/\det(\tilde{A})$, wobei $\tilde{A}_i$ aus $\tilde{A}$ durch Ersetzen der $i$-ten Spalte mit $\tilde{b}$ entsteht.
+	Da $\det(\tilde{A})\in\{-1,1\}$ wegen $\Delta(A)\leq 1$, ist $x_i$ ganzzahlig.
+	
+\end{proof}
+
+Damit können wir nun folgendes Theorem formulieren:
+\begin{theorem}
+		Seien $\Delta\leq 2$ und $I,J\in\{\emptyset,\firstNumbers{n}\}$, sodass eine optimale Lösung von ($J$-\MIPI) existiert.
+		Für jede optimale Lösung $x^*$ von ($I$-\MIPI) existiert eine optimale Lösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
+\end{theorem}
+\begin{proof}
+	Sei $x^*$ eine optimale Lösung von ($I$-\MIPI) gegeben.
+	Dann existiert ein $U\in\N$, sodass die beschränkte Menge  $$P:=\{x\in\R^n\mid Ax\leq b\} \cap \{x\in\R^n \mid \forall i\in\firstNumbers{m}: -U \leq x_i \leq U \}$$
+	$x^*$ und eine optimale Lösung von ($J$-\MIPI) enthält.
+	Setzt man $\tilde{A},\tilde{b}$ wie in Lemma~\ref{lem:bounded} ist $\rang(\tilde{A})=n$ und $\Delta:=\Delta(A)=\Delta(\tilde{A})$ und es gilt $P=\{ x\in\R^n \mid \tilde{A}x \leq \tilde{b} \}$.
+	Es genügt nun, ein $y^*$ in $P$ zu finden, das für ($J$-\MIPI) optimal ist und $\norm{x^* - y^*}\leq\Delta$ erfüllt.
+	
+	\begin{description}
+		\item[Fall 1:]  $I=\emptyset,J=\firstNumbers{n}, x^*$ ist Ecke von $P$.
+		
+		Ist $\Delta\leq 1$, so ist $x^*$ nach Lemma~\ref{lem:unimodular} ganzzahlig und $y^* := x^*$ ist die gewünschte Lösung mit $\norm{x^*-y^*}\leq \Delta - 1$.
+		Sei also $\Delta=2$.
+		Für $Q:=\co{\{x\in\Z^n \mid A_{\eq{\{x^*\}}}x = b_{\eq{{\{x^*\}}}} \}}$ sei $\tilde{y}\in\Z^n$ eine Ecke von $Q$, die $x\mapsto c\transpose x$ maximiert. \todo{Existenz von $\tilde{y}$}.
+		Nach Lemma~\ref{lem:veselov}~(a) liegt $\tilde{y}$ auf einer Kante $E$ von $P$, die $x^*$ enthält.
+		Sei $y^*\in\Z^n\cap E$ mit $\norm{x^* - y^*} := \min\{ \norm{x^*-y} \mid y\in\Z^n\cap E  \}$.
+		$y^*$ ist optimal für ($\firstNumbers{n}$-\MIPI), da $\tilde{y}$ optimal für ($\firstNumbers{n}$-\MIPI) und $x^*$ optimal für ($\emptyset$-\MIPI) \todo{$\lambda$-Beweis?}, und mit Lemma~\ref{lem:veselov}~(b) ist $\norm{x^*-y^*}\leq 1=\Delta-1$.
+
+		\item[Fall 2:] $I=\emptyset$, $J=\firstNumbers{n}$.
+		
+		Die Menge aller optimalen Lösungen von ($\emptyset$-\MIPI) bildet eine Seitenfläche von $P$, nämlich $F:=\{x\in P\mid -c\transpose x \leq cx^* \}$.
+		Sei $\tilde{z}$ eine optimale Lösung von ($\firstNumbers{n}$-\MIPI) und $\tilde{x}$ eine Ecke des Polytops $B:=\{ x\in F \mid \forall i \in \firstNumbers{n}: \Floor{x^*_i} \leq x_i \leq \Ceil{x^*_i} \}$.
+		Dann folgt bereits $\norm{\tilde{x}-x^*}\leq 1$.
+		
+		Definiere die Polyeder
+		$$
+		\begin{array}{l}
+		P_1:= \{ x\in\R^n \mid \forall i\in\firstNumbers{n}: (\tilde{y}_i\leq \Floor{x^*_i} = \tilde{x}_i \Rightarrow x_i \leq \Floor{x^*_i})\},\\
+		P_2:= \{ x\in\R^n \mid \forall i\in\firstNumbers{n}: (\tilde{y}_i\geq \Floor{x^*_i} = \tilde{x}_i \Rightarrow x_i \geq \Floor{x^*_i})\}, \\
+		P_3:= \{ x\in\R^n \mid \forall i\in\firstNumbers{n}: (\tilde{y}_i\leq \Ceil{x^*_i} = \tilde{x}_i \Rightarrow x_i \leq \Ceil{x^*_i})\},\\
+		P_4:= \{ x\in\R^n \mid \forall i\in\firstNumbers{n}: (\tilde{y}_i\geq \Ceil{x^*_i} = \tilde{x}_i \Rightarrow x_i \geq \Ceil{x^*_i})\}
+		\end{array}
+		$$
+		und das Polytop $\tilde{P}:=P\cap P_1 \cap P_2 \cap P_3 \cap P_4$.
+		$\tilde{P}$ ist nicht-leer, da $\tilde{x}, \tilde{y}\in\tilde{P}$, und beschränkt, da $\tilde{P}\subseteq P$.
+		Da jede an $\tilde{x}$ straffe Ungleichung von $B$ auch in $\tilde{P}$ vorkommt, ist $\tilde{x}$ auch eine optimale Ecke von $\tilde{P}$.
+		
+		$\tilde{P}$ kann wieder durch eine ganzzahlige Matrix $\tilde{A}$ beschrieben werden, die weiterhin $\rang(\tilde{A})=n$ und $\Delta(\tilde{A})=\Delta(A)$ erfüllt.
+		Nun können wir Fall 1 anwenden und erhalten eine optimale Lösung $y^*$ in $\tilde{P}\cap\Z^n$, also auch eine optimale Lösung von ($\firstNumbers{n}$-\MIPI), mit $\norm{\tilde{x} -y^*}\leq \Delta -1$.
+		Mit Dreiecksungleichung folgt $\norm{x^* - y^*}\leq \Delta$.
+		
+		\item[Fall 3:] $I=\firstNumbers{n},J=\emptyset,x^*$ ist Ecke von $R:=\co{\{ x\in\Z^n \mid Ax\leq b \}}$.
+		
+		Für $\Delta=1$ ist $x^*$ nach Lemma~\ref{lem:unimodular} auch eine optimale Lösung von ($\emptyset$-\MIPI).
+		Wir betrachten den Fall $\Delta=2$.
+		
+	\end{description}
+\end{proof}
