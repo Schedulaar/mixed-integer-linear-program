@@ -22,11 +22,11 @@ Für $b\in\Z^m$ erkennen wir mit folgendem Beispiel, dass der Abstand zumindest 
 Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV2009220}, um für einige Situationen die Vermutung~\ref{con:delta} zu bestätigen:
 \begin{lemma}\label{lem:veselov}
 	Sei $A\in\Z^{m\times n},b\in\Z^m,c\in\R^n$ mit $\rang(A)=n$, sodass der Absolutwert jeder Determinante einer $n\times n$ Teilmatrix kleinergleich 2 ist.
-	Seien $x^*$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q$ die konvexe Hülle aller ganzen Zahlen, die alle Ungleichungen aus $Ax\leq b$ erfüllen, die an $x^*$ straff sind.
+	Seien $z$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q$ die konvexe Hülle aller ganzen Zahlen, die alle Ungleichungen aus $Ax\leq b$ erfüllen, die an $z$ straff sind.
 	Dann gelten:
 	\begin{enumerate}[(a)]
-		\item Jede Ecke von $Q$ liegt auf einer Kante von $P$, die $x^*$ enthält.
-		\item Jede Kante von $P$, die $x^*$ und einen ganzzahligen Punkt enthält, enthält auch einen Punkt $y^*$ mit $\norm{x^* -y^*}\leq 1$.
+		\item Jede Ecke von $Q$ liegt auf einer Kante von $P$, die $z$ enthält.
+		\item Jede Kante von $P$, die $z$ und einen ganzzahligen Punkt enthält, enthält auch einen ganzzahligen Punkt $y^*$ mit $\norm{z -y^*}\leq 1$.
 	\end{enumerate}
 \end{lemma}
 
@@ -81,11 +81,12 @@ Damit können wir nun folgendes Theorem formulieren:
 		\item[Fall 1:]  $I=\emptyset,J=\firstNumbers{n}, x^*$ ist Ecke von $P$.
 		
 		Ist $\Delta\leq 1$, so ist $x^*$ nach Lemma~\ref{lem:unimodular} ganzzahlig und $y^* := x^*$ ist die gewünschte Lösung mit $\norm{x^*-y^*}\leq \Delta - 1$.
+		
 		Sei also $\Delta=2$.
-		Für $Q:=\co{\{x\in\Z^n \mid A_{\eq{\{x^*\}}}x = b_{\eq{{\{x^*\}}}} \}}$ sei $\tilde{y}\in\Z^n$ eine Ecke von $Q$, die $x\mapsto c\transpose x$ maximiert. \todo{Existenz von $\tilde{y}$}.
-		Nach Lemma~\ref{lem:veselov}~(a) liegt $\tilde{y}$ auf einer Kante $E$ von $P$, die $x^*$ enthält.
+		Für $Q:=\co{\{x\in\Z^n \mid A_{\eq{\{x^*\}}}x \leq b_{\eq{{\{x^*\}}}} \}}$ sei $z\in\Z^n$ eine Ecke von $Q$, die $x\mapsto c\transpose x$ maximiert. \todo{Existenz von $z$}.
+		Nach Lemma~\ref{lem:veselov}~(a) liegt $z$ auf einer Kante $E$ von $P$, die $x^*$ enthält.
 		Sei $y^*\in\Z^n\cap E$ mit $\norm{x^* - y^*} := \min\{ \norm{x^*-y} \mid y\in\Z^n\cap E  \}$.
-		$y^*$ ist optimal für ($\firstNumbers{n}$-\MIPI), da $\tilde{y}$ optimal für ($\firstNumbers{n}$-\MIPI) und $x^*$ optimal für ($\emptyset$-\MIPI) \todo{$\lambda$-Beweis?}, und mit Lemma~\ref{lem:veselov}~(b) ist $\norm{x^*-y^*}\leq 1=\Delta-1$.
+		$y^*$ ist optimal für ($\firstNumbers{n}$-\MIPI), da $z$ optimal für ($\firstNumbers{n}$-\MIPI) und $x^*$ optimal für ($\emptyset$-\MIPI) \todo{$\lambda$-Beweis?}, und mit Lemma~\ref{lem:veselov}~(b) ist $\norm{x^*-y^*}\leq 1=\Delta-1$ \todo{Macht kein Sinn für $\Delta=0$}.
 
 		\item[Fall 2:] $I=\emptyset$, $J=\firstNumbers{n}$.
 		
@@ -112,8 +113,23 @@ Damit können wir nun folgendes Theorem formulieren:
 		
 		\item[Fall 3:] $I=\firstNumbers{n},J=\emptyset,x^*$ ist Ecke von $R:=\co{\{ x\in\Z^n \mid Ax\leq b \}}$.
 		
-		Für $\Delta=1$ ist $x^*$ nach Lemma~\ref{lem:unimodular} auch eine optimale Lösung von ($\emptyset$-\MIPI).
+		Für $\Delta\leq1$ ist $x^*$ nach Lemma~\ref{lem:unimodular} auch eine optimale Lösung von ($\emptyset$-\MIPI).
 		Wir betrachten den Fall $\Delta=2$.
+		Nach Definition einer Ecke, existiert ein Vektor $d\in\R^n$ mit $\{ x\in\R^n \mid \forall \tilde{x}\in R: d\transpose x \geq d\transpose\tilde{x} \}=\{x^*\}$.
+		Demnach ist $d\transpose x < d\transpose x^*$ für alle $x\in R\setminus\{x^*\}$.
+		Für die Seitenfläche $F\subseteq P$, die alle optimalen Lösungen von ($\emptyset$-\MIPI) enthält, kann man nun ein $\lambda\geq0$ finden, das groß genug ist, sodass eine Ecke $z\in F$ existiert, die $x\mapsto (\lambda c+d)\transpose x$ über $P$ maximiert. \todo{Beweis Existenz $\lambda$?}
 		
+		Mit $\tilde{c}:=\lambda c+d$ gilt für jeden Punkt $x\in R\setminus\{x^*\}$:
+		$$\tilde{c}\transpose x < \lambda c\transpose x + d\transpose x^*\leq \lambda c\transpose x^* + d\transpose x^* = \tilde{c}\transpose x^*.$$
+		Setze $Q:=\co{\{x\in\Z^n \mid A_{\eq{\{z\}}}x \leq b_{\eq{{\{z\}}}} \}}$.
+		Da $Q$ beschränkt \todo{?} ist, gibt es eine Ecke $v\in Q$, die nach Definition von $Q$ ganzzahlig ist und $x\mapsto\tilde{c}\transpose x$ über $Q$ maximiert.
+		Nach Lemma~\ref{lem:veselov}~(a) liegt $v$ auf einer Kante $E$ von $P$, die $z$ enthält.
+		Insbesondere ist also $Av\leq b$ und damit $v\in R$.
+		Da auch $R \subseteq Q$, ist $v$ Maximierer von $x\mapsto \tilde{c}\transpose x$ über $R$ und damit ist $v=x^*$.
+		
+		Für den Fall $c\transpose x^*=c\transpose z$, so ist $x^*$ bereits optimal für ($\emptyset$-\MIPI).
+		Sonst ist $x^* \neq z$ und, da $v=x^*$, liegt $x^*$ auf der Kante $E$ von $P$, die $z$ enthält.
+		Auf der offenen Strecke zwischen $x^*$ und $z$ liegen keine ganzzahligen Punkte, weil $x\mapsto \tilde{c}\transpose x$ von $x^*$ über $R$ und von $z$ über $P\supseteq R$ maximiert und beide auf einer Kante von $P$ liegen.
+		Also gilt nach Lemma~\ref{lem:veselov}~(b), dass $\norm{x^*-z}\leq 1 = \Delta -1 $
 	\end{description}
 \end{proof}
