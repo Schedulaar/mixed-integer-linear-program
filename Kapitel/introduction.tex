@@ -17,9 +17,9 @@ Speziell erzeugen $A\in\Z^{n\times m}$, $b\in\Z^m$, $c\in\R^n$ und $I\subseteq\f
 Wir schreiben ($I$-\MIPR), falls zusätzlich $b\in\R^m$ zugelassen wird.
 Ist also beispielsweise $I=\emptyset$, erhält man ein Problem in Standardform; $I=\firstNumbers{n}$ bildet ein rein ganzzahliges lineares Programm.
 
-Gesucht ist nun für $I,J\subseteq\firstNumbers{n}$ und einer optimalen Lösung
-$x^*$ von ($I$-\MIPI) eine optimale Lösung $y^*$ von ($J$-\MIPI), sodass der Abstand $\norm{x^*-y^*}$ von $x^*$ und $y^*$ unter der Maximumsnorm kleiner als eine bestimmte Schranke wird.
-Diese Schranke soll außerdem nur von $A$, $b$ und $c$ abhängen.
+Gesucht ist nun für $I,J\subseteq\firstNumbers{n}$ eine möglichst kleine Schranke, die den Abstand zwischen jeder optimalen Lösung $x^*$ von ($I$-\MIPI) und einer nähesten optimalen Lösung $y^*$ von ($J$-\MIPI) beschränkt.
+Diese Schranke soll außerdem nur von $A$, $I$ und $J$ abhängen und der Abstand mittels Maximumsnorm ermittelt werden.
+Desweiteren wird immer vorausgesetzt, dass ($J$-\MIPI) eine optimale Lösung besitzt.
 Definiert man
 $$\Delta:=\Delta(A):=\max\{\betrag{ \det(Q)} \mid Q \text{ quadratische Untermatrix von } A \},$$
 so erhält man die folgende in \cite{Paat2018} formulierte Vermutung.
