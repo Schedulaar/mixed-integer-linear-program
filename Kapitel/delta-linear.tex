@@ -52,14 +52,14 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Sonst lässt sich $M$ mit elementaren Zeilen- und Spaltentransformationen in die Form $$\tilde{M}:= \begin{pmatrix}
 		B & 0 \\
 		0 & \one
-	\end{pmatrix}$$ bringen mit $B$ Untermatrix von $A$ und $\det(M)=\det(\tilde{M})=\det(B)\leq\Delta(A)$.
+	\end{pmatrix}$$ bringen mit $B$ Untermatrix von $A$ und $\betrag{\det(M)}=\betrag{\det(\tilde{M})}=\betrag{\det(B)}\leq\Delta(A)$.
 \end{proof}
 
 \begin{lemma}\label{lem:unimodular}
 	Seien $A\in\R^{m\times n},b\in\Z^m$ gegeben mit $A$ ist total unimodular, d.h. $\Delta(A)\leq 1$. Dann ist jede Ecke von $\{x\in\R^n \mid Ax\leq b \}$ ganzzahlig.
 \end{lemma}
 \begin{proof}
-	Sei $x$ eine Ecke. Dann ist $\rang(\tilde{A})=n$, wobei $\tilde{A} := A_{\eq(\{x\})}$ und $\tilde{b}:=b_{\eq(\{x\})}$ aus den Zeilen von $A$ und $b$ besteht, die straffe Bedingungen an $x$ darstellen, d.h. $\tilde{A} x = \tilde{b}$.
+	Sei $x$ eine Ecke. Dann ist $\rang(\tilde{A})=n$, wobei $\tilde{A} := A_{\eq{\{x\}}}$ und $\tilde{b}:=b_{\eq{\{x\}}}$ aus den Zeilen von $A$ und $b$ besteht, die straffe Bedingungen an $x$ darstellen, d.h. $\tilde{A} x = \tilde{b}$.
 	Nun kann $x$ mit der Cramerschen Regel eindeutig gelöst werden mit $x_i=\det(\tilde{A}_i)/\det(\tilde{A})$, wobei $\tilde{A}_i$ aus $\tilde{A}$ durch Ersetzen der $i$-ten Spalte mit $\tilde{b}$ entsteht.
 	Da $\det(\tilde{A})\in\{-1,1\}$ wegen $\Delta(A)\leq 1$, ist $x_i$ ganzzahlig.
 	
@@ -72,7 +72,10 @@ Damit können wir nun folgendes Theorem formulieren:
 \end{theorem}
 \begin{proof}
 	Sei $x^*$ eine optimale Lösung von ($I$-\MIPI) gegeben.
-	Dann existiert ein $U\in\N$, sodass die beschränkte Menge  $$P:=\{x\in\R^n\mid Ax\leq b\} \cap \{x\in\R^n \mid \forall i\in\firstNumbers{m}: -U \leq x_i \leq U \}$$
+	Für $\Delta=0$ ist $A$ unimodular und nach Lemma~\ref{lem:unimodular} ist $x^*\in\Z^n$ und optimal für ($\emptyset$-\MIPI).
+	Wir betrachten also $\Delta\in\{1,2\}$.
+	
+	Es existiert ein $U\in\N$, sodass die beschränkte Menge  $$P:=\{x\in\R^n\mid Ax\leq b\} \cap \{x\in\R^n \mid \forall i\in\firstNumbers{m}: -U \leq x_i \leq U \}$$
 	$x^*$ und eine optimale Lösung von ($J$-\MIPI) enthält.
 	Setzt man $\tilde{A},\tilde{b}$ wie in Lemma~\ref{lem:bounded} ist $\rang(\tilde{A})=n$ und $\Delta:=\Delta(A)=\Delta(\tilde{A})$ und es gilt $P=\{ x\in\R^n \mid \tilde{A}x \leq \tilde{b} \}$.
 	Es genügt nun, ein $y^*$ in $P$ zu finden, das für ($J$-\MIPI) optimal ist und $\norm{x^* - y^*}\leq\Delta$ erfüllt.
@@ -80,7 +83,7 @@ Damit können wir nun folgendes Theorem formulieren:
 	\begin{description}
 		\item[Fall 1:]  $I=\emptyset,J=\firstNumbers{n}, x^*$ ist Ecke von $P$.
 		
-		Ist $\Delta\leq 1$, so ist $x^*$ nach Lemma~\ref{lem:unimodular} ganzzahlig und $y^* := x^*$ ist die gewünschte Lösung mit $\norm{x^*-y^*}\leq \Delta - 1$.
+		Ist $\Delta= 1$, so ist $x^*$ nach Lemma~\ref{lem:unimodular} ganzzahlig und $y^* := x^*$ ist die gewünschte Lösung mit $\norm{x^*-y^*}\leq \Delta - 1$.
 		
 		Sei also $\Delta=2$.
 		Für $Q:=\co{\{x\in\Z^n \mid A_{\eq{\{x^*\}}}x \leq b_{\eq{{\{x^*\}}}} \}}$ sei $z\in\Z^n$ eine Ecke von $Q$, die $x\mapsto c\transpose x$ maximiert. \todo{Existenz von $z$}.
@@ -113,7 +116,7 @@ Damit können wir nun folgendes Theorem formulieren:
 		
 		\item[Fall 3:] $I=\firstNumbers{n},J=\emptyset,x^*$ ist Ecke von $R:=\co{\{ x\in\Z^n \mid Ax\leq b \}}$.
 		
-		Für $\Delta\leq1$ ist $x^*$ nach Lemma~\ref{lem:unimodular} auch eine optimale Lösung von ($\emptyset$-\MIPI).
+		Für $\Delta=1$ ist $x^*$ nach Lemma~\ref{lem:unimodular} auch eine optimale Lösung von ($\emptyset$-\MIPI).
 		Wir betrachten den Fall $\Delta=2$.
 		Nach Definition einer Ecke, existiert ein Vektor $d\in\R^n$ mit $\{ x\in\R^n \mid \forall \tilde{x}\in R: d\transpose x \geq d\transpose\tilde{x} \}=\{x^*\}$.
 		Demnach ist $d\transpose x < d\transpose x^*$ für alle $x\in R\setminus\{x^*\}$.
