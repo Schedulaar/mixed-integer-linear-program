@@ -131,5 +131,14 @@ Damit können wir nun folgendes Theorem formulieren:
 		Sonst ist $x^* \neq z$ und, da $v=x^*$, liegt $x^*$ auf der Kante $E$ von $P$, die $z$ enthält.
 		Auf der offenen Strecke zwischen $x^*$ und $z$ liegen keine ganzzahligen Punkte, weil $x\mapsto \tilde{c}\transpose x$ von $x^*$ über $R$ und von $z$ über $P\supseteq R$ maximiert und beide auf einer Kante von $P$ liegen.
 		Also gilt nach Lemma~\ref{lem:veselov}~(b), dass $\norm{x^*-z}\leq 1 = \Delta -1 $
+		
+		\item[Fall 4:] $I=\firstNumbers{n},J=\emptyset.$
+		
+		Da $P$ beschränkt, ist auch $R:=\co{\{x\in\Z^n \mid Ax\leq b\}}$ beschränkt und, da $x^*\in R$, existiert eine Konvexkombination $x^* = \sum_{i=1}^t \lambda_i v^i$ mit $v^1,\dots,v^t$ Ecken von $R$ und $\lambda_1,\dots,\lambda_t>0$ und $\sum_{i=1}^t \lambda_i=1$.
+		Angenommen für ein $k\in\firstNumbers{t}$ ist $v^k$ nicht optimal für ($\firstNumbers{n}$-\MIPI).
+		Dann ist $c\transpose x^*=\sum_{i=1}^t \lambda_i c\transpose v^i \leq (1-\lambda_k)c\transpose x^* + \lambda_k c\transpose v^k < c\transpose x^*$.
+		Also ist $v^i$ optimal für ($\firstNumbers{n}$-\MIPI) und nach Fall 3 existiert $z^i\in\R^n$ optimal für ($\emptyset$-\MIPI) mit $\norm{v^i-z^i}\leq \Delta$ für alle $i\in\firstNumbers{t}$.
+		Die Konvexkombination $y^*:=\sum_{i=1}^t \lambda_i z^i$ ist ebenfalls optimal für ($\emptyset$-\MIPI) und
+		$$\norm{x^*-y^*}=\norm{\sum_{i=1}^t \lambda_i (v^i-z^i)}\leq \sum_{i=1}^t \lambda_i \norm{v^i-z^i}=\Delta.$$
 	\end{description}
 \end{proof}
