@@ -79,15 +79,16 @@ Damit können wir das folgende Lemma zeigen, das wir im nächsten Abschnitt ben�
 	$$
 	(v^j)_{j\in\N}:=(q^j_1/p^j,\dots,q^j_k/p^j)_{j\in\N}$$
 	mit $q^j_i\in\N$, $p^j$ Primzahl und $q^j_i/p^j\in[\alpha_i, \alpha_i+j^{-1}]$.
-	Damit ist $\lim_{j\rightarrow\infty}v^j=(\alpha_1,\dots,\alpha_k)$ und für $j\in\N$ können wir den ersten Fall auf $u$ und $v^j$ anwenden und erhalten $\beta^j\in\bigtimes_{i=1}^k[0,v^j_i]$ und $\beta^j\neq0$ sowie $\sum_{i=1}^k\beta_{j,i}u^i \in\Z^d$.
-	Da die Folge $(\beta_{j,1},\dots,\beta_{j,k})_{j\in\N}$ in der kompakten Menge $[0,\alpha_1+1]\times\cdots\times[0,\alpha_k+1]$ liegt, existiert nach Satz von Bolzano-Weierstraß eine konvergente Teilfolge mit $\lim_{j\rightarrow\infty}(\beta_{\sigma(j),1},\dots,\beta_{\sigma(j),k})=:(\beta_1,\dots,\beta_k)$.
-	Da $\beta_{\sigma(j),i}\in[0,v_{\sigma(j),i}]$ und $\lim_{j\rightarrow\infty}v_{\sigma(j),i}=\alpha_i$ ist $\beta_i\in[0,\alpha_i]$.
-	Da es nur endlich viele $z\in\Z^d$ der Form $z=\sum_{i=1}^k\gamma_i u^i$ mit $\gamma_i\in[0,\alpha_i+1]$ gibt, existiert ein Punkt $z\in\Z^d$ für den $\sum_{i=1}^k \beta_{\sigma(j),i} u^i=z$ für unendlich viele $j$ gilt.
-	Also gibt es wegen der Konvergenz von $(\beta_{\sigma(j),i})_{j\in\N}$ ein $n$, sodass $\sum_{i=1}^k\beta_{\sigma(j),i}u^i=z$ für $j\geq n$ und damit $\sum_{i=1}^k\beta_i u^i=z$.
-	Sind nicht alle $\beta_i=0$, so erfüllen die $\beta_i$ die Behauptung.
+	Damit ist $\lim_{j\rightarrow\infty}v^j=(\alpha_1,\dots,\alpha_k)$ und für $j\in\N$ können wir den ersten Fall auf $u$ und $v^j$ anwenden und erhalten damit $\beta^j\in\bigtimes_{i=1}^k[0,v^j_i]$ mit $\beta^j\neq0$ sowie $\sum_{i=1}^k\beta^j_i u^i \in\Z^d$.
+	Da die Folge $(\beta^j)_{j\in\N}$ in der kompakten Menge $\bigtimes_{i=1}^k[0,\alpha_i+1]$ liegt, existiert nach Satz von Bolzano-Weierstraß eine konvergente Teilfolge mit $\lim_{j\to\infty} \beta^{\sigma(j)}=:\beta$.
+	Da $\beta^{\sigma(j)}_i\in[0,v^{\sigma(j)}_i]$ und $\lim_{j\to\infty}v^{\sigma(j)}_i=\alpha_i$ ist $\beta_i\in[0,\alpha_i]$.
+	Da es nur endlich viele $z\in\Z^d$ der Form $z=\sum_{i=1}^k\gamma_i u^i$ mit $\gamma_i\in[0,\alpha_i+1]$ gibt, existiert ein Punkt $z\in\Z^d$, für den $\sum_{i=1}^k \beta^{\sigma(j)}_i u^i=z$ für unendlich viele $j$ gilt.
+	Also gibt es wegen der Konvergenz von $(\beta^{\sigma(j)})_{j\in\N}$ ein $n$, sodass $\sum_{i=1}^k\beta^{\sigma(j)}_i u^i=z$ für $j\geq n$ und damit ist $\sum_{i=1}^k\beta_i u^i=z$.
+	
+	Ist $\beta\neq0$, so erfüllt es die Behauptung.
 	Andernfalls ist $z=0$.
-	Setze $\varepsilon>0$, sodass $\varepsilon\beta_{n,i}\in[0,\alpha_i]$ für $i\in\firstNumbers{k}$.
-	Dann sind nach Wahl der $\beta_{n,i}$ nicht alle der $\varepsilon\beta_{n,i}=0$ und $\sum_{i=1}^k\varepsilon\beta_{n,i}u^i=\varepsilon z=\zero\in\Z^d$.
+	Setze $\varepsilon>0$, sodass $\varepsilon\beta^n_i\in[0,\alpha_i]$ für $i\in\firstNumbers{k}$.
+	Nach Wahl von $\beta^n$ ist dann $\varepsilon\beta^n\neq0$ und $\sum_{i=1}^k\varepsilon\beta^n_iu^i=\varepsilon z=\zero\in\Z^d$.
 \end{proof}
 
 \subsection{Abschätzung in Abhängigkeit der Anzahl ganzzahliger Variablen}
@@ -112,15 +113,15 @@ Zunächst betrachten wir noch folgendes Hilfslemma über die Darstellung eines K
 \end{lemma}
 \begin{proof}
 	Die beschränkte Menge $G:=\{\gamma \in \bigtimes_{i=1}^k [0,\lambda_i] \mid \sum_{i=1}^k \gamma_i u^i\in\Z^d \}$ ist abgeschlossen: Sei $(\gamma^n)_{n\in\N}$ eine in $\R^k$ konvergente Folge mit $\gamma^n\in G$ für $n\in\N$ und $\lim_{n\to\infty}\gamma^n=:\tilde{\gamma}$.
-	Da es nur endlich viele $z\in\Z^d$ gibt mit $z=\sum_{i=1}^k\gamma_iv^i$ für $\gamma_i\in[0,\lambda_i]$, existiert ein $z\in\Z^d$, sodass $z=\sum_{i=1}^k\gamma^n_iv^i$ für unendlich viele $\gamma^n$ gilt und damit auch für $\tilde{\gamma}\in G$.
-	Also ist $G$ abgeschlossen und mit dem Satz von Heine-Borel ist $G\subseteq\R^n$ auch kompakt.
+	Da es nur endlich viele $z\in\Z^d$ gibt mit $z=\sum_{i=1}^k\gamma_iu^i$ für $\gamma_i\in[0,\lambda_i]$, existiert ein $z\in\Z^d$, sodass $z=\sum_{i=1}^k\gamma^n_iu^i$ für unendlich viele $\gamma^n$ gilt und damit auch für $\tilde{\gamma}\in G$.
+	Also ist $G$ abgeschlossen und mit dem Satz von Heine-Borel ist $G\subseteq\R^k$ auch kompakt.
 	Nach dem Satz von Weierstraß nimmt die Menge $\{ \sum_{i=1}^k\gamma_i \mid \gamma\in G \}$ also bei einem $\gamma\in G$ ihr Maximum an.
 	
-	Wir nehmen nun an $\sum_{i=1}^k(\lambda_i - \gamma_i) \geq d$.
-	Wenden wir Lemma~\ref{thm:olson} an auf $\alpha_i:=\lambda_i-\gamma_i\geq0$ und $u^i$ für $i\in\firstNumbers{k}$, erhalten wir $\beta_i\in[0,\lambda_i-\gamma_i]$ mit nicht alle $\beta_i=0$ und $\sum_{i=1}^k \beta_i u^i\in\Z^d$.
+	Angenommen, es gelte $\sum_{i=1}^k(\lambda_i - \gamma_i) \geq d$.
+	Wenden wir Lemma~\ref{thm:olson} an auf $\alpha_i:=\lambda_i-\gamma_i\geq0$ und $u^i$ für $i\in\firstNumbers{k}$, erhalten wir $\beta\in\bigtimes_{i=1}^k[0,\lambda_i-\gamma_i]$ mit $\beta\neq0$ und $\sum_{i=1}^k \beta_i u^i\in\Z^d$.
 	Für $\gamma':=\gamma+\beta\leq\lambda$ gilt nun 
 	$
-	\sum_{i=1}^k\gamma'_iv^i = \sum_{i=1}^k\gamma_iv^i + \sum_{i=1}^k \beta_iv^i\in\Z^d
+	\sum_{i=1}^k\gamma'_iu^i = \sum_{i=1}^k\gamma_iu^i + \sum_{i=1}^k \beta_iu^i\in\Z^d
 	$
 	und damit ist $\gamma'\in G$.
 	Da nicht alle $\beta_i=0$ ist $\sum_{i=1}^k\gamma'_i > \sum_{i=1}^k\gamma_i$, was im Widerspruch zur Maximalität von $\gamma$ steht.
@@ -129,7 +130,7 @@ Nun formulieren wir unser Theorem:
 
 \begin{theorem}\label{thm:theo2}
 	Seien $I,J\subseteq\firstNumbers{n}$, sodass ($J$-\MIPR) eine optimale Lösung $\tilde{y}$ hat.
-	Für jede optimale Lösung $x^*$ von ($I$-\MIPR) existiert eine optimale Lösung $y^*$ von ($J$-\MIPR) mit $\norm{x^*-y^*}<\betrag{I\cup J}\cdot\Delta$. \todo{Macht keinen Sinn für $\Delta=0$}
+	Für jede optimale Lösung $x^*$ von ($I$-\MIPR) existiert eine optimale Lösung $y^*$ von ($J$-\MIPR) mit $\norm{x^*-y^*}\leq\betrag{I\cup J}\cdot\Delta$.
 \end{theorem}
 \begin{proof}
 	Zunächst tauschen wir alle ganzzahligen Variablen an die ersten Stellen und können $\betrag{I\cup J}=\firstNumbers{d}$ mit $d\in\firstNumbers{n}$ annehmen.
@@ -160,6 +161,9 @@ Nun formulieren wir unser Theorem:
 	$$c\transpose y^*=c\transpose\tilde{y}-c\transpose(\sum_{i=1}^k\gamma_iv^i)\geq c\transpose\tilde{y}$$
 	auch die Optimalität von $y^*$ für ($J$-\MIPR).
 	Außerdem gelten die folgenden Abschätzungen:
-	$$\norm{x^*-y^*}=\norm{\sum_{i=1}^k(\lambda_i-\gamma_i)v^i}\leq \sum_{i=1}^k(\lambda_i-\gamma_i)\norm{v^i}\leq \sum_{i=1}^k(\lambda_i-\gamma_i)\Delta< d\cdot\Delta.
+	$$\norm{x^*-y^*}=\norm{\sum_{i=1}^k(\lambda_i-\gamma_i)v^i}\leq \sum_{i=1}^k(\lambda_i-\gamma_i)\norm{v^i}\leq \sum_{i=1}^k(\lambda_i-\gamma_i)\Delta\leq d\cdot\Delta.
 	$$
 \end{proof}
+\begin{remark}
+	In der letzten Zeile des Beweises kann man erkennen, dass für $\Delta\neq 0$ sogar die strikte Abschätzung $\norm{x^*-y^*}<\betrag{I\cup J}\cdot\Delta$ gilt.
+\end{remark}
