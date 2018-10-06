@@ -70,7 +70,17 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Nun kann $x$ mit der Cramerschen Regel eindeutig gelöst werden mit $x_i=\det(\tilde{A}_i)/\det(\tilde{A})$, wobei $\tilde{A}_i$ aus $\tilde{A}$ durch Ersetzen der $i$-ten Spalte mit $\tilde{b}$ entsteht.
 	Da $\det(\tilde{A})\in\{-1,1\}$ wegen $\Delta(A)\leq 1$, ist $x_i$ ganzzahlig.
 \end{proof}
-
+\begin{lemma}\label{lem:q-upper-bound}
+	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $c\in\R^n$ gegeben.
+	Mit $P:=\{ x\in\R^n \mid Ax\leq b \}$ gilt für jedes $x^*\in P$, das $x\mapsto c\transpose x$ maximiert:
+	Über $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$ ist  $x\mapsto c\transpose x$ mit $c\transpose x^*$ nach oben beschränkt.
+\end{lemma}
+\begin{proof}
+	Für beliebiges $q\in Q\setminus\{x^*\}$ gilt:
+	Es existiert $\lambda\in[0,1)$ mit $\tilde{q}:=\lambda q+(1-\lambda)x^*\in P$, da wir uns für jede Ungleichung, die $q$ noch nicht erfüllt, solange an $x^*$ annähern können bis sie erfüllt ist und diese Ungleichung für $x^*$ keine Gleichheit erfüllt.
+	Ist $\lambda=0$, so ist $q\in P$ und $c\transpose q\leq c\transpose x^*$. Mit $c\transpose \tilde{q} \leq c\transpose x^*$ gilt sonst $c\transpose q=(c\transpose \tilde{q} - c\transpose(1-\lambda)x^*)/\lambda \leq c\transpose x^*$.
+	Also ist $x\mapsto c\transpose x$ in $Q$ mit $c\transpose x^*$ nach oben beschränkt.
+\end{proof}
 Damit können wir nun folgendes Theorem formulieren:
 \begin{theorem}
 		Seien $\Delta\leq 2$ und $I,J\in\{\emptyset,\firstNumbers{n}\}$, sodass eine optimale Lösung von ($J$-\MIPI) existiert.
@@ -92,15 +102,9 @@ Damit können wir nun folgendes Theorem formulieren:
 		Ist $\Delta= 1$, so ist $x^*$ nach Lemma~\ref{lem:unimodular} ganzzahlig und $y^* := x^*$ ist die gewünschte Lösung mit $\norm{x^*-y^*}\leq \Delta - 1$.
 		
 		Sei also $\Delta=2$. Setze $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
-		
-		Für beliebiges $q\in Q\setminus\{x^*\}$ gilt:
-		Es existiert $\lambda\in[0,1)$ mit $\tilde{q}:=\lambda q+(1-\lambda)x^*\in P$, da wir uns für jede Ungleichung, die $q$ noch nicht erfüllt, solange an $x^*$ annähern können bis sie erfüllt ist und diese Ungleichung für $x^*$ keine Gleichheit erfüllt.
-		Ist $\lambda=0$, so ist $q\in P$ und $c\transpose q\leq c\transpose x^*$. Mit $c\transpose \tilde{q} \leq c\transpose x^*$ gilt sonst $c\transpose q=(c\transpose \tilde{q} - c\transpose(1-\lambda)x^*)/\lambda \leq c\transpose x^*$.
-		Also ist $x\mapsto c\transpose x$ in $Q$ mit $c\transpose x^*$ nach oben beschränkt.
-		
-		
-		Da $Q$ nicht-leer ist, existiert also eine Ecke $z\in\Z^n$ von $Q$, die $x\mapsto c\transpose x$ maximiert.
+		Da $Q$ nicht-leer ist und $x\mapsto c\transpose x$ nach Lemma~\ref{lem:q-upper-bound} mit $c\transpose x^*$ über $Q$ nach oben beschränkt ist, existiert also eine Ecke $z\in\Z^n$ von $Q$, die $x\mapsto c\transpose x$ maximiert.
 		Nach Lemma~\ref{lem:veselov}~(a) liegt $z$ auf einer Kante $E$ von $P$, die $x^*$ enthält.
+		
 		Sei $y^*\in\Z^n\cap E$ mit $\norm{x^* - y^*} := \min\{ \norm{x^*-y} \mid y\in\Z^n\cap E  \}$.
 		Es existiert ein $\lambda\in [0,1]$ mit $y^* = \lambda z + (1-\lambda)x^*$ und mit $c\transpose x^* \leq c\transpose z$ gilt $c\transpose y^* \geq c\transpose z$.
 		Aus der Optimalität von $z$ folgt die Optimalität von $y^*$ für ($\firstNumbers{n}$-\MIPI) und mit Lemma~\ref{lem:veselov}~(b) folgt aus der Wahl von $y^*$ die Abschätzung $\norm{x^*-y^*}\leq 1=\Delta-1$.
