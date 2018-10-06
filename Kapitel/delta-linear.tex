@@ -27,6 +27,8 @@ Für $b\in\Z^m$ erkennen wir mit folgendem Beispiel, dass der Abstand zumindest 
 	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $x^*\in\R^n$ gegeben.
 	Im Kontext des Polyeders $\{ x\in\R^m \mid Ax\leq b \}$ bezeichnen
 	$A_\eq{x^*}$ und $b_\eq{x^*}$ diejenigen Zeilen aus $A$ und $b$, bei denen für die zugehörigen Ungleichungen mit $x^*$ sogar Gleichheit gilt.
+	
+	Für eine Menge $M\subseteq \R^n$ bezeichne $\co{M}$ ihre konvexe Hülle.
 \end{notation}
 
 Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV2009220}, um für einige Situationen die Vermutung~\ref{con:delta} zu bestätigen:
@@ -90,8 +92,15 @@ Damit können wir nun folgendes Theorem formulieren:
 		
 		Ist $\Delta= 1$, so ist $x^*$ nach Lemma~\ref{lem:unimodular} ganzzahlig und $y^* := x^*$ ist die gewünschte Lösung mit $\norm{x^*-y^*}\leq \Delta - 1$.
 		
-		Sei also $\Delta=2$.
-		Für $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$ sei $z\in\Z^n$ eine Ecke von $Q$, die $x\mapsto c\transpose x$ maximiert. \todo{Existenz von $z$}.
+		Sei also $\Delta=2$. Setze $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
+		
+		Für beliebiges $q\in Q$ gilt:
+		Es existiert $\lambda\in[0,1)$ mit $\tilde{q}:=\lambda q+(1-\lambda)x^*\in P$, da wir uns für jede Ungleichung, die $q$ noch nicht erfüllt, solange an $x^*$ annähern können bis sie erfüllt ist und diese Ungleichung für $x^*$ keine Gleichheit erfüllt.
+		Ist $\lambda=0$, so ist $q\in P$ und $c\transpose q\leq c\transpose x^*$. Mit $c\transpose \tilde{q} \leq c\transpose x^*$ gilt sonst $c\transpose q=(c\transpose \tilde{q} - c\transpose(1-\lambda)x^*)/\lambda \leq c\transpose x^*$.
+		Also ist $x\mapsto c\transpose x$ in $Q$ nach oben beschränkt.
+		
+		
+		Da $Q$ nicht-leer ist, existiert also eine Ecke $z\in\Z^n$ von $Q$, die $x\mapsto c\transpose x$ maximiert.
 		Nach Lemma~\ref{lem:veselov}~(a) liegt $z$ auf einer Kante $E$ von $P$, die $x^*$ enthält.
 		Sei $y^*\in\Z^n\cap E$ mit $\norm{x^* - y^*} := \min\{ \norm{x^*-y} \mid y\in\Z^n\cap E  \}$.
 		$y^*$ ist optimal für ($\firstNumbers{n}$-\MIPI), da $z$ optimal für ($\firstNumbers{n}$-\MIPI) und $x^*$ optimal für ($\emptyset$-\MIPI) \todo{$\lambda$-Beweis?}, und mit Lemma~\ref{lem:veselov}~(b) ist $\norm{x^*-y^*}\leq 1=\Delta-1$.
