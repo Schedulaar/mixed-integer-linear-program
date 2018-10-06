@@ -69,7 +69,6 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Sei $x$ eine Ecke. Dann ist $\rang(\tilde{A})=n$, wobei $\tilde{A} := A_\eq{x}$ und $\tilde{b}:=b_\eq{x}$ aus den Zeilen von $A$ und $b$ besteht, die straffe Bedingungen an $x$ darstellen, d.h. $\tilde{A} x = \tilde{b}$.
 	Nun kann $x$ mit der Cramerschen Regel eindeutig gelöst werden mit $x_i=\det(\tilde{A}_i)/\det(\tilde{A})$, wobei $\tilde{A}_i$ aus $\tilde{A}$ durch Ersetzen der $i$-ten Spalte mit $\tilde{b}$ entsteht.
 	Da $\det(\tilde{A})\in\{-1,1\}$ wegen $\Delta(A)\leq 1$, ist $x_i$ ganzzahlig.
-	
 \end{proof}
 
 Damit können wir nun folgendes Theorem formulieren:
@@ -94,16 +93,17 @@ Damit können wir nun folgendes Theorem formulieren:
 		
 		Sei also $\Delta=2$. Setze $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
 		
-		Für beliebiges $q\in Q$ gilt:
+		Für beliebiges $q\in Q\setminus\{x^*\}$ gilt:
 		Es existiert $\lambda\in[0,1)$ mit $\tilde{q}:=\lambda q+(1-\lambda)x^*\in P$, da wir uns für jede Ungleichung, die $q$ noch nicht erfüllt, solange an $x^*$ annähern können bis sie erfüllt ist und diese Ungleichung für $x^*$ keine Gleichheit erfüllt.
 		Ist $\lambda=0$, so ist $q\in P$ und $c\transpose q\leq c\transpose x^*$. Mit $c\transpose \tilde{q} \leq c\transpose x^*$ gilt sonst $c\transpose q=(c\transpose \tilde{q} - c\transpose(1-\lambda)x^*)/\lambda \leq c\transpose x^*$.
-		Also ist $x\mapsto c\transpose x$ in $Q$ nach oben beschränkt.
+		Also ist $x\mapsto c\transpose x$ in $Q$ mit $c\transpose x^*$ nach oben beschränkt.
 		
 		
 		Da $Q$ nicht-leer ist, existiert also eine Ecke $z\in\Z^n$ von $Q$, die $x\mapsto c\transpose x$ maximiert.
 		Nach Lemma~\ref{lem:veselov}~(a) liegt $z$ auf einer Kante $E$ von $P$, die $x^*$ enthält.
 		Sei $y^*\in\Z^n\cap E$ mit $\norm{x^* - y^*} := \min\{ \norm{x^*-y} \mid y\in\Z^n\cap E  \}$.
-		$y^*$ ist optimal für ($\firstNumbers{n}$-\MIPI), da $z$ optimal für ($\firstNumbers{n}$-\MIPI) und $x^*$ optimal für ($\emptyset$-\MIPI) \todo{$\lambda$-Beweis?}, und mit Lemma~\ref{lem:veselov}~(b) ist $\norm{x^*-y^*}\leq 1=\Delta-1$.
+		Es existiert ein $\lambda\in [0,1]$ mit $y^* = \lambda z + (1-\lambda)x^*$ und mit $c\transpose x^* \leq c\transpose z$ gilt $c\transpose y^* \geq c\transpose z$.
+		Aus der Optimalität von $z$ folgt die Optimalität von $y^*$ für ($\firstNumbers{n}$-\MIPI) und mit Lemma~\ref{lem:veselov}~(b) folgt aus der Wahl von $y^*$ die Abschätzung $\norm{x^*-y^*}\leq 1=\Delta-1$.
 
 		\item[Fall 2:] $I=\emptyset$, $J=\firstNumbers{n}$.
 		
