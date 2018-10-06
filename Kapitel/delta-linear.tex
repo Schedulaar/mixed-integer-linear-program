@@ -26,19 +26,20 @@ Für $b\in\Z^m$ erkennen wir mit folgendem Beispiel, dass der Abstand zumindest 
 \begin{notation}
 	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $x^*\in\R^n$ gegeben.
 	Im Kontext des Polyeders $\{ x\in\R^m \mid Ax\leq b \}$ bezeichnen
-	$A_\eq{x^*}$ und $b_\eq{x^*}$ diejenigen Zeilen aus $A$ und $b$, bei denen für die zugehörigen Ungleichungen mit $x^*$ sogar Gleichheit gilt.
+	$A_\eq{x^*}$ und $b_\eq{x^*}$ diejenigen Zeilen aus $A$ und $b$, bei denen für die zugehörigen Ungleichungen für $x^*$ sogar Gleichheit gilt.
 	
 	Für eine Menge $M\subseteq \R^n$ bezeichne $\co{M}$ ihre konvexe Hülle.
 \end{notation}
 
 Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV2009220}, um für einige Situationen die Vermutung~\ref{con:delta} zu bestätigen:
 \begin{lemma}\label{lem:veselov}
-	Sei $A\in\Z^{m\times n},b\in\Z^m,c\in\R^n$ mit $\rang(A)=n$, sodass der Absolutwert jeder Determinante einer $n\times n$ Teilmatrix kleinergleich 2 ist.
-	Seien $z$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q$ die konvexe Hülle aller ganzen Zahlen, die alle Ungleichungen aus $Ax\leq b$ erfüllen, die an $z$ straff sind.
+	Seien $A\in\Z^{m\times n}$, $b\in\Z^m$ und $c\in\R^n$ mit $\rang(A)=n$, sodass der Absolutwert jeder Determinante einer $n\times n$ Teilmatrix kleinergleich 2 ist.
+	
+	Seien $z$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
 	Dann gelten:
 	\begin{enumerate}[(a)]
 		\item Jede Ecke von $Q$ liegt auf einer Kante von $P$, die $z$ enthält.
-		\item Jede Kante von $P$, die $z$ und einen ganzzahligen Punkt enthält, enthält auch einen ganzzahligen Punkt $y^*$ mit $\norm{z -y^*}\leq 1$.
+		\item Jede Kante von $P$, die $z$ und einen ganzzahligen Punkt enthält, enthält auch einen ganzzahligen Punkt $y$ mit $\norm{z -y}\leq 1$.
 	\end{enumerate}
 \end{lemma}
 \begin{lemma}\label{lem:bounded}
@@ -149,9 +150,10 @@ Damit können wir nun folgendes Theorem formulieren:
 		Da auch $R \subseteq Q$, ist $v$ Maximierer von $x\mapsto \tilde{c}\transpose x$ über $R$ und damit ist $v=x^*$.
 		
 		Für den Fall $c\transpose x^*=c\transpose z$ ist $x^*$ bereits optimal für ($\emptyset$-\MIPI).
-		Sonst ist $x^* \neq z$ und, da $v=x^*$, liegt $x^*$ auf der Kante $E$ von $P$, die $z$ enthält.
-		Auf der offenen Strecke zwischen $x^*$ und $z$ liegen keine ganzzahligen Punkte, weil $x\mapsto \tilde{c}\transpose x$ von $x^*$ über $R$ und von $z$ über $P\supseteq R$ maximiert und beide auf einer Kante von $P$ liegen.
-		Also gilt nach Lemma~\ref{lem:veselov}~(b), dass $\norm{x^*-z}\leq 1 = \Delta -1 $
+		Sonst setze $y^*:=z$.
+		Da $v=x^*$, liegt $x^*$ auf der Kante $E$ von $P$, die $y^*$ enthält.
+		Auf der offenen Strecke zwischen $x^*$ und $y^*$ liegen keine ganzzahligen Punkte, weil $x\mapsto \tilde{c}\transpose x$ von $x^*$ über $R$ und von $y^*$ über $P\supseteq R$ maximiert wird und beide auf einer Kante von $P$ liegen.
+		Also gilt nach Lemma~\ref{lem:veselov}~(b), dass $\norm{x^*-y^*}\leq 1 = \Delta -1 $
 		
 		\item[Fall 4:] $I=\firstNumbers{n},J=\emptyset.$
 		
