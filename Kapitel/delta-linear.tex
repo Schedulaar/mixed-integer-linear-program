@@ -138,12 +138,12 @@ Damit können wir nun folgendes Theorem formulieren:
 		Wir betrachten den Fall $\Delta=2$.
 		Nach Definition einer Ecke, existiert ein Vektor $d\in\R^n$ mit $\{ x\in\R^n \mid \forall \tilde{x}\in R: d\transpose x \geq d\transpose\tilde{x} \}=\{x^*\}$.
 		Demnach ist $d\transpose x < d\transpose x^*$ für alle $x\in R\setminus\{x^*\}$.
-		Für die Seitenfläche $F\subseteq P$, die alle optimalen Lösungen von ($\emptyset$-\MIPI) enthält, kann man nun ein $\lambda\geq0$ finden, das groß genug ist, sodass eine Ecke $z\in F$ existiert, die $x\mapsto (\lambda c+d)\transpose x$ über $P$ maximiert. \todo{Beweis Existenz $\lambda$?}
+		Für die Seitenfläche $F\subseteq P$, die alle optimalen Lösungen von ($\emptyset$-\MIPI) enthält, kann man nun ein $\lambda\geq0$ finden, das groß genug ist, dass eine Ecke $z\in F$ existiert, die $x\mapsto (\lambda c+d)\transpose x$ über $P$ maximiert. \todo{Beweis Existenz $\lambda$?}
 		
 		Mit $\tilde{c}:=\lambda c+d$ gilt für jeden Punkt $x\in R\setminus\{x^*\}$:
 		$$\tilde{c}\transpose x < \lambda c\transpose x + d\transpose x^*\leq \lambda c\transpose x^* + d\transpose x^* = \tilde{c}\transpose x^*.$$
 		Setze $Q:=\co{\{x\in\Z^n \mid A_\eq{z}x \leq b_\eq{z} \}}$.
-		Da $Q$ beschränkt \todo{?} ist, gibt es eine Ecke $v\in Q$, die nach Definition von $Q$ ganzzahlig ist und $x\mapsto\tilde{c}\transpose x$ über $Q$ maximiert.
+		Nach Lemma~\ref{lem:q-upper-bound} ist $x\mapsto \tilde{c}\transpose x$ mit $\tilde{c}\transpose z$ in $Q$ nach oben beschränkt und, da $Q$ nicht-leer ist, gibt es eine Ecke $v\in\Z^n$ von $Q$, die $x\mapsto\tilde{c}\transpose x$ über $Q$ maximiert.
 		Nach Lemma~\ref{lem:veselov}~(a) liegt $v$ auf einer Kante $E$ von $P$, die $z$ enthält.
 		Insbesondere ist also $Av\leq b$ und damit $v\in R$.
 		Da auch $R \subseteq Q$, ist $v$ Maximierer von $x\mapsto \tilde{c}\transpose x$ über $R$ und damit ist $v=x^*$.
