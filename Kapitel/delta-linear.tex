@@ -1,3 +1,7 @@
+\newcommand{\one}{\mathbbm{1}}
+\newcommand{\eq}[1]{{\operatorname{eq}(#1)}}
+\newcommand{\co}[1]{\operatorname{co}(#1)}
+
 \section{Lineare Abhängigkeit von $\Delta$}\label{sec:linear}
 
 Bisher haben wir Abschätzungen mit $b\in\R^m$ betrachtet.
@@ -19,6 +23,12 @@ Für $b\in\Z^m$ erkennen wir mit folgendem Beispiel, dass der Abstand zumindest 
 	Entsprechend ist der Abstand $\norm{x^*-y^*}=\delta-1=\Omega(\Delta)$
 \end{example}
 
+\begin{notation}
+	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $x^*\in\R^n$ gegeben.
+	Im Kontext des Polyeders $\{ x\in\R^m \mid Ax\leq b \}$ bezeichnen
+	$A_\eq{x^*}$ und $b_\eq{x^*}$ diejenigen Zeilen aus $A$ und $b$, bei denen für die zugehörigen Ungleichungen mit $x^*$ sogar Gleichheit gilt.
+\end{notation}
+
 Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV2009220}, um für einige Situationen die Vermutung~\ref{con:delta} zu bestätigen:
 \begin{lemma}\label{lem:veselov}
 	Sei $A\in\Z^{m\times n},b\in\Z^m,c\in\R^n$ mit $\rang(A)=n$, sodass der Absolutwert jeder Determinante einer $n\times n$ Teilmatrix kleinergleich 2 ist.
@@ -29,11 +39,6 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 		\item Jede Kante von $P$, die $z$ und einen ganzzahligen Punkt enthält, enthält auch einen ganzzahligen Punkt $y^*$ mit $\norm{z -y^*}\leq 1$.
 	\end{enumerate}
 \end{lemma}
-
-\newcommand{\one}{\mathbbm{1}}
-\newcommand{\eq}[1]{\operatorname{eq}(#1)}
-\newcommand{\co}[1]{\operatorname{co}(#1)}
-
 \begin{lemma}\label{lem:bounded}
 	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $U\in\N$ gegeben.
 	Mit $$
@@ -59,7 +64,7 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Seien $A\in\R^{m\times n},b\in\Z^m$ gegeben mit $A$ ist total unimodular, d.h. $\Delta(A)\leq 1$. Dann ist jede Ecke von $\{x\in\R^n \mid Ax\leq b \}$ ganzzahlig.
 \end{lemma}
 \begin{proof}
-	Sei $x$ eine Ecke. Dann ist $\rang(\tilde{A})=n$, wobei $\tilde{A} := A_{\eq{\{x\}}}$ und $\tilde{b}:=b_{\eq{\{x\}}}$ aus den Zeilen von $A$ und $b$ besteht, die straffe Bedingungen an $x$ darstellen, d.h. $\tilde{A} x = \tilde{b}$.
+	Sei $x$ eine Ecke. Dann ist $\rang(\tilde{A})=n$, wobei $\tilde{A} := A_\eq{x}$ und $\tilde{b}:=b_\eq{x}$ aus den Zeilen von $A$ und $b$ besteht, die straffe Bedingungen an $x$ darstellen, d.h. $\tilde{A} x = \tilde{b}$.
 	Nun kann $x$ mit der Cramerschen Regel eindeutig gelöst werden mit $x_i=\det(\tilde{A}_i)/\det(\tilde{A})$, wobei $\tilde{A}_i$ aus $\tilde{A}$ durch Ersetzen der $i$-ten Spalte mit $\tilde{b}$ entsteht.
 	Da $\det(\tilde{A})\in\{-1,1\}$ wegen $\Delta(A)\leq 1$, ist $x_i$ ganzzahlig.
 	
@@ -86,7 +91,7 @@ Damit können wir nun folgendes Theorem formulieren:
 		Ist $\Delta= 1$, so ist $x^*$ nach Lemma~\ref{lem:unimodular} ganzzahlig und $y^* := x^*$ ist die gewünschte Lösung mit $\norm{x^*-y^*}\leq \Delta - 1$.
 		
 		Sei also $\Delta=2$.
-		Für $Q:=\co{\{x\in\Z^n \mid A_{\eq{\{x^*\}}}x \leq b_{\eq{{\{x^*\}}}} \}}$ sei $z\in\Z^n$ eine Ecke von $Q$, die $x\mapsto c\transpose x$ maximiert. \todo{Existenz von $z$}.
+		Für $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$ sei $z\in\Z^n$ eine Ecke von $Q$, die $x\mapsto c\transpose x$ maximiert. \todo{Existenz von $z$}.
 		Nach Lemma~\ref{lem:veselov}~(a) liegt $z$ auf einer Kante $E$ von $P$, die $x^*$ enthält.
 		Sei $y^*\in\Z^n\cap E$ mit $\norm{x^* - y^*} := \min\{ \norm{x^*-y} \mid y\in\Z^n\cap E  \}$.
 		$y^*$ ist optimal für ($\firstNumbers{n}$-\MIPI), da $z$ optimal für ($\firstNumbers{n}$-\MIPI) und $x^*$ optimal für ($\emptyset$-\MIPI) \todo{$\lambda$-Beweis?}, und mit Lemma~\ref{lem:veselov}~(b) ist $\norm{x^*-y^*}\leq 1=\Delta-1$.
@@ -124,7 +129,7 @@ Damit können wir nun folgendes Theorem formulieren:
 		
 		Mit $\tilde{c}:=\lambda c+d$ gilt für jeden Punkt $x\in R\setminus\{x^*\}$:
 		$$\tilde{c}\transpose x < \lambda c\transpose x + d\transpose x^*\leq \lambda c\transpose x^* + d\transpose x^* = \tilde{c}\transpose x^*.$$
-		Setze $Q:=\co{\{x\in\Z^n \mid A_{\eq{\{z\}}}x \leq b_{\eq{{\{z\}}}} \}}$.
+		Setze $Q:=\co{\{x\in\Z^n \mid A_\eq{z}x \leq b_\eq{z} \}}$.
 		Da $Q$ beschränkt \todo{?} ist, gibt es eine Ecke $v\in Q$, die nach Definition von $Q$ ganzzahlig ist und $x\mapsto\tilde{c}\transpose x$ über $Q$ maximiert.
 		Nach Lemma~\ref{lem:veselov}~(a) liegt $v$ auf einer Kante $E$ von $P$, die $z$ enthält.
 		Insbesondere ist also $Av\leq b$ und damit $v\in R$.
