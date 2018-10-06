@@ -119,19 +119,19 @@ Damit können wir nun folgendes Theorem formulieren:
 		Definiere die Polyeder
 		$$
 		\begin{array}{l}
-		P_1:= \{ x\in\R^n \mid \forall i\in\firstNumbers{n}: (\tilde{y}_i\leq \Floor{x^*_i} = \tilde{x}_i \Rightarrow x_i \leq \Floor{x^*_i})\},\\
-		P_2:= \{ x\in\R^n \mid \forall i\in\firstNumbers{n}: (\tilde{y}_i\geq \Floor{x^*_i} = \tilde{x}_i \Rightarrow x_i \geq \Floor{x^*_i})\}, \\
-		P_3:= \{ x\in\R^n \mid \forall i\in\firstNumbers{n}: (\tilde{y}_i\leq \Ceil{x^*_i} = \tilde{x}_i \Rightarrow x_i \leq \Ceil{x^*_i})\},\\
-		P_4:= \{ x\in\R^n \mid \forall i\in\firstNumbers{n}: (\tilde{y}_i\geq \Ceil{x^*_i} = \tilde{x}_i \Rightarrow x_i \geq \Ceil{x^*_i})\}
+		P_1:= \{ x\in\R^n \mid~ \tilde{y}_i\leq \Floor{x^*_i} = \tilde{x}_i ~\Rightarrow~ x_i \leq \Floor{x^*_i}\qquad\text{für alle}~ i\in\firstNumbers{n}\},\\
+		P_2:= \{ x\in\R^n \mid ~ \tilde{y}_i\geq \Floor{x^*_i} = \tilde{x}_i ~\Rightarrow~ x_i \geq \Floor{x^*_i}\qquad\text{für alle}~ i\in\firstNumbers{n}\}, \\
+		P_3:= \{ x\in\R^n \mid ~\tilde{y}_i\leq \Ceil{x^*_i} = \tilde{x}_i ~\Rightarrow~ x_i \leq \Ceil{x^*_i}\qquad\text{für alle}~ i\in\firstNumbers{n}\},\\
+		P_4:= \{ x\in\R^n \mid ~\tilde{y}_i\geq \Ceil{x^*_i} = \tilde{x}_i ~\Rightarrow~ x_i \geq \Ceil{x^*_i}\qquad\text{für alle}~ i\in\firstNumbers{n}\}
 		\end{array}
 		$$
 		und das Polytop $\tilde{P}:=P\cap P_1 \cap P_2 \cap P_3 \cap P_4$.
 		$\tilde{P}$ ist nicht-leer, da $\tilde{x}, \tilde{y}\in\tilde{P}$, und beschränkt, da $\tilde{P}\subseteq P$.
 		Da jede an $\tilde{x}$ straffe Ungleichung von $B$ auch in $\tilde{P}$ vorkommt, ist $\tilde{x}$ auch eine optimale Ecke von $\tilde{P}$.
 		
-		$\tilde{P}$ kann wieder durch eine ganzzahlige Matrix $\tilde{A}$ beschrieben werden, die weiterhin $\rang(\tilde{A})=n$ und $\Delta(\tilde{A})=\Delta(A)$ \todo{Beweis?} erfüllt.
-		Nun können wir Fall 1 anwenden und erhalten eine optimale Lösung $y^*$ in $\tilde{P}\cap\Z^n$, also auch eine optimale Lösung von ($\firstNumbers{n}$-\MIPI), mit $\norm{\tilde{x} -y^*}\leq \Delta -1$.
-		Mit Dreiecksungleichung folgt $\norm{x^* - y^*}\leq \Delta$.
+		$\tilde{P}$ kann wieder durch eine ganzzahlige Matrix $\tilde{A}$  und einen ganzzahligen Vektor $\tilde{b}$ beschrieben werden, wobei $\tilde{A}$ weiterhin $\rang(\tilde{A})=n$ und $\Delta(\tilde{A})=\Delta(A)$ erfüllt, da nur einige Zeilen mit einer einzelnen $\pm 1$ in einer der Spalten hinzukommen.
+		Nun können wir Fall 1 anwenden und erhalten eine optimale Lösung $y^*\in\Z^n$ in $\tilde{P}$, also auch eine optimale Lösung von ($\firstNumbers{n}$-\MIPI), mit $\norm{\tilde{x} -y^*}\leq \Delta -1$.
+		Mittels Dreiecksungleichung folgt $\norm{x^* - y^*}\leq \Delta$.
 		
 		\item[Fall 3:] $I=\firstNumbers{n},J=\emptyset,x^*$ ist Ecke von $R:=\co{\{ x\in\Z^n \mid Ax\leq b \}}$.
 		
