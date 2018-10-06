@@ -139,18 +139,20 @@ Damit können wir nun folgendes Theorem formulieren:
 		Wir betrachten den Fall $\Delta=2$.
 		Nach Definition einer Ecke, existiert ein Vektor $d\in\R^n$ mit $\{ x\in\R^n \mid \forall \tilde{x}\in R: d\transpose x \geq d\transpose\tilde{x} \}=\{x^*\}$.
 		Demnach ist $d\transpose x < d\transpose x^*$ für alle $x\in R\setminus\{x^*\}$.
-		Für die Seitenfläche $F\subseteq P$, die alle optimalen Lösungen von ($\emptyset$-\MIPI) enthält, kann man nun ein $\lambda\geq0$ finden, das groß genug ist, dass eine Ecke $z\in F$ existiert, die $x\mapsto (\lambda c+d)\transpose x$ über $P$ maximiert. \todo{Beweis Existenz $\lambda$?}
+		Für die Seitenfläche $F\subseteq P$, die alle optimalen Lösungen von ($\emptyset$-\MIPI) enthält, sei $z$ eine Ecke, die $x\mapsto d\transpose x$ über $F$ maximiert.
+		Ist $x^*\in F$, so ist $x^*$ bereits optimal für ($\emptyset$-\MIPI).
+		Sonst setze $\lambda\geq 0$ so groß, dass $\lambda\geq d\transpose (v-z)/c\transpose (z-v)$ für alle Ecken $v\in P\setminus F$ von $P$ gilt.
+		Mit $\tilde{c}:= \lambda c + d$ maximiert $z$ die Funktion $x\mapsto \tilde{c}\transpose x$ über $P$, denn für alle Ecken $v$ in  P gilt: Ist $v\in F$, dann ist $\tilde{c}\transpose v = \lambda c\transpose z + \lambda d\transpose v\leq \tilde{c}\transpose z$, und sonst ist 
+		$\tilde{c}\transpose (z-v)\geq (d\transpose (v-z)/c\transpose(z-v))
+			 c\transpose (z-v) + d\transpose (z-v)=0$
 		
-		Mit $\tilde{c}:=\lambda c+d$ gilt für jeden Punkt $x\in R\setminus\{x^*\}$:
-		$$\tilde{c}\transpose x < \lambda c\transpose x + d\transpose x^*\leq \lambda c\transpose x^* + d\transpose x^* = \tilde{c}\transpose x^*.$$
 		Setze $Q:=\co{\{x\in\Z^n \mid A_\eq{z}x \leq b_\eq{z} \}}$.
 		Nach Lemma~\ref{lem:q-upper-bound} ist $x\mapsto \tilde{c}\transpose x$ mit $\tilde{c}\transpose z$ in $Q$ nach oben beschränkt und, da $Q$ nicht-leer ist, gibt es eine Ecke $v\in\Z^n$ von $Q$, die $x\mapsto\tilde{c}\transpose x$ über $Q$ maximiert.
 		Nach Lemma~\ref{lem:veselov}~(a) liegt $v$ auf einer Kante $E$ von $P$, die $z$ enthält.
 		Insbesondere ist also $Av\leq b$ und damit $v\in R$.
 		Da auch $R \subseteq Q$, ist $v$ Maximierer von $x\mapsto \tilde{c}\transpose x$ über $R$ und damit ist $v=x^*$.
 		
-		Für den Fall $c\transpose x^*=c\transpose z$ ist $x^*$ bereits optimal für ($\emptyset$-\MIPI).
-		Sonst setze $y^*:=z$.
+		Setze nun $y^*:=z$.
 		Da $v=x^*$, liegt $x^*$ auf der Kante $E$ von $P$, die $y^*$ enthält.
 		Auf der offenen Strecke zwischen $x^*$ und $y^*$ liegen keine ganzzahligen Punkte, weil $x\mapsto \tilde{c}\transpose x$ von $x^*$ über $R$ und von $y^*$ über $P\supseteq R$ maximiert wird und beide auf einer Kante von $P$ liegen.
 		Also gilt nach Lemma~\ref{lem:veselov}~(b), dass $\norm{x^*-y^*}\leq 1 = \Delta -1 $
