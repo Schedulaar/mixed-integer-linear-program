@@ -128,7 +128,7 @@ Damit können wir nun folgendes Theorem formulieren:
 		$\tilde{P}$ ist nicht-leer, da $\tilde{x}, \tilde{y}\in\tilde{P}$, und beschränkt, da $\tilde{P}\subseteq P$.
 		Da jede an $\tilde{x}$ straffe Ungleichung von $B$ auch in $\tilde{P}$ vorkommt, ist $\tilde{x}$ auch eine optimale Ecke von $\tilde{P}$.
 		
-		$\tilde{P}$ kann wieder durch eine ganzzahlige Matrix $\tilde{A}$ beschrieben werden, die weiterhin $\rang(\tilde{A})=n$ und $\Delta(\tilde{A})=\Delta(A)$ erfüllt.
+		$\tilde{P}$ kann wieder durch eine ganzzahlige Matrix $\tilde{A}$ beschrieben werden, die weiterhin $\rang(\tilde{A})=n$ und $\Delta(\tilde{A})=\Delta(A)$ \todo{Beweis?} erfüllt.
 		Nun können wir Fall 1 anwenden und erhalten eine optimale Lösung $y^*$ in $\tilde{P}\cap\Z^n$, also auch eine optimale Lösung von ($\firstNumbers{n}$-\MIPI), mit $\norm{\tilde{x} -y^*}\leq \Delta -1$.
 		Mit Dreiecksungleichung folgt $\norm{x^* - y^*}\leq \Delta$.
 		
@@ -148,7 +148,7 @@ Damit können wir nun folgendes Theorem formulieren:
 		Insbesondere ist also $Av\leq b$ und damit $v\in R$.
 		Da auch $R \subseteq Q$, ist $v$ Maximierer von $x\mapsto \tilde{c}\transpose x$ über $R$ und damit ist $v=x^*$.
 		
-		Für den Fall $c\transpose x^*=c\transpose z$, so ist $x^*$ bereits optimal für ($\emptyset$-\MIPI).
+		Für den Fall $c\transpose x^*=c\transpose z$ ist $x^*$ bereits optimal für ($\emptyset$-\MIPI).
 		Sonst ist $x^* \neq z$ und, da $v=x^*$, liegt $x^*$ auf der Kante $E$ von $P$, die $z$ enthält.
 		Auf der offenen Strecke zwischen $x^*$ und $z$ liegen keine ganzzahligen Punkte, weil $x\mapsto \tilde{c}\transpose x$ von $x^*$ über $R$ und von $z$ über $P\supseteq R$ maximiert und beide auf einer Kante von $P$ liegen.
 		Also gilt nach Lemma~\ref{lem:veselov}~(b), dass $\norm{x^*-z}\leq 1 = \Delta -1 $
