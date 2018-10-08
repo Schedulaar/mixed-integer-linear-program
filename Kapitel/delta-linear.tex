@@ -43,7 +43,7 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	\end{enumerate}
 \end{lemma}
 \begin{lemma}\label{lem:bounded}
-	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $U\in\N$ gegeben.
+	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $U\in\N$ mit $\Delta(A)\geq 1$ gegeben.
 	Mit $$
 		\tilde{A}:=
 		\begin{pmatrix} A \\ -\one_n \\ \one_n \end{pmatrix},\quad
@@ -60,7 +60,8 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Sonst lässt sich $M$ mit elementaren Zeilen- und Spaltentransformationen in die Form $$\tilde{M}:= \begin{pmatrix}
 		B & 0 \\
 		0 & \one
-	\end{pmatrix}$$ bringen mit $B$ Untermatrix von $A$ und $\betrag{\det(M)}=\betrag{\det(\tilde{M})}=\betrag{\det(B)}\leq\Delta(A)$.
+	\end{pmatrix}$$ bringen mit $B$ Untermatrix von $A$ und $\betrag{\det(M)}=\betrag{\det(\tilde{M})}$.
+	Dann ist $\betrag{\det(M)}=1$, falls $B$ leer und sonst $\betrag{\det(M)}=\betrag{\det(B)}\leq\Delta(A)$.
 \end{proof}
 
 \begin{lemma}\label{lem:unimodular}
@@ -72,9 +73,8 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Da $\det(\tilde{A})\in\{-1,1\}$ wegen $\Delta(A)\leq 1$, ist $x_i$ ganzzahlig.
 \end{proof}
 \begin{lemma}\label{lem:q-upper-bound}
-	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $c\in\R^n$ gegeben.
-	Mit $P:=\{ x\in\R^n \mid Ax\leq b \}$ gilt für jedes $x^*\in P$, das $x\mapsto c\transpose x$ maximiert:
-	Über $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$ ist  $x\mapsto c\transpose x$ mit $c\transpose x^*$ nach oben beschränkt.
+	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $c\in\R^n$ sowie $x^*\in P:=\{ x\in\R^n \mid Ax\leq b \}$ gegeben.
+	 $c\transpose x^*$ ist obere Schranke von $x\mapsto c\transpose x$ über $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$, falls $x\mapsto c\transpose x$  von $x^*$ über $P$ maximiert wird.
 \end{lemma}
 \begin{proof}
 	Für beliebiges $q\in Q\setminus\{x^*\}$ gilt:
@@ -82,37 +82,27 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Ist $\lambda=0$, so ist $q\in P$ und $c\transpose q\leq c\transpose x^*$. Mit $c\transpose \tilde{q} \leq c\transpose x^*$ gilt sonst $c\transpose q=(c\transpose \tilde{q} - c\transpose(1-\lambda)x^*)/\lambda \leq c\transpose x^*$.
 	Also ist $x\mapsto c\transpose x$ in $Q$ mit $c\transpose x^*$ nach oben beschränkt.
 \end{proof}
-Damit können wir nun folgendes Theorem formulieren:
-\begin{theorem}
-		Seien $\Delta\leq 2$ und $I,J\in\{\emptyset,\firstNumbers{n}\}$, sodass eine optimale Lösung von ($J$-\MIPI) existiert.
-		Für jede optimale Lösung $x^*$ von ($I$-\MIPI) existiert eine optimale Lösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
-\end{theorem}
+\begin{lemma}\label{lem:i-n-j-e}
+	Seien $\Delta\in\{1,2\}$, $P:=\{x\in\R^n \mid Ax\leq b \}$ beschränkt und es existiere eine optimale Lösung von ($\firstNumbers{n}$-\MIPI).
+	Dann existiert für jede optimale Lösung $x^*$ von ($\emptyset$-\MIPI) eine optimale Lösung $y^*$ von ($\firstNumbers{n}$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
+\end{lemma}
 \begin{proof}
-	Sei $x^*$ eine optimale Lösung von ($I$-\MIPI) gegeben.
-	Für $\Delta=0$ ist $A$ unimodular und nach Lemma~\ref{lem:unimodular} ist $x^*\in\Z^n$ und optimal für ($\emptyset$-\MIPI).
-	Wir betrachten also $\Delta\in\{1,2\}$.
-	
-	Es existiert ein $U\in\N$, sodass die beschränkte Menge  $$P:=\{x\in\R^n\mid Ax\leq b\} \cap \{x\in\R^n \mid \forall i\in\firstNumbers{m}: -U \leq x_i \leq U \}$$
-	$x^*$ und eine optimale Lösung von ($J$-\MIPI) enthält.
-	Setzt man $\tilde{A},\tilde{b}$ wie in Lemma~\ref{lem:bounded} ist $\rang(\tilde{A})=n$ und $\Delta:=\Delta(A)=\Delta(\tilde{A})$ und es gilt $P=\{ x\in\R^n \mid \tilde{A}x \leq \tilde{b} \}$.
-	Es genügt nun, ein $y^*$ in $P$ zu finden, das für ($J$-\MIPI) optimal ist und $\norm{x^* - y^*}\leq\Delta$ erfüllt.
-	
 	\begin{description}
-		\item[Fall 1:]  $I=\emptyset,J=\firstNumbers{n}, x^*$ ist Ecke von $P$.
+		\item[Spezialfall:] $x^*$ ist Ecke von $P$.
 		
-		Ist $\Delta= 1$, so ist $x^*$ nach Lemma~\ref{lem:unimodular} ganzzahlig und $y^* := x^*$ ist die gewünschte Lösung mit $\norm{x^*-y^*}\leq \Delta - 1$.
+		Ist $\Delta= 1$, so ist $x^*$ nach Lemma~\ref{lem:unimodular} ganzzahlig und $y^* := x^*$ ist die gewünschte Lösung mit $\norm{x^*-y^*}= 0\leq \Delta-1$. Sei also $\Delta=2$.
 		
-		Sei also $\Delta=2$. Setze $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
+		Setze $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
 		Da $Q$ nicht-leer ist und $x\mapsto c\transpose x$ nach Lemma~\ref{lem:q-upper-bound} mit $c\transpose x^*$ über $Q$ nach oben beschränkt ist, existiert also eine Ecke $z\in\Z^n$ von $Q$, die $x\mapsto c\transpose x$ maximiert.
 		Nach Lemma~\ref{lem:veselov}~(a) liegt $z$ auf einer Kante $E$ von $P$, die $x^*$ enthält.
 		
 		Sei $y^*\in\Z^n\cap E$ mit $\norm{x^* - y^*} := \min\{ \norm{x^*-y} \mid y\in\Z^n\cap E  \}$.
-		Es existiert ein $\lambda\in [0,1]$ mit $y^* = \lambda z + (1-\lambda)x^*$ und mit $c\transpose x^* \leq c\transpose z$ gilt $c\transpose y^* \geq c\transpose z$.
+		Da $x^*$ Ecke der gemeinsamen Kante $E$ ist, existiert ein $\lambda\in [0,1]$ mit $y^* = \lambda z + (1-\lambda)x^*$ und mit $c\transpose x^* \leq c\transpose z$ gilt $c\transpose y^* \geq c\transpose z$.
 		Aus der Optimalität von $z$ folgt die Optimalität von $y^*$ für ($\firstNumbers{n}$-\MIPI) und mit Lemma~\ref{lem:veselov}~(b) folgt aus der Wahl von $y^*$ die Abschätzung $\norm{x^*-y^*}\leq 1=\Delta-1$.
-
-		\item[Fall 2:] $I=\emptyset$, $J=\firstNumbers{n}$.
 		
-		Die Menge aller optimalen Lösungen von ($\emptyset$-\MIPI) bildet eine Seitenfläche von $P$, nämlich $F:=\{x\in P\mid -c\transpose x \leq cx^* \}$.
+		\item[Allgemeiner Fall.] ~
+		
+		Die Menge aller optimalen Lösungen von ($\emptyset$-\MIPI) bildet eine Seitenfläche von $P$, nämlich $F:=\{x\in P\mid c\transpose x \geq c\transpose x^* \}$.
 		Sei $\tilde{z}$ eine optimale Lösung von ($\firstNumbers{n}$-\MIPI) und $\tilde{x}$ eine Ecke des Polytops $B:=\{ x\in F \mid \forall i \in \firstNumbers{n}: \Floor{x^*_i} \leq x_i \leq \Ceil{x^*_i} \}$.
 		Dann folgt bereits $\norm{\tilde{x}-x^*}\leq 1$.
 		
@@ -130,23 +120,32 @@ Damit können wir nun folgendes Theorem formulieren:
 		Da jede an $\tilde{x}$ straffe Ungleichung von $B$ auch in $\tilde{P}$ vorkommt, ist $\tilde{x}$ auch eine optimale Ecke von $\tilde{P}$.
 		
 		$\tilde{P}$ kann wieder durch eine ganzzahlige Matrix $\tilde{A}$  und einen ganzzahligen Vektor $\tilde{b}$ beschrieben werden, wobei $\tilde{A}$ weiterhin $\rang(\tilde{A})=n$ und $\Delta(\tilde{A})=\Delta(A)$ erfüllt, da nur einige Zeilen mit einer einzelnen $\pm 1$ in einer der Spalten hinzukommen.
-		Nun können wir Fall 1 anwenden und erhalten eine optimale Lösung $y^*\in\Z^n$ in $\tilde{P}$, also auch eine optimale Lösung von ($\firstNumbers{n}$-\MIPI), mit $\norm{\tilde{x} -y^*}\leq \Delta -1$.
+		Nun können wir den Spezialfall anwenden und erhalten eine optimale Lösung $y^*\in\Z^n$ in $\tilde{P}$, also auch eine optimale Lösung von ($\firstNumbers{n}$-\MIPI), mit $\norm{\tilde{x} -y^*}\leq \Delta -1$.
 		Mittels Dreiecksungleichung folgt $\norm{x^* - y^*}\leq \Delta$.
+	\end{description}
+\end{proof}
+
+\begin{lemma}\label{lem:i-e-j-n}
+	Seien $\Delta\in\{1,2\}$, $P:=\{x\in\R^n \mid Ax\leq b \}$ beschränkt und es existiere eine optimale Lösung von ($\emptyset$-\MIPI).
+	Dann existiert für jede optimale Lösung $x^*$ von ($\firstNumbers{n}$-\MIPI) eine optimale Lösung $y^*$ von ($\emptyset$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
+\end{lemma}
+\begin{proof}
+	Für $\Delta=1$ ist nach Lemma~\ref{lem:unimodular} jede Ecke ganzzahlig, und da eine optimale Ecke existiert, ist $x^*$ auch eine optimale Lösung von ($\emptyset$-\MIPI).
+		\begin{description}
 		
-		\item[Fall 3:] $I=\firstNumbers{n},J=\emptyset,x^*$ ist Ecke von $R:=\co{\{ x\in\Z^n \mid Ax\leq b \}}$.
 		
-		Für $\Delta=1$ ist $x^*$ nach Lemma~\ref{lem:unimodular} auch eine optimale Lösung von ($\emptyset$-\MIPI).
-		Wir betrachten den Fall $\Delta=2$.
+		\item[Spezialfall:] $x^*$ ist Ecke von $R:=\co{\{ x\in\Z^n \mid Ax\leq b \}}$.
+		
 		Nach Definition einer Ecke, existiert ein Vektor $d\in\R^n$ mit $\{ x\in\R^n \mid \forall \tilde{x}\in R: d\transpose x \geq d\transpose\tilde{x} \}=\{x^*\}$.
 		Demnach ist $x^*$ der eindeutige Maximierer von $x\mapsto d\transpose x$ über $R$.
-
+		
 		Wir bezeichnen die Seitenfläche aller optimalen Lösungen von ($\emptyset$-\MIPI) mit $F$.
 		Ist $x^*\in F$, so ist $x^*$ bereits optimal für ($\emptyset$-\MIPI).
 		Sonst sei $y^*\in F$ eine Ecke, die $x\mapsto d\transpose x$ über $F$ maximiert.
 		Setze $\lambda\geq 0$ so groß, dass $\lambda\geq d\transpose (v-y^*)/c\transpose (y^*-v)$ für alle Ecken $v\in P\setminus F$ von $P$ gilt.
 		Mit $\tilde{c}:= \lambda c + d$ maximiert $y^*$ die Funktion $x\mapsto \tilde{c}\transpose x$ über $P$, denn für alle Ecken $v$ in  P gilt: Ist $v\in F$, dann ist $\tilde{c}\transpose v = \lambda c\transpose y^* + \lambda d\transpose v\leq \tilde{c}\transpose y^*$, und sonst ist 
 		$\tilde{c}\transpose (y^*-v)\geq (d\transpose (v-y^*)/c\transpose(y^*-v))
-			 c\transpose (y^*-v) + d\transpose (y^*-v)=0$
+		c\transpose (y^*-v) + d\transpose (y^*-v)=0$
 		
 		Setze $Q:=\co{\{x\in\Z^n \mid A_\eq{y^*}x \leq b_\eq{y^*} \}}$.
 		Nach Lemma~\ref{lem:q-upper-bound} ist $x\mapsto \tilde{c}\transpose x$ mit $\tilde{c}\transpose y^*$ in $Q$ nach oben beschränkt und, da $Q$ nicht-leer ist, gibt es eine Ecke $v\in\Z^n$ von $Q$, die $x\mapsto\tilde{c}\transpose x$ über $Q$ maximiert.
@@ -158,13 +157,31 @@ Damit können wir nun folgendes Theorem formulieren:
 		Auf der offenen Strecke zwischen $x^*$ und $y^*$ liegen keine ganzzahligen Punkte, weil $x\mapsto \tilde{c}\transpose x$ von $x^*$ über $R$ und von $y^*$ über $P\supseteq R$ maximiert wird und beide auf einer Kante von $P$ liegen.
 		Also gilt nach Lemma~\ref{lem:veselov}~(b), dass $\norm{x^*-y^*}\leq 1 = \Delta -1 $
 		
-		\item[Fall 4:] $I=\firstNumbers{n},J=\emptyset.$
+		\item[Allgemeiner Fall.] ~
 		
 		Da $P$ beschränkt, ist auch $R:=\co{\{x\in\Z^n \mid Ax\leq b\}}$ beschränkt und, da $x^*\in R$, existiert eine Konvexkombination $x^* = \sum_{i=1}^t \lambda_i v^i$ mit $v^1,\dots,v^t$ Ecken von $R$ und $\lambda_1,\dots,\lambda_t>0$ und $\sum_{i=1}^t \lambda_i=1$.
+		
 		Angenommen für ein $k\in\firstNumbers{t}$ ist $v^k$ nicht optimal für ($\firstNumbers{n}$-\MIPI).
 		Dann ist $c\transpose x^*=\sum_{i=1}^t \lambda_i c\transpose v^i \leq (1-\lambda_k)c\transpose x^* + \lambda_k c\transpose v^k < c\transpose x^*$.
-		Also ist $v^i$ optimal für ($\firstNumbers{n}$-\MIPI) und nach Fall 3 existiert $z^i\in\R^n$ optimal für ($\emptyset$-\MIPI) mit $\norm{v^i-z^i}\leq \Delta$ für alle $i\in\firstNumbers{t}$.
+		Also ist $v^i$ optimal für ($\firstNumbers{n}$-\MIPI) und nach dem Spezialfall existiert $z^i\in\R^n$ optimal für ($\emptyset$-\MIPI) mit $\norm{v^i-z^i}\leq \Delta$ für alle $i\in\firstNumbers{t}$.
 		Die Konvexkombination $y^*:=\sum_{i=1}^t \lambda_i z^i$ ist ebenfalls optimal für ($\emptyset$-\MIPI) und
 		$$\norm{x^*-y^*}=\norm{\sum_{i=1}^t \lambda_i (v^i-z^i)}\leq \sum_{i=1}^t \lambda_i \norm{v^i-z^i}=\Delta.$$
 	\end{description}
+\end{proof}
+Damit können wir nun folgendes Theorem formulieren:
+\begin{theorem}
+		Seien $\Delta\leq 2$ und $I,J\in\{\emptyset,\firstNumbers{n}\}$, sodass eine optimale Lösung von ($J$-\MIPI) existiert.
+		Für jede optimale Lösung $x^*$ von ($I$-\MIPI) existiert eine optimale Lösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
+\end{theorem}
+\begin{proof}
+	Sei $x^*$ eine optimale Lösung von ($I$-\MIPI) gegeben.
+	Für $\Delta=0$ ist $A=0$ und damit jedes $x\in\R^n$ optimale Lösung.
+	Wir betrachten also $\Delta\in\{1,2\}$.
+	
+	Es existiert ein $U\in\N$, sodass die beschränkte Menge  $$P:=\{x\in\R^n\mid Ax\leq b\} \cap \{x\in\R^n \mid \forall i\in\firstNumbers{m}: -U \leq x_i \leq U \}$$
+	$x^*$ und eine optimale Lösung von ($J$-\MIPI) enthält.
+	Setzt man $\tilde{A},\tilde{b}$ wie in Lemma~\ref{lem:bounded} ist $\rang(\tilde{A})=n$ und $\Delta:=\Delta(A)=\Delta(\tilde{A})$ und es gilt $P=\{ x\in\R^n \mid \tilde{A}x \leq \tilde{b} \}$.
+	Es genügt nun, ein $y^*$ in $P$ zu finden, das für ($J$-\MIPI) optimal ist und $\norm{x^* - y^*}\leq\Delta$ erfüllt.
+	
+	Mit Lemma~\ref{lem:i-n-j-e} und Lemma~\ref{lem:i-e-j-n} folgt die Behauptung.
 \end{proof}
