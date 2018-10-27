@@ -59,15 +59,20 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Ist $B$ leer, so ist $\betrag{\det(M)}=1$, sonst gilt $\betrag{\det(M)}=\betrag{\det(B)}\leq\Delta(A)$.
 \end{proof}
 
+Als Nächstes wollen wir zeigen, dass für Probleme in Standardform mit einer total unimodularen Matrix alle Ecken ganzzahlig sind.
+Eine \emph{total unimodulare Matrix} ist dabei eine Matrix, bei der die Determinante jeder quadratischen Untermatrix in $\{-1,0,1\}$ liegt.
+Da jede total unimodulare Matrix bereits ganzzahlig ist, kann die Eigenschaft auch durch $\Delta(A)\leq 1$ für ganzzahlige Matrizen $A$ charakterisiert werden.
+
 \begin{lemma}\label{lem:unimodular}
-	Seien $A\in\Z^{m\times n},b\in\Z^m$ gegeben mit $A$ ist total unimodular, d.h. $\Delta(A)\leq 1$.
+	Seien $A\in\Z^{m\times n},b\in\Z^m$ gegeben mit $\Delta(A)\leq 1$.
 	Dann ist jede Ecke von $\{x\in\R^n \mid Ax\leq b \}$ ganzzahlig.
 \end{lemma}
 \begin{proof}
-	Sei $x$ eine Ecke.
-	Mit $\tilde{A} := A_\eq{x}$ und $\tilde{b}:=b_\eq{x}$ gilt $\tilde{A} x = \tilde{b}$ und, da $x$ eine Ecke ist, $\rang(\tilde{A})=n$.
-	Nun kann $x$ mit der Cramerschen Regel eindeutig gelöst werden mit $x_i=\det(\tilde{A}_i)/\det(\tilde{A})$, wobei $\tilde{A}_i$ aus $\tilde{A}$ durch Ersetzen der $i$-ten Spalte mit $\tilde{b}$ entsteht.
-	Da $\det(\tilde{A})\in\{-1,1\}$ wegen $\Delta(A)\leq 1$, ist $x_i$ ganzzahlig.
+	Für eine Ecke $x$ gilt $\rang(A_\eq{x})=n$.
+	Nach dem Basisauswahlsatz können, falls nötig, Zeilen von $A_\eq{x}$ und $b_\eq{x}$ entfernt werden, um eine reguläre Teilmatrix $\tilde{A}$ von $A_\eq{x}$ mit zugehörigem $\tilde{b}$ zu erhalten.
+	Nun kann $\tilde{A}x=\tilde{b}$ mit der Cramerschen Regel eindeutig gelöst werden.
+	Dabei ist $x_i=\det(\tilde{A}_i)/\det(\tilde{A})$, wobei $\tilde{A}_i$ aus $\tilde{A}$ durch Ersetzen der $i$-ten Spalte mit $\tilde{b}$ entsteht.
+	Da $\det(\tilde{A})\in\{-1,1\}$ gilt und $\tilde{A_i}$ ganzzahlig ist, ist auch $x_i$ ganzzahlig.
 \end{proof}
 \begin{lemma}\label{lem:q-upper-bound}
 	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $c\in\R^n$ sowie $x^*\in P:=\{ x\in\R^n \mid Ax\leq b \}$ gegeben.
