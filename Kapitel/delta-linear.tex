@@ -42,26 +42,21 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 		\item Jede Kante von $P$, die $z$ und einen ganzzahligen Punkt enthält, enthält auch einen ganzzahligen Punkt $y$ mit $\norm{z -y}\leq 1$.
 	\end{enumerate}
 \end{lemma}
-\begin{lemma}\label{lem:bounded}
-	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $U\in\N$ mit $\Delta(A)\geq 1$ gegeben.
-	Mit $$
-		\tilde{A}:=
-		\begin{pmatrix} A \\ -\one_n \\ \one_n \end{pmatrix},\quad
-		\tilde{b}:=\begin{pmatrix} b \\ U \\ U \end{pmatrix}
-	$$
-	% ist $\{ x\in\R^n \mid Ax\leq b \}\cap\{x\in\R^n \mid \forall i\in\firstNumbers{m}: -U \leq x_i \leq U \} = \{ x\in\R^n \mid \tilde{A}x\leq \tilde{b}  \}$ und es 
-	gilt $\Delta(A)=\Delta(\tilde{A})$.
+\begin{lemma}\label{lem:same-delta}
+	Seien $A\in\R^{m\times n}$ mit $\Delta(A)\geq 1$ gegeben und $e\in\R^n$ ein Vektor, der in einem Eintrag den Wert $1$ oder $-1$ hat und in allen anderen den Wert $0$.
+	Erhält man die Matrix $\tilde{A}$ durch Einfügen von $e$ als Zeile oder Spalte bei $A$, so bleibt $\Delta(\tilde{A})=\Delta(A)$ erhalten.
 \end{lemma}
 \begin{proof}
 	Da jede Untermatrix von $A$ auch eine Untermatrix von $\tilde{A}$ ist, folgt die Ungleichung $\Delta(\tilde{A})\leq\Delta(A)$.
-	Sei nun $M$ eine quadratische Untermatrix von $\tilde{A}$.
-	Die ersten Zeilen $M_1$ von $M$ sind dabei eine Untermatrix von $A$, die letzten Zeilen $M_2$ eine Untermatrix von $(-\one, \one)\transpose$.
-	Existiert eine Spalte, in der in $M_2$ sowohl eine $-1$ als auch eine $1$ vorkommt, so sind die jeweiligen Zeilen linear abhängig und $\det(M)=0$.
+	Sei nun $M$ eine quadratische Untermatrix von $\tilde{A}$, die keine Untermatrix von $A$ ist.
+	Wir können ohne Einschränkung davon ausgehen, dass $e$ als letzte Zeile an $A$ angefügt worden ist, da sich der Betrag der Determinante unter Transponieren und Zeilentausch nicht verändert.
+	Die ersten Zeilen von $M$ sind also eine Untermatrix von $A$, die letzte Zeile $\tilde{e}$ ist ein Untervektor von $e$.
+	Ist $\tilde{e}=0$, so ist $\det(M)=0$.
 	Sonst lässt sich $M$ mit elementaren Zeilen- und Spaltentransformationen in die Form $$\tilde{M}:= \begin{pmatrix}
 		B & 0 \\
-		0 & \one
-	\end{pmatrix}$$ bringen mit $B$ Untermatrix von $A$ und $\betrag{\det(M)}=\betrag{\det(\tilde{M})}$.
-	Dann ist $\betrag{\det(M)}=1$, falls $B$ leer und sonst $\betrag{\det(M)}=\betrag{\det(B)}\leq\Delta(A)$.
+		0 & 1
+	\end{pmatrix}$$ bringen, wobei $B$ eine Untermatrix von $A$ ist und $\betrag{\det(M)}=\betrag{\det(\tilde{M})}$ gilt.
+	Ist $B$ leer, so ist $\betrag{\det(M)}=1$, sonst gilt $\betrag{\det(M)}=\betrag{\det(B)}\leq\Delta(A)$.
 \end{proof}
 
 \begin{lemma}\label{lem:unimodular}
@@ -119,7 +114,7 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 		$\tilde{P}$ ist nicht-leer, da $\tilde{x}, \tilde{y}\in\tilde{P}$, und beschränkt, da $\tilde{P}\subseteq P$.
 		Da jede an $\tilde{x}$ straffe Ungleichung von $B$ auch in $\tilde{P}$ vorkommt, ist $\tilde{x}$ auch eine optimale Ecke von $\tilde{P}$.
 		
-		$\tilde{P}$ kann wieder durch eine ganzzahlige Matrix $\tilde{A}$  und einen ganzzahligen Vektor $\tilde{b}$ beschrieben werden, wobei $\tilde{A}$ weiterhin $\rang(\tilde{A})=n$ und $\Delta(\tilde{A})=\Delta(A)$ erfüllt, da nur einige Zeilen mit einer einzelnen $\pm 1$ in einer der Spalten hinzukommen.
+		$\tilde{P}$ kann wieder durch eine ganzzahlige Matrix $\tilde{A}$  und einen ganzzahligen Vektor $\tilde{b}$ beschrieben werden, wobei $\tilde{A}$ nach Lemma~\ref{lem:same-delta} weiterhin $\rang(\tilde{A})=n$ und $\Delta(\tilde{A})=\Delta(A)$ erfüllt, da nur einige Zeilen mit einer einzelnen $\pm 1$ in einer der Spalten hinzukommen.
 		Nun können wir den Spezialfall anwenden und erhalten eine optimale Lösung $y^*\in\Z^n$ in $\tilde{P}$, also auch eine optimale Lösung von ($\firstNumbers{n}$-\MIPI), mit $\norm{\tilde{x} -y^*}\leq \Delta -1$.
 		Mittels Dreiecksungleichung folgt $\norm{x^* - y^*}\leq \Delta$.
 	\end{description}
@@ -136,8 +131,8 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 		
 		\item[Spezialfall:] $x^*$ ist Ecke von $R:=\co{\{ x\in\Z^n \mid Ax\leq b \}}$.
 		
-		Nach Definition einer Ecke, existiert ein Vektor $d\in\R^n$ mit $\{ x\in\R^n \mid \forall \tilde{x}\in R: d\transpose x \geq d\transpose\tilde{x} \}=\{x^*\}$.
-		Demnach ist $x^*$ der eindeutige Maximierer von $x\mapsto d\transpose x$ über $R$.
+		Nach Definition einer Ecke, existiert ein Vektor $d\in\R^n$ mit $$\{ x\in\R^n \mid \forall \tilde{x}\in R: d\transpose x \geq d\transpose\tilde{x} \}=\{x^*\}.$$
+		Demnach ist $x^*$ der einzige Maximierer von $x\mapsto d\transpose x$ über $R$.
 		
 		Wir bezeichnen die Seitenfläche aller optimalen Lösungen von ($\emptyset$-\MIPI) mit $F$.
 		Ist $x^*\in F$, so ist $x^*$ bereits optimal für ($\emptyset$-\MIPI).
@@ -180,8 +175,11 @@ Damit können wir nun folgendes Theorem formulieren:
 	
 	Es existiert ein $U\in\N$, sodass die beschränkte Menge  $$P:=\{x\in\R^n\mid Ax\leq b\} \cap \{x\in\R^n \mid \forall i\in\firstNumbers{m}: -U \leq x_i \leq U \}$$
 	$x^*$ und eine optimale Lösung von ($J$-\MIPI) enthält.
-	Setzt man $\tilde{A},\tilde{b}$ wie in Lemma~\ref{lem:bounded} ist $\rang(\tilde{A})=n$ und $\Delta:=\Delta(A)=\Delta(\tilde{A})$ und es gilt $P=\{ x\in\R^n \mid \tilde{A}x \leq \tilde{b} \}$.
-	Es genügt nun, ein $y^*$ in $P$ zu finden, das für ($J$-\MIPI) optimal ist und $\norm{x^* - y^*}\leq\Delta$ erfüllt.
+	Setzt man
+	$$\tilde{A}:=\begin{pmatrix} A \\ -\one \\ \one \end{pmatrix},\qquad\tilde{b}:=\begin{pmatrix} b \\ U \\ U \end{pmatrix},$$
+	gilt $\rang(\tilde{A})=n$ und nach Lemma~\ref{lem:same-delta} ist $\Delta(A)=\Delta(\tilde{A})$.
+	Wir können $P$ nun darstellen als $P=\{ x\in\R^n \mid \tilde{A}x \leq \tilde{b} \}$.
+	Es genügt, ein $y^*$ in $P$ zu finden, das für ($J$-\MIPI) optimal ist und $\norm{x^* - y^*}\leq\Delta$ erfüllt.
 	
 	Mit Lemma~\ref{lem:i-n-j-e} und Lemma~\ref{lem:i-e-j-n} folgt die Behauptung.
 \end{proof}
