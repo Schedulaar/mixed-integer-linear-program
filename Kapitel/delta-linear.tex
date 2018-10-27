@@ -26,14 +26,14 @@ Für $b\in\Z^m$ erkennen wir mit folgendem Beispiel, dass der Abstand zumindest 
 \begin{notation}
 	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $x^*\in\R^n$ gegeben.
 	Im Kontext des Polyeders $\{ x\in\R^m \mid Ax\leq b \}$ bezeichnen
-	$A_\eq{x^*}$ und $b_\eq{x^*}$ diejenigen Zeilen aus $A$ und $b$, bei denen für die zugehörigen Ungleichungen für $x^*$ sogar Gleichheit gilt.
+	$A_\eq{x^*}$ und $b_\eq{x^*}$ diejenigen Zeilen aus $A$ und $b$, bei denen die zugehörigen Ungleichungen für $x^*$ straff sind.
 	
 	Für eine Menge $M\subseteq \R^n$ bezeichne $\co{M}$ ihre konvexe Hülle.
 \end{notation}
 
 Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV2009220}, um für einige Situationen die Vermutung~\ref{con:delta} zu bestätigen:
 \begin{lemma}\label{lem:veselov}
-	Seien $A\in\Z^{m\times n}$, $b\in\Z^m$ und $c\in\R^n$ mit $\rang(A)=n$, sodass der Absolutwert jeder Determinante einer $n\times n$ Teilmatrix kleinergleich 2 ist.
+	Seien $A\in\Z^{m\times n}$, $b\in\Z^m$ und $c\in\R^n$ mit $\rang(A)=n$, sodass der Absolutwert jeder Determinante einer $n\times n$ Teilmatrix von $A$ kleinergleich 2 ist.
 	
 	Seien $z$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
 	Dann gelten:
@@ -60,10 +60,12 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 \end{proof}
 
 \begin{lemma}\label{lem:unimodular}
-	Seien $A\in\R^{m\times n},b\in\Z^m$ gegeben mit $A$ ist total unimodular, d.h. $\Delta(A)\leq 1$. Dann ist jede Ecke von $\{x\in\R^n \mid Ax\leq b \}$ ganzzahlig.
+	Seien $A\in\Z^{m\times n},b\in\Z^m$ gegeben mit $A$ ist total unimodular, d.h. $\Delta(A)\leq 1$.
+	Dann ist jede Ecke von $\{x\in\R^n \mid Ax\leq b \}$ ganzzahlig.
 \end{lemma}
 \begin{proof}
-	Sei $x$ eine Ecke. Dann ist $\rang(\tilde{A})=n$, wobei $\tilde{A} := A_\eq{x}$ und $\tilde{b}:=b_\eq{x}$ aus den Zeilen von $A$ und $b$ besteht, die straffe Bedingungen an $x$ darstellen, d.h. $\tilde{A} x = \tilde{b}$.
+	Sei $x$ eine Ecke.
+	Mit $\tilde{A} := A_\eq{x}$ und $\tilde{b}:=b_\eq{x}$ gilt $\tilde{A} x = \tilde{b}$ und, da $x$ eine Ecke ist, $\rang(\tilde{A})=n$.
 	Nun kann $x$ mit der Cramerschen Regel eindeutig gelöst werden mit $x_i=\det(\tilde{A}_i)/\det(\tilde{A})$, wobei $\tilde{A}_i$ aus $\tilde{A}$ durch Ersetzen der $i$-ten Spalte mit $\tilde{b}$ entsteht.
 	Da $\det(\tilde{A})\in\{-1,1\}$ wegen $\Delta(A)\leq 1$, ist $x_i$ ganzzahlig.
 \end{proof}
