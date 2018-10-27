@@ -8,18 +8,18 @@ Bisher haben wir Abschätzungen mit $b\in\R^m$ betrachtet.
 Schrijver hat in~\cite[Kapitel~17.2]{Schrijver1986} ein Beispiel angeführt, das $n\Delta$ als beste Abschätzung von optimalen Lösungen von ($\emptyset$-\MIPR) und ($\firstNumbers{n}$-\MIPR) besitzt.
 Für $b\in\Z^m$ erkennen wir mit folgendem Beispiel, dass der Abstand zumindest linear von $\Delta$ abhängt:
 \begin{example}
-	Für $\delta\in\N$ sei
+	Für $\delta\in\N$ seien
 	$$A:=
 	\begin{pmatrix}
 	-\delta & 0  \\
 	\delta  & -1
 	\end{pmatrix},\quad
 	b:=\begin{pmatrix} -1 \\ 0 \end{pmatrix},\quad
-	c\transpose:=\begin{pmatrix}0 & -1\end{pmatrix}.
+	c\transpose:=(0, -1).
 	$$
 	Es wird also die zweite Komponente minimiert unter der Nebenbedingung $Ax\leq b$, also $\delta x_1-x_2\leq0\Leftrightarrow\delta x_1\leq x_2$ und $\delta x_1\geq 1$.
 	Es gilt $\Delta=\delta$ und die optimale Lösung von ($\emptyset$-\MIPI) und (\{2\}-\MIPI) ist $x^*=(1/\delta,1)$.
-	Die optimale Lösung von $(\{1\}-\MIPI)$ und ($\{1, 2\}$-\MIPI) ist jedoch $y^*=(1,\delta)$.
+	Die optimale Lösung von ($\{1\}$-\MIPI) und ($\{1, 2\}$-\MIPI) ist jedoch $y^*=(1,\delta)$.
 	Entsprechend ist der Abstand $\norm{x^*-y^*}=\delta-1=\Omega(\Delta)$
 \end{example}
 
