@@ -54,7 +54,7 @@ Olson hat in~\cite{Olson1969} die Davenport-Konstante für sogenannte $p$-Gruppe
 Mit diesem Ergebnis können wir leicht eine für uns relevante Folgerung beschreiben:
 
 \begin{corollary}\label{cor:olson}
-	Seien $d\in\N$ und $p\in\N$ eine Primzahl sowie $f^1,\dots,f^r\in\Z^d$ mit $r\geq 1+dp-d$.
+	Seien $p\in\N$ eine Primzahl, $d\in\N$ und $f^1,\dots,f^r\in\Z^d$ mit $r\geq 1+dp-d$.
 	Dann existiert eine nicht-leere Menge $I\subseteq\firstNumbers{r}$ mit $\sum_{i\in I}f^i\in p\Z^d$.
 \end{corollary}
 \begin{proof}
@@ -74,10 +74,10 @@ Damit können wir das folgende Lemma zeigen, das wir im nächsten Abschnitt ben�
 	\newcommand{\bbeta}{\tilde{\beta}}
 	Ohne Beschränkung der Allgemeinheit sei $\alpha_i>0$ für $i=1,\dots,k$, denn für $\alpha_i=0$ wird $\beta_i=0$ vorausgesetzt, wodurch das Resultat nicht verändert werden kann.
 	
-	Zunächst betrachten wir den Fall der Existenz einer Primzahl $p$, sodass   $\alpha_i=q_i / p$ mit $q_i\in\N$ für $i\in\firstNumbers{k}$.
+	Zunächst betrachten wir den Fall der Existenz einer Primzahl $p$, die $\alpha_i=q_i / p$ mit bestimmten $q_i\in\N$ für alle $i\in\firstNumbers{k}$ erfüllt.
 	Wir können nun Korollar~\ref{cor:olson} auf die Vektoren
 	$$\underbrace{u^1,\dots,u^1}_{q_1~\text{Einträge}},~\dots~,\underbrace{u^k,\dots,u^k}_{q_k~\text{Einträge}}$$
-	anwenden, da $r:=\sum_{i=1}^k q_i=(\sum_{i=1}^k \alpha_i)\cdot p\geq dp \geq 1+dp-d$ nach Annahme.
+	anwenden, da nach Voraussetzung $r:=\sum_{i=1}^k q_i=(\sum_{i=1}^k \alpha_i)\cdot p\geq dp \geq 1+dp-d$ gilt.
 	Dadurch erhalten wir $l_i\in\{0,\dots,q_i\}$ für $i\in\firstNumbers{k}$ mit nicht alle $l_i=0$ und $\sum_{i=1}^k l_i u^i\in p\Z^d$.
 	Teilen wir durch $p$ gelangen wir mit $\beta_i := l_i/p$ zu unserer Behauptung $\sum_{i=1}^k \beta_i u^i\in\Z^d$ und $\beta\neq0$ sowie $\beta_i\in[0,\alpha]$, da $0\leq l_i/p\leq q_i/p=\alpha_i$.
 	
@@ -88,14 +88,14 @@ Damit können wir das folgende Lemma zeigen, das wir im nächsten Abschnitt ben�
 	mit $q^j_i\in\N$, $p^j$ Primzahl und $q^j_i/p^j\in[\alpha_i, \alpha_i+j^{-1}]$.
 	Damit ist $\lim_{j\rightarrow\infty}v^j=(\alpha_1,\dots,\alpha_k)$ und für $j\in\N$ können wir den ersten Fall auf $u$ und $v^j$ anwenden und erhalten damit $\beta^j\in\bigtimes_{i=1}^k[0,v^j_i]$ mit $\beta^j\neq0$ sowie $\sum_{i=1}^k\beta^j_i u^i \in\Z^d$.
 	Da die Folge $(\beta^j)_{j\in\N}$ in der kompakten Menge $\bigtimes_{i=1}^k[0,\alpha_i+1]$ liegt, existiert nach Satz von Bolzano-Weierstraß eine konvergente Teilfolge mit $\lim_{j\to\infty} \beta^{\sigma(j)}=:\beta$.
-	Da $\beta^{\sigma(j)}_i\in[0,v^{\sigma(j)}_i]$ und $\lim_{j\to\infty}v^{\sigma(j)}_i=\alpha_i$ ist $\beta_i\in[0,\alpha_i]$.
+	Aus $\beta^{\sigma(j)}_i\in[0,v^{\sigma(j)}_i]$ und $\lim_{j\to\infty}v^{\sigma(j)}_i=\alpha_i$ folgt nun $\beta_i\in[0,\alpha_i]$.
 	Da es nur endlich viele $z\in\Z^d$ der Form $z=\sum_{i=1}^k\gamma_i u^i$ mit $\gamma_i\in[0,\alpha_i+1]$ gibt, existiert ein Punkt $z\in\Z^d$, für den $\sum_{i=1}^k \beta^{\sigma(j)}_i u^i=z$ für unendlich viele $j$ gilt.
-	Also gibt es wegen der Konvergenz von $(\beta^{\sigma(j)})_{j\in\N}$ ein $n$, sodass $\sum_{i=1}^k\beta^{\sigma(j)}_i u^i=z$ für $j\geq n$ und damit ist $\sum_{i=1}^k\beta_i u^i=z$.
+	Also gibt es wegen der Konvergenz von $(\beta^{\sigma(j)})_{j\in\N}$ ein $n$, sodass $\sum_{i=1}^k\beta^{\sigma(j)}_i u^i=z$ für alle $j\geq n$ gilt, und damit ist $\sum_{i=1}^k\beta_i u^i=z$.
 	
 	Ist $\beta\neq0$, so erfüllt es die Behauptung.
 	Andernfalls ist $z=0$.
-	Setze $\varepsilon>0$, sodass $\varepsilon\beta^n_i\in[0,\alpha_i]$ für $i\in\firstNumbers{k}$.
-	Nach Wahl von $\beta^n$ ist dann $\varepsilon\beta^n\neq0$ und $\sum_{i=1}^k\varepsilon\beta^n_iu^i=\varepsilon z=\zero\in\Z^d$.
+	Setze $\varepsilon>0$ so klein, dass $\varepsilon\beta^{\sigma(n)}_i\in[0,\alpha_i]$ für $i\in\firstNumbers{k}$.
+	Nach Wahl von $\beta^{\sigma(n)}$ ist dann $\varepsilon\beta^{\sigma(n)}\neq0$ und es gilt $$\sum_{i=1}^k\varepsilon\beta^{\sigma(n)}_iu^i=\varepsilon z=\zero\in\Z^d.$$
 \end{proof}
 
 \begin{lemma}\label{lem:maxgamma}
@@ -104,17 +104,17 @@ Damit können wir das folgende Lemma zeigen, das wir im nächsten Abschnitt ben�
 \end{lemma}
 \begin{proof}
 	Die beschränkte Menge $G:=\{\gamma \in \bigtimes_{i=1}^k [0,\lambda_i] \mid \sum_{i=1}^k \gamma_i u^i\in\Z^d \}$ ist abgeschlossen: Sei $(\gamma^n)_{n\in\N}$ eine in $\R^k$ konvergente Folge mit $\gamma^n\in G$ für $n\in\N$ und $\lim_{n\to\infty}\gamma^n=:\tilde{\gamma}$.
-	Da es nur endlich viele $z\in\Z^d$ gibt mit $z=\sum_{i=1}^k\gamma_iu^i$ für $\gamma_i\in[0,\lambda_i]$, existiert ein $z\in\Z^d$, sodass $z=\sum_{i=1}^k\gamma^n_iu^i$ für unendlich viele $\gamma^n$ gilt und damit auch für $\tilde{\gamma}\in G$.
-	Also ist $G$ abgeschlossen und mit dem Satz von Heine-Borel ist $G\subseteq\R^k$ auch kompakt.
-	Nach dem Satz von Weierstraß nimmt die Menge $\{ \sum_{i=1}^k\gamma_i \mid \gamma\in G \}$ also bei einem $\gamma\in G$ ihr Maximum an.
+	Da es nur endlich viele $z\in\Z^d$ mit $z=\sum_{i=1}^k\gamma_iu^i$ für $\gamma_i\in[0,\lambda_i]$ gibt, existiert ein $z\in\Z^d$, sodass $z=\sum_{i=1}^k\gamma^n_iu^i$ für unendlich viele $\gamma^n$ gilt und damit auch für $\tilde{\gamma}\in G$.
+	Also ist $G$ abgeschlossen und mit dem Satz von Heine-Borel auch kompakt.
+	Nach dem Satz von Weierstraß nimmt $\gamma \mapsto \sum_{i=1}^k\gamma_i$ also bei einem $\gamma$ ihr Maximum auf $G$ an.
 	
 	Angenommen, es gelte $\sum_{i=1}^k(\lambda_i - \gamma_i) \geq d$.
-	Wenden wir Lemma~\ref{lem:olson} an auf $\alpha_i:=\lambda_i-\gamma_i\geq0$ und $u^i$ für $i\in\firstNumbers{k}$, erhalten wir $\beta\in\bigtimes_{i=1}^k[0,\lambda_i-\gamma_i]$ mit $\beta\neq0$ und $\sum_{i=1}^k \beta_i u^i\in\Z^d$.
-	Für $\gamma':=\gamma+\beta\leq\lambda$ gilt nun 
+	Wenden wir Lemma~\ref{lem:olson} auf $\alpha_i:=\lambda_i-\gamma_i\geq0$ und $u^i$ für $i\in\firstNumbers{k}$ an, erhalten wir $\beta\in\bigtimes_{i=1}^k[0,\lambda_i-\gamma_i]$ mit $\beta\neq0$ und $\sum_{i=1}^k \beta_i u^i\in\Z^d$.
+	Für $\gamma':=\gamma+\beta\leq\lambda$ gilt 
 	$
 	\sum_{i=1}^k\gamma'_iu^i = \sum_{i=1}^k\gamma_iu^i + \sum_{i=1}^k \beta_iu^i\in\Z^d
 	$
-	und damit ist $\gamma'\in G$.
+	und damit ist auch $\gamma'\in G$.
 	Wegen $\beta\neq0$ ist $\sum_{i=1}^k\gamma'_i > \sum_{i=1}^k\gamma_i$, was im Widerspruch zur Maximalität von $\gamma$ steht.
 \end{proof}
 
@@ -131,7 +131,7 @@ Zunächst betrachten wir noch folgendes Hilfslemma über die Darstellung eines K
 	Dann sind $A_1 \alpha x=\alpha A_1 x\leq 0$ und $A_2\alpha x\geq0$, also liegt $\alpha x$ in $C$.
 	Also ist $C$ ein Kegel, der aufgrund der Darstellung als Polyeder insbesondere konvex ist.
 	
-	\todo{Darstellung: \glqq standard arguments involving Cramer's rule\grqq.}
+	
 \end{proof}
 
 Nun formulieren wir unser Theorem:
@@ -152,9 +152,9 @@ Nun formulieren wir unser Theorem:
 	
 	Wir definieren nun unseren Kandidaten $$y^*:=\tilde{y}-\sum_{i=1}^k\gamma_iv^i=x^*+\sum_{i=1}^k(\lambda_i-\gamma_i)v^i$$
 	sowie $$\tilde{x}:=x^*+\sum_{i=1}^k\gamma_iv^i=\tilde{y}-\sum_{i=1}^k(\lambda_i-\gamma_i)v^i.$$
-	Wir zeigen zunächst, dass $y^*$ für ($J$-\MIPR) und $\tilde{x}$ für ($I$-\MIPR) zulässig sind.
-	Dabei sind für $j\in J$ bzw. $i\in I$ die Koordinaten $y^*_j$ bzw. $\tilde{x}_i\in\Z$, da $\tilde{y}_j$ bzw. $x^*_i\in\Z$ und $i,j\in\firstNumbers{d}$ sowie $\sum_{l=1}^k\gamma_lv^l\in\Z^d\times\R^{n-d}$.
-	$Ay^*\leq b$ und $A\tilde{x}\leq b$ folgen nun mit $v^i\in C$ für $i\in\firstNumbers{k}$ und 
+	Zunächst zeigen wir, dass $y^*$ für ($J$-\MIPR) und $\tilde{x}$ für ($I$-\MIPR) zulässig sind.
+	Dabei sind für $i\in I$ und $j\in J$ die Koordinaten $\tilde{x}_i$ und $y^*_j$ ganzzahlig, weil bereits $x^*_i$ und $\tilde{y}_j$ für $i,j\in\firstNumbers{d}$ ganzzahlig sind und $\sum_{i=1}^k\gamma_iv^i\in\Z^d\times\R^{n-d}$ gilt.
+	Die Ungleichungen $Ay^*\leq b$ und $A\tilde{x}\leq b$ folgen nun mit $v^i\in C$ für alle $i\in\firstNumbers{k}$ und 
 	$$
 	\begin{array}{lllllll}
 	A_1 y^*&=&A_1x^*+\sum_{i=1}^k(\lambda_i-\gamma_i)A_1v^i &\leq& A_1 x^* &\leq&b_1\\
@@ -164,11 +164,12 @@ Nun formulieren wir unser Theorem:
 	\end{array}
 	$$
 	
-	Da $x^*$ optimal für ($I$-\MIPR), gilt $c\transpose x^*\geq c\transpose \tilde{x} = c\transpose x^* + c\transpose (\sum_{i=1}^k\gamma_iv^i)$ und  $c\transpose(\sum_{i=1}^k\gamma_iv^i)\leq0$.
-	Damit erhalten wir mit der Optimalität von $\tilde{y}$ für ($J$-\MIPR) und
-	$$c\transpose y^*=c\transpose\tilde{y}-c\transpose(\sum_{i=1}^k\gamma_iv^i)\geq c\transpose\tilde{y}$$
+	Da $x^*$ optimal für ($I$-\MIPR) ist, gilt $c\transpose x^*\geq c\transpose \tilde{x} = c\transpose x^* + c\transpose (\sum_{i=1}^k\gamma_iv^i)$.
+	Zieht man auf beiden Seiten $c\transpose x^*$ ab, folgt $c\transpose(\sum_{i=1}^k\gamma_iv^i)\leq0$.
+	Damit erhalten wir mit der Optimalität von $\tilde{y}$ für ($J$-\MIPR) und mit 
+	$c\transpose y^*=c\transpose\tilde{y}-c\transpose(\sum_{i=1}^k\gamma_iv^i)\geq c\transpose\tilde{y}$
 	auch die Optimalität von $y^*$ für ($J$-\MIPR).
-	Außerdem gelten die folgenden Abschätzungen:
+	Es gelten nun die folgenden Abschätzungen:
 	$$\norm{x^*-y^*}=\norm{\sum_{i=1}^k(\lambda_i-\gamma_i)v^i}\leq \sum_{i=1}^k(\lambda_i-\gamma_i)\norm{v^i}\leq \sum_{i=1}^k(\lambda_i-\gamma_i)\Delta\leq d\Delta.
 	$$
 \end{proof}
