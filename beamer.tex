@@ -1,0 +1,122 @@
+
+\documentclass{beamer}
+\usetheme[faculty=phil, headheight=0em, fonts=none]{fibeamer}
+
+
+\usepackage[utf8]{inputenc} % for input encoding
+\usepackage[german]{babel} % for german localization
+\usepackage{colonequals} % for :=
+\usepackage{graphicx} % for \includegraphics
+\usepackage{wrapfig} % for floating images to the right
+\usepackage{tikz}
+\usepackage{esvect}
+
+\usetikzlibrary{arrows, shapes}
+
+\include{Header/useful-commands}
+
+\definecolor{darkblue}{HTML}{00446B}
+
+
+\newcommand{\coloniff}{\vcentcolon\Longle ftrightarrow}
+
+
+
+\makeatletter
+\setlength\fibeamer@lengths@logowidth{0em}
+\setlength\fibeamer@lengths@logoheight{0em}
+\makeatother
+\useoutertheme{infolines}
+\newenvironment{noheadline}{
+	\setbeamertemplate{headline}{}
+}{}
+\newenvironment{nofootline}{
+\setbeamertemplate{footline}{}
+}{}
+
+\setbeamersize{text margin left=2.7em, text margin right=2.7em}
+\setbeamertemplate{frametitle}{\insertframetitle}
+\setbeamercolor{block body}{fg=black!90}
+
+
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{size=\huge}
+\setbeamertemplate{institute}{\insertinstitute}
+
+\AtBeginSection{
+	\begin{noheadline}
+		\begin{frame}
+		\vfill
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center]{title}
+			\usebeamerfont{title}\insertsectionhead\par%
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+	\end{noheadline}
+
+}
+
+\makeatletter
+\setbeamertemplate{footline}{%
+	\color{darkblue}% to color the progressbar
+	\small
+	\hfill{\insertframenumber\hspace{1.5em}}
+	\vspace{1em}
+
+
+	\hspace*{-\beamer@leftmargin}%
+	\rule{\beamer@leftmargin}{1pt}%
+	\rlap{\rule{\dimexpr\numexpr0\insertframenumber\dimexpr
+			\textwidth\relax/\numexpr0\inserttotalframenumber}{1pt}}
+	% next 'empty' line is mandatory!
+
+	\vspace{0\baselineskip}
+	{}
+}
+
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\title{Abstände optimaler Lösungen gemischt-ganzzahliger Programme}
+\subtitle{Seminar zur Optimierung und Spieltheorie}
+\author{~\\Michael Markl \\ 08. November 2018}
+\date{08.11.2018}
+\institute{Insitut für Mathematik der Universität Augsburg\\Diskrete Mathematik, Optimierung und Operations Research}
+
+\beamertemplatenavigationsymbolsempty
+
+\begin{document}
+
+	\setcounter{framenumber}{-1}
+
+	\begin{nofootline}
+		\frame{\titlepage}
+	\end{nofootline}
+
+	\include{beamer/intro}
+
+
+	\begin{frame}{Gliederung}
+		\tableofcontents
+	\end{frame}
+
+	\include{beamer/definition}
+
+	\begin{noheadline}
+		\begin{frame}<presentation:0>[noframenumbering]
+			\cite{Paat2018}
+			\cite{Olson1969}
+			\cite{Cook1986}
+			\cite{Schrijver1986}
+			\cite{VESELOV2009220}
+		\end{frame}
+	
+		\begin{frame}[allowframebreaks]{Literatur}
+			\scriptsize
+			\bibliographystyle{alphadin}
+			\bibliography{Literatur/seminararbeit}
+		\end{frame}
+	\end{noheadline}
+
+\end{document}
