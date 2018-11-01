@@ -1,7 +1,37 @@
 \section{Problemdefinition und wichtige Größen}
 
 \begin{frame}
-	Formale Definition MIP
-	Vermutung
+	\begin{definition}[Gemischt-ganzzahliges lineares Programm]
+		Für $A\in\Z^{n\times m}$, $b\in\Z^m$, $c\in\R^n$ und $I\subseteq\firstNumbers{n}:=\{1,\dots,n\}$ bezeichne ($I$-\MIPI) das Programm
+		$$\begin{array}{lc}
+		&\max c\transpose x \\
+		\subjectTo &Ax\leq b\\
+		&\forall i\in I: x_i\in\Z
+		\end{array}.$$
+	\end{definition}
+
+	\pause
+	Mit $\Delta(A):=\max\{\betrag{ \det(Q)} \mid Q \text{ quadratische Untermatrix von } A \}$ formulieren wir folgende Vermutung:
+	
+	\pause
+	\begin{conjecture}
+		Es gibt eine Funktion $f: \N\rightarrow\R$, sodass für alle $I,J\subseteq\firstNumbers{n}$ gilt:
+		
+		Besitzt ($J$-\MIPI) eine Optimallösung, so existiert für jede Optimallösung $x^*$ von ($I$-\MIPI) eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^* - y^*}\leq f(\Delta)$.
+	\end{conjecture}
+\end{frame}
+
+\subsection{Folgerung aus Theorem von Cook}
+\begin{frame}
+\begin{theorem}[Cook u. a., 1986]\label{thm:cook}
+	Seien $I, J\subseteq\firstNumbers{n}$ mit $I=\emptyset$ oder $J=\emptyset$, sodass ($J$-\MIPI) eine Optimallösung hat.
+	
+	Dann existiert für jede Optimallösung $x^*$ von ($I$-\MIPI) eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq n\Delta$.
+\end{theorem}
+\begin{korollar}
+	Seien $I,J\subseteq\firstNumbers{n}$, sodass ($J$-\MIPI) eine Optimallösung hat.
+	
+	Dann existiert für jede optimale Lösung $x^*$ von ($I$-\MIPI) eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq2 n\Delta$.
+\end{korollar}
 \end{frame}
 
