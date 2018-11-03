@@ -62,3 +62,21 @@ $$
 		Dann existiert eine nicht-leere Menge $I\subseteq\firstNumbers{r}$ mit $\sum_{i\in I}f^i\in p\Z^d$.
 	\end{korollar}
 \end{frame}
+
+\begin{frame}{Beweis des Hilflemmas}
+\begin{korollar}
+Seien $p\in\N$ eine Primzahl, $d\in\N$ und $f^1,\dots,f^r\in\Z^d$ mit $r\geq 1+dp-d$ gegeben.
+
+Dann existiert eine nicht-leere Menge $I\subseteq\firstNumbers{r}$ mit $\sum_{i\in I}f^i\in p\Z^d$.
+\end{korollar}
+\begin{lemma}\label{lem:olson}
+	Seien $d,k\in\N, u^1,\dots, u^k\in\Z^d$ und $\alpha_1,\dots,\alpha_k\geq0$ mit $\sum_{i=1}^k \alpha_i\geq d$.
+	
+	Dann existiert $\beta\in\bigtimes_{i=1}^k[0,\alpha_i]$ mit $\beta\neq0$ und $\sum_{i=1}^k\beta_i u^i \in\Z^d$.
+\end{lemma}
+\pause
+\begin{lemma}\label{lem:maxgamma}
+	Seien $u^i\in\Z^d$, $\lambda_i\geq0$ für $i\in\firstNumbers{k}$ gegeben.
+	Dann existiert $\gamma\in\bigtimes_{i=1}^k [0,\lambda_i]$ mit $\sum_{i=1}^k \gamma_i u^i\in\Z^d$ und  $\sum_{i=1}^k(\lambda_i-\gamma_i)<d$.
+\end{lemma}
+\end{frame}
