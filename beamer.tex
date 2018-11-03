@@ -1,5 +1,5 @@
 
-\documentclass{beamer}
+\documentclass[envcountsect]{beamer}
 \usetheme[faculty=phil, headheight=0em, fonts=none]{fibeamer}
 
 
@@ -14,8 +14,9 @@
 \usetikzlibrary{arrows, shapes}
 
 \include{Header/useful-commands}
-\newtheorem{conjecture}{Vermutung}
-\newtheorem{korollar}{Korollar}
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{conjecture}[theorem]{Vermutung}
+\newtheorem{korollar}[theorem]{Korollar}
 
 \definecolor{darkblue}{HTML}{00446B}
 
@@ -98,12 +99,15 @@
 
 	\include{beamer/intro}
 
-
 	\begin{frame}{Gliederung}
 		\tableofcontents
 	\end{frame}
 
 	\include{beamer/definition}
+	
+	\include{beamer/integers-bounds}
+	
+	\include{beamer/further-results}
 
 	\begin{noheadline}
 		\begin{frame}<presentation:0>[noframenumbering]

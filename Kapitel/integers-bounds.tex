@@ -151,9 +151,9 @@ Nun formulieren wir unser Theorem:
 \begin{proof}
 	Zunächst tauschen wir alle ganzzahligen Variablen an die ersten Stellen und können $I\cup J=\firstNumbers{d}$ mit $d\in\firstNumbers{n}$ annehmen.
 	Es sei eine optimale Lösung $x^*$ von ($I$-\MIPR) gegeben.
-	Setze $z:=\tilde{y}-x^*$ sowie $C:=\{ x\in\R^n \mid A_1 x \leq 0, A_2x\geq0 \}$, wobei die Zeilen von $A$ in $A_1$ und $A_2$ so aufgeteilt werden, dass $A_1\tilde{y}<0$ und $A_2\tilde{y}\geq0$ erfüllt werden.
-	Da $\tilde{y}$ in $C$ liegt, erhalten wir nach Lemma~\ref{lem:cone} die Darstellung 
-	$$\tilde{y} = \lambda_1v^1 + \dots+\lambda_kv^k$$
+	Setze $C:=\{ x\in\R^n \mid A_1 x \leq 0, A_2x\geq0 \}$, wobei die Zeilen von $A$ in $A_1$ und $A_2$ so aufgeteilt werden, dass $A_1 (\tilde{y}-x^*)<0$ und $A_2 (\tilde{y}-x^*)\geq0$ erfüllt werden.
+	Nach Lemma~\ref{lem:cone} erhalten wir die Darstellung 
+	$$\tilde{y}-x^* = \lambda_1v^1 + \dots+\lambda_kv^k$$
 	mit $\lambda_i\geq0$, $\norm{v^i}\leq \Delta$ und $v^i\in C\cap\Z^n$ für alle $i\in\firstNumbers{k}$.
 	Man setze $u^i$ als die Projektion des Vektors $v^i$ auf dessen erste $d$ Komponenten.
 	Nach Lemma~\ref{lem:maxgamma} existiert ein $\gamma\in\bigtimes_{i=1}^k[0,\lambda_i]$ mit  $\sum_{i=1}^k\gamma_iu^i\in\Z^d$ und $\sum_{i=1}^k(\lambda_i -\gamma_i)<d$.

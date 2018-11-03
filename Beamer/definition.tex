@@ -21,17 +21,20 @@
 	\end{conjecture}
 \end{frame}
 
-\subsection{Folgerung aus Theorem von Cook}
-\begin{frame}
+\subsection{Einfache Folgerung aus Theorem von Cook}
+\begin{frame}{Theorem von Cook}
 \begin{theorem}[Cook u. a., 1986]\label{thm:cook}
 	Seien $I, J\subseteq\firstNumbers{n}$ mit $I=\emptyset$ oder $J=\emptyset$, sodass ($J$-\MIPI) eine Optimallösung hat.
 	
 	Dann existiert für jede Optimallösung $x^*$ von ($I$-\MIPI) eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq n\Delta$.
 \end{theorem}
+\pause
 \begin{korollar}
 	Seien $I,J\subseteq\firstNumbers{n}$, sodass ($J$-\MIPI) eine Optimallösung hat.
 	
 	Dann existiert für jede optimale Lösung $x^*$ von ($I$-\MIPI) eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq2 n\Delta$.
 \end{korollar}
+\pause
+Wir wollen in dieser Abschätzung $2n$ durch $\betrag{I\cup J}$ ersetzen.
 \end{frame}
 
