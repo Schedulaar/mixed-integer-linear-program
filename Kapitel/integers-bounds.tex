@@ -25,7 +25,7 @@ In diesem Abschnitt wollen wir nun diese Aussage verstärken, indem wir in der A
 
 \subsection{Folgerungen aus Davenport-Konstante von $p$-Gruppen}
 
-Ein wichtiges Hilfslemma dafür lässt sich aus der sogenannten Davenport-Konstante herleiten:
+Spannenderweise lässt sich aus der Theorie endlicher Gruppen nun ein wichtiges Hilfslemma für unser Problem mit Hilfe der sogenannten Davenport-Konstante herleiten:
 
 \begin{definition}[Davenport-Konstante]
 	Sei $(G,+,0)$ eine endliche, abelsche Gruppe.
@@ -35,10 +35,13 @@ Ein wichtiges Hilfslemma dafür lässt sich aus der sogenannten Davenport-Konsta
 	$$
 \end{definition}
 
-Olson hat in~\cite{Olson1969} die Davenport-Konstante für sogenannte $p$-Gruppen ermittelt:
+Olson hat in~\cite{Olson1969} die Davenport-Konstante für sogenannte $p$-Gruppen ermittelt.
+Für die Interpretation seiner Aussage ist der Begriff der invarianten Faktoren einer endlichen abelschen Gruppe nötig.
+Dieser wird im Hauptsatz endlicher abelscher Gruppen, der beispielsweise in~\cite[Satz 10.6]{Karpfinger2017} zu finden ist, eingeführt.
+
 \begin{definition}[$p$-Gruppe]
 	Sei $p$ eine Primzahl.
-	Eine $p$-Gruppe $G$ ist eine Gruppe, in der die Ordnung jedes Elements eine Potenz von $p$ ist.
+	Eine \emph{$p$-Gruppe} ist eine Gruppe, in der die Ordnung jedes Elements eine Potenz von $p$ ist.
 \end{definition}
 \begin{theorem}[Hauptsatz endlicher abelscher Gruppen]
 	Sei $G$ eine endliche abelsche Gruppe.
@@ -47,7 +50,9 @@ Olson hat in~\cite{Olson1969} die Davenport-Konstante für sogenannte $p$-Gruppe
 	Die Zahlen $n_1,\dots,n_d$ werden dabei als die sogenannten \emph{invarianten Faktoren von $G$} bezeichnet.
 \end{theorem}
 
-\begin{theorem}[Olson]\label{thm:olson}
+Auf dieser Grundlage basiert nun die folgende Aussage von Olson:
+
+\begin{theorem}[Olson, 1969]\label{thm:olson}
 	Für eine endliche abelsche $p$-Gruppe $G$ mit invarianten Faktoren $p^{e_1},\dots,p^{e_r}$ ist die Davenport-Konstante $D(G)=1+\sum_{i=1}^r(p^{e_i}-1)$.
 \end{theorem}
 
@@ -64,7 +69,7 @@ Mit diesem Ergebnis können wir leicht eine für uns relevante Folgerung beschre
 	Mit $\firstNumbers{1+dp-d}\subseteq\firstNumbers{r}$ und $\sum_{i\in I}[f^i]_p=[\sum_{i\in I}f^i]_p$ folgt die Behauptung.
 \end{proof}
 
-Damit können wir das folgende Lemma zeigen, das wir im nächsten Abschnitt benötigen werden:
+Damit können wir das folgende Lemma zeigen, das in~\cite{Paat2018} als Lemma~1 bezeichnet wurde.
 
 \begin{lemma}\label{lem:olson}
 	Seien $d,k\in\N, u^1,\dots, u^k\in\Z^d$ und $\alpha_1,\dots,\alpha_k\geq0$ mit $\sum_{i=1}^k \alpha_i\geq d$.
@@ -98,6 +103,8 @@ Damit können wir das folgende Lemma zeigen, das wir im nächsten Abschnitt ben�
 	Nach Wahl von $\beta^{\sigma(n)}$ ist dann $\varepsilon\beta^{\sigma(n)}\neq0$ und es gilt $$\sum_{i=1}^k\varepsilon\beta^{\sigma(n)}_iu^i=\varepsilon z=\zero\in\Z^d.$$
 \end{proof}
 
+Im nächsten Schritt wird das Resultat dieses Unterkapitels formuliert, welches wir in der Abschätzung im nächsten Unterkapitel benötigen werden.
+
 \begin{lemma}\label{lem:maxgamma}
 	Seien $u^i\in\Z^d$, $\lambda_i\geq0$ für $i\in\firstNumbers{k}$ gegeben.
 	Dann existiert $\gamma\in\bigtimes_{i=1}^k [0,\lambda_i]$ mit $\sum_{i=1}^k \gamma_i u^i\in\Z^d$ und  $\sum_{i=1}^k(\lambda_i-\gamma_i)<d$.
@@ -119,7 +126,7 @@ Damit können wir das folgende Lemma zeigen, das wir im nächsten Abschnitt ben�
 \end{proof}
 
 \subsection{Abschätzung optimaler Lösungen gemischt-ganzzahliger Programme}
-Dieser Abschnitt verfolgt das Ziel eine Abschätzung optimaler Lösungen zweier gemischt-ganzzahliger Programme	($I$-\MIPR) und ($J$-\MIPR) in Abhängigkeit von $\Delta$ und $\betrag{I\cup J}$ zu finden.
+Dieser Abschnitt verfolgt nun das Ziel eine Abschätzung optimaler Lösungen zweier gemischt-ganzzahliger Programme	($I$-\MIPR) und ($J$-\MIPR) in Abhängigkeit von $\Delta$ und $\betrag{I\cup J}$ zu finden.
 
 Zunächst betrachten wir noch folgendes Hilfslemma über die Darstellung eines Kegels:
 \begin{lemma}\label{lem:cone}
