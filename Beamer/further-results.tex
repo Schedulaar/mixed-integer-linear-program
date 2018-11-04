@@ -1,1 +1,48 @@
-\section{Weitere Ergebnisse linearer Abschätzung}
+\section{Ergebnisse für lineare Abschätzung}
+
+\begin{frame}{Untere Schranke für $f$}
+	Angenommen, es gäbe ein $f$ wie in der Vermutung, das den Abstand nur in Abhängigkeit von $\Delta$ beschränkt.
+	
+	\begin{beispiel}
+	Für $\delta\in\N$ seien
+	$$A:=
+	\begin{pmatrix}
+	-\delta & 0  \\
+	\delta  & -1
+	\end{pmatrix},\quad
+	b:=\begin{pmatrix} -1 \\ 0 \end{pmatrix},\quad
+	c\transpose:=(0, -1).
+	$$
+	
+	\pause
+	Es wird $x_2$ minimiert unter den Nebenbedingungen $1\leq\delta x_1\leq x_2$.
+	
+	\pause
+	Es gilt $\Delta=\delta$ und $x^*=(1/\delta,1)$ ist Optimallösung von ($\emptyset$-\MIPI) und (\{2\}-\MIPI).
+	
+	\pause
+	Die Optimallösung von ($\{1\}$-\MIPI) und ($\{1, 2\}$-\MIPI) ist $y^*=(1,\delta)$.
+	
+	\pause
+	$\norm{x^*-y^*}=\delta-1=\Omega(\Delta)$.
+	\end{beispiel}
+\end{frame}
+
+\begin{frame}{Abschätzung nur mit $\Delta$} 
+	\begin{lemma}[Veselov-Chirkov, 2009]\label{lem:veselov}
+		Seien $A\in\Z^{m\times n}$, $b\in\Z^m$ und $c\in\R^n$ mit $\rang(A)=n$, und jede $n\times n$ Teilmatrix $Q$ von $A$ erfülle $\betrag{\det(Q)}\leq 2$.
+		
+		Seien $z$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
+		Dann gelten:
+		\begin{enumerate}[(a)]
+			\item Jede Ecke von $Q$ liegt auf einer Kante von $P$, die $z$ enthält.
+			\item Jede Kante von $P$, die $z$ und einen ganzzahligen Punkt enthält, enthält auch einen ganzzahligen Punkt $y$ mit $\norm{z -y}\leq 1$.
+		\end{enumerate}
+	\end{lemma}
+	\pause
+	\begin{theorem}
+		Seien $\Delta\leq 2$ und $I,J\in\{\emptyset,\firstNumbers{n}\}$, sodass eine Optimallösung von ($J$-\MIPI) existiert.
+		
+		Für jede Optimallösung $x^*$ von ($I$-\MIPI) existiert eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
+	\end{theorem}
+\end{frame}
