@@ -32,8 +32,8 @@ Dabei werden keine echt gemischt-ganzzahligen Programme mehr zugelassen, sondern
 \end{notation}
 
 Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV2009220}, um für einige Situationen die Vermutung~\ref{con:delta} zu bestätigen:
-\begin{lemma}\label{lem:veselov}
-	Seien $A\in\Z^{m\times n}$, $b\in\Z^m$ und $c\in\R^n$ mit $\rang(A)=n$, sodass der Absolutwert jeder Determinante einer $n\times n$ Teilmatrix von $A$ kleinergleich 2 ist.
+\begin{lemma}[Veselov-Chirkov, 2009]\label{lem:veselov}
+	Seien eine ganzzahlige Matrix $A\in\Z^{m\times n}$, $b\in\Z^m$ und $c\in\R^n$ mit $\rang(A)=n$ gegeben und der Betrag jeder Determinante einer $n\times n$ Teilmatrix von $A$ sei kleinergleich 2.
 	
 	Seien $z$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
 	Dann gelten:
@@ -48,9 +48,11 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 \end{lemma}
 \begin{proof}
 	Da jede Untermatrix von $A$ auch eine Untermatrix von $\tilde{A}$ ist, folgt die Ungleichung $\Delta(A)\leq\Delta(\tilde{A})$.
+	
 	Sei nun $M$ eine quadratische Untermatrix von $\tilde{A}$, die keine Untermatrix von $A$ ist.
 	Wir können ohne Einschränkung davon ausgehen, dass $e$ als letzte Zeile an $A$ angefügt worden ist, da sich der Betrag der Determinante unter Transponieren und Zeilentausch nicht verändert.
 	Die ersten Zeilen von $M$ bilden also eine Untermatrix von $A$, die letzte Zeile $\tilde{e}$ ist ein Untervektor von $e$.
+	
 	Ist $\tilde{e}=0$, so ist $\det(M)=0$.
 	Sonst lässt sich $M$ mit elementaren Zeilen- und Spaltentransformationen in die Form $$\tilde{M}:= \begin{pmatrix}
 		B & 0 \\
@@ -84,6 +86,9 @@ Da jede total unimodulare Matrix bereits ganzzahlig ist, kann die Eigenschaft au
 	Ist $\lambda=0$, so ist $q\in P$ und $c\transpose q\leq c\transpose x^*$. Mit $c\transpose \tilde{q} \leq c\transpose x^*$ gilt sonst $c\transpose q=(c\transpose \tilde{q} - c\transpose(1-\lambda)x^*)/\lambda \leq c\transpose x^*$.
 	Also ist $x\mapsto c\transpose x$ in $Q$ mit $c\transpose x^*$ nach oben beschränkt.
 \end{proof}
+
+Zunächst wird die gewünschte Abschätzung für $J=\firstNumbers{n}$ und $I=\emptyset$ gezeigt:
+
 \begin{lemma}\label{lem:i-n-j-e}
 	Seien $\Delta\in\{1,2\}$, $P:=\{x\in\R^n \mid Ax\leq b \}$ beschränkt und es existiere eine optimale Lösung von ($\firstNumbers{n}$-\MIPI).
 	Dann existiert für jede optimale Lösung $x^*$ von ($\emptyset$-\MIPI) eine optimale Lösung $y^*$ von ($\firstNumbers{n}$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
@@ -170,7 +175,7 @@ Da jede total unimodulare Matrix bereits ganzzahlig ist, kann die Eigenschaft au
 		$$\norm{x^*-y^*}=\norm{\sum_{i=1}^t \lambda_i (v^i-z^i)}\leq \sum_{i=1}^t \lambda_i \norm{v^i-z^i}=\Delta.$$
 	\end{description}
 \end{proof}
-Damit können wir nun folgendes Theorem formulieren:
+Die Ergebnisse der letzten beiden Lemmata werden in folgendem Theorem festgehalten:
 \begin{theorem}
 		Seien $\Delta\leq 2$ und $I,J\in\{\emptyset,\firstNumbers{n}\}$, sodass eine optimale Lösung von ($J$-\MIPI) existiert.
 		Für jede optimale Lösung $x^*$ von ($I$-\MIPI) existiert eine optimale Lösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
