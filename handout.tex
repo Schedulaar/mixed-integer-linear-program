@@ -7,6 +7,24 @@ notitlepage	% keine extra Titelseite
 
 \usepackage[utf8]{inputenc}
 
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+	\newenvironment{#1}[1]
+	{%
+		\renewcommand\customgenericname{#2}%
+		\renewcommand\theinnercustomgeneric{##1}%
+		\innercustomgeneric
+	}
+	{\endinnercustomgeneric}
+}
+
+\newcustomtheorem{customthm}{Theorem}
+\newcustomtheorem{customlemma}{Lemma}
+\newcustomtheorem{customconj}{Vermutung}
+\newcustomtheorem{customdef}{Definition}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Zusammenfassung einiger nützlicher Pakete und Befehle
 \input{Header/kopf}			    % Befehle und Pakete für Titelseite
@@ -34,8 +52,8 @@ notitlepage	% keine extra Titelseite
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% Literaturverzeichnis
-	\nocite*  % Nicht zitierte Quellen werden auch ins Literaturverzeichnis aufgenommen
 	\thispagestyle{empty}
+	\scriptsize
 	\bibliography{Literatur/seminararbeit}  % Literaturverzeichnis liegt in der Datei seminararbeit
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

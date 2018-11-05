@@ -12,6 +12,7 @@ Definiert man
 $$\Delta:=\Delta(A):=\max\{\betrag{ \det(Q)} \mid Q \text{ quadratische Untermatrix von } A \},$$
 so erhält man die in \cite{Paat2018} formulierte Vermutung:
 
+\renewcommand{\theconjecture}{1.1}
 \begin{conjecture}\label{con:delta}
 	Es gibt eine Funktion $f: \N\rightarrow\R$, sodass für alle $I,J\subseteq\firstNumbers{n}$, unter denen ($J$-\MIPI) eine optimale Lösung besitzt, gilt:
 	Besitzt ($I$-\MIPI) eine optimale Lösung $x^*$, so existiert eine optimale 
@@ -20,6 +21,7 @@ so erhält man die in \cite{Paat2018} formulierte Vermutung:
 
 Eine Abschätzung, die zusätzlich von der Dimension $n$ abhängt, lieferte bereits Cook in~\cite[Theorem 1 und Bemerkung 1]{Cook1986}:
 
+\renewcommand{\thetheorem}{2.1}
 \begin{theorem}[Cook et al., 1986]\label{thm:cook}
 	Seien $I, J\subseteq\firstNumbers{n}$, sodass ($J$-\MIPI) eine optimale Lösung hat und entweder $I=\emptyset$ oder $J=\emptyset$ gilt.
 	Dann existiert für jede optimale Lösung $x^*$ von ($I$-\MIPI) eine optimale Lösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq n\Delta$.
@@ -29,33 +31,65 @@ Daraus kann leicht eine Abschätzung für allgemeine Indexmengen $I,J$ mit der o
 Diese soll nun verstärkt werden, indem die Schranke auf $\betrag{I\cup J}\Delta$ reduziert wird, wobei $\betrag{I\cup J}$ die Anzahl ganzzahliger Variablen ist.
 
 Dabei lässt sich aus der Theorie endlicher abelscher Gruppen ein wichtiges Hilfslemma beziehen, das auf einem Theorem von Olson in~\cite{Olson1969} beruht.
-Die sogenannte \emph{Davenport-Konstante $D(G)$} einer endlicher abelschen Gruppe $G$ bezeichnet dabei die kleinste natürliche Zahl $k$, für die gilt:
+Die sogenannte \emph{Davenport-Konstante $D(G)$} einer endlichen abelschen Gruppe $G$ bezeichnet dabei die kleinste natürliche Zahl $k$, für die gilt:
 $$
 \forall g^1,\dots,g^k \in G~~\exists I\subseteq\firstNumbers{k}\colon I\neq\emptyset \wedge \sum_{i\in I}g^i=0 .
 $$
+\renewcommand{\thetheorem}{2.6}
 \begin{theorem}[Olson, 1969]
 	Für eine Primzahl $p$ ist $D(\Z^d/p\Z^d)=1+dp-p$.
 \end{theorem}
+\renewcommand{\thecorollary}{2.7}
 \begin{corollary}
 	Seien $p\in\N$ eine Primzahl, $d\in\N$ und $f^1,\dots,f^r\in\Z^d$ mit $r\geq 1+dp-d$ gegeben.
 	Dann existiert eine nicht-leere Menge $I\subseteq\firstNumbers{r}$ mit $\sum_{i\in I}f^i\in p\Z^d$.
 \end{corollary}
 
-Mit Hilfe dieses Korollars kann eine Reihe weitere Aussagen gezeigt werden, die für den Beweis der Abschätzung notwendig sind:
+Mit Hilfe dieses Korollars kann eine Reihe weiterer Aussagen gezeigt werden, die für den Beweis der Abschätzung notwendig sind:
 
+\renewcommand{\thelemma}{2.8}
 \begin{lemma}\label{lem:olson}
 	Seien $d,k\in\N, u^1,\dots, u^k\in\Z^d$ und $\alpha_1,\dots,\alpha_k\geq0$ mit $\sum_{i=1}^k \alpha_i\geq d$.
 	Dann existiert $\beta\in\bigtimes_{i=1}^k[0,\alpha_i]$ mit $\beta\neq0$ und $\sum_{i=1}^k\beta_i u^i \in\Z^d$.
 \end{lemma}
 
+\renewcommand{\thelemma}{2.9}
 \begin{lemma}\label{lem:maxgamma}
 	Seien $u^i\in\Z^d$, $\lambda_i\geq0$ für $i\in\firstNumbers{k}$ gegeben.
 	Dann existiert $\gamma\in\bigtimes_{i=1}^k [0,\lambda_i]$ mit $\sum_{i=1}^k \gamma_i u^i\in\Z^d$ und  $\sum_{i=1}^k(\lambda_i-\gamma_i)<d$.
 \end{lemma}
 
-Außerdem spielt das folgende Lemma über die Darstellung von polyedrischen Kegeln eine wichtige Rolle, das zum Beispiel in~\cite{bibid}:
+Außerdem spielt das folgende Lemma aus~\cite[Lemma 5.4]{Korte2012} über die Darstellung von polyedrischen Kegeln eine wichtige Rolle:
 
+\renewcommand{\thelemma}{2.10}
 \begin{lemma}
 	Sei $A\in\Z^{m\times n}$ gegeben.
 	Der Polyeder $C:=\{ x\in\R^n \mid A x\leq 0 \}$ besitzt die Darstellung $C=\{\sum_{i=1}^k\lambda_i v^i \mid \forall i\in\firstNumbers{k} \colon\lambda_i\geq0 \}$ mit $v^i\in\Z^n$ und $\norm{v^i}\leq\Delta(A)$ für $i\in\firstNumbers{k}$.
 \end{lemma}
+
+Mit diesen Grundlagen kann nun die gewünschte Abschätzung bewiesen werden:
+
+\renewcommand{\thetheorem}{2.11}
+\begin{theorem}\label{thm:theo2}
+	Seien $I,J\subseteq\firstNumbers{n}$, sodass ($J$-\MIPI) eine Optimallösung $\tilde{y}$ hat.
+	
+	Für jede Optimallösung $x^*$ von ($I$-\MIPI) existiert eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq\betrag{I\cup J}\cdot\Delta$.
+\end{theorem}
+
+Man kann zeigen, dass eine Abschätzung wie in Vermutung~\ref{con:delta}, die nur $\Delta$ verwendet, mindestens linear von $\Delta$ abhängen muss.
+Betrachten wir nur $I,J\in\{\emptyset, \firstNumbers{n} \}$, gilt eine solche Abschätzung für $\Delta\leq 2$.
+Dies baut auf ein Theorem von Veselov-Chirkov aus~\cite[Theorem 2 und Beweis]{VESELOV2009220} auf:
+\begin{lemma}[Veselov-Chirkov, 2009]\label{lem:veselov}
+	Seien eine ganzzahlige Matrix $A\in\Z^{m\times n}$, $b\in\Z^m$ und $c\in\R^n$ mit $\rang(A)=n$ gegeben und der Betrag jeder Determinante einer $n\times n$ Teilmatrix von $A$ sei kleinergleich 2.
+	Seien $z$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
+	Dann gelten:
+	\begin{enumerate}[(a)]
+		\item Jede Ecke von $Q$ liegt auf einer Kante von $P$, die $z$ enthält.
+		\item Jede Kante von $P$, die $z$ und einen ganzzahligen Punkt enthält, enthält auch einen ganzzahligen Punkt $y$ mit $\norm{z -y}\leq 1$.
+	\end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+	Seien $\Delta\leq 2$ und $I,J\in\{\emptyset,\firstNumbers{n}\}$, sodass eine Optimallösung von \mbox{($J$-\MIPI)} existiert.
+	Für jede Optimallösung $x^*$ von ($I$-\MIPI) existiert eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
+\end{theorem}
