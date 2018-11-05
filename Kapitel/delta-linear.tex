@@ -1,10 +1,8 @@
-
-
 \section{Lineare Abhängigkeit von $\Delta$}\label{sec:linear}
 
 Bisher haben wir Abschätzungen mit $b\in\R^m$ betrachtet.
 Schrijver hat in~\cite[Kapitel~17.2]{Schrijver1986} ein Beispiel angeführt, das $n\Delta$ als beste Abschätzung von optimalen Lösungen von ($\emptyset$-\MIPR) und ($\firstNumbers{n}$-\MIPR) besitzt.
-Für $b\in\Z^m$ erkennen wir mit folgendem Beispiel, dass der Abstand zumindest linear von $\Delta$ abhängt:
+Schränkt man das Problem mit $b\in\Z^m$ ein, kann man mit folgendem Beispiel erkennen, dass der Abstand optimaler Lösungen zumindest linear von $\Delta$ abhängt:
 \begin{example}
 	Für $\delta\in\N$ seien
 	$$A:=
@@ -16,10 +14,14 @@ Für $b\in\Z^m$ erkennen wir mit folgendem Beispiel, dass der Abstand zumindest 
 	c\transpose:=(0, -1).
 	$$
 	Es wird also die zweite Komponente minimiert unter der Nebenbedingung $Ax\leq b$, also $\delta x_1-x_2\leq0\Leftrightarrow\delta x_1\leq x_2$ und $\delta x_1\geq 1$.
+	Diese können wir zusammenfassen in $1\leq\delta x_1\leq x_2$.
 	Es gilt $\Delta=\delta$ und die optimale Lösung von ($\emptyset$-\MIPI) und (\{2\}-\MIPI) ist $x^*=(1/\delta,1)$.
 	Die optimale Lösung von ($\{1\}$-\MIPI) und ($\{1, 2\}$-\MIPI) ist jedoch $y^*=(1,\delta)$.
 	Entsprechend ist der Abstand $\norm{x^*-y^*}=\delta-1=\Omega(\Delta)$
 \end{example}
+
+Im restlichen Abschnitt wird das Problem weiter eingeschränkt, um in diesen Fällen die Vermutung~\ref{con:delta} zeigen zu können.
+Dabei werden keine echt gemischt-ganzzahligen Programme mehr zugelassen, sondern nur noch Indexmengen in $\{\emptyset, \firstNumbers{n} \}$.
 
 \begin{notation}
 	Seien $A\in\R^{m\times n}$, $b\in\R^m$ und $x^*\in\R^n$ gegeben.
