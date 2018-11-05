@@ -1,0 +1,30 @@
+Ein \emph{gemischt-ganzzahliges Programm} (mixed integer program, MIP) ist ein lineares Programm, das von einer ganzzahligen Matrix $A\in\Z^{n\times m}$, einer ganzzahligen rechten Seite $b\in\Z^m$, $c\in\R^n$ und einer Indexmenge $I\subseteq\firstNumbers{n}:=\{1,\dots,n\}$ erzeugt wird, und von der folgenden Form ist:
+\begin{equation}\tag{$I$-\MIPI}
+\begin{array}{lc}
+&\max c\transpose x \\
+\subjectTo &Ax\leq b\\
+&\forall i\in I: x_i\in\Z
+\end{array}.
+\end{equation}
+
+Gesucht ist für $I,J\subseteq\firstNumbers{n}$ eine möglichst kleine Schranke, die den Abstand zwischen jeder optimalen Lösung $x^*$ von ($I$-\MIPI) und einer zu $x^*$ nähesten optimalen Lösung $y^*$ von ($J$-\MIPI) beschränkt.
+Definiert man
+$$\Delta:=\Delta(A):=\max\{\betrag{ \det(Q)} \mid Q \text{ quadratische Untermatrix von } A \},$$
+so erhält man die in \cite{Paat2018} formulierte Vermutung:
+
+\begin{conjecture}\label{con:delta}
+	Es gibt eine Funktion $f: \N\rightarrow\R$, sodass für alle $I,J\subseteq\firstNumbers{n}$, unter denen ($J$-\MIPI) eine optimale Lösung besitzt, gilt:
+	Besitzt ($I$-\MIPI) eine optimale Lösung $x^*$, so existiert eine optimale 
+	Lösung $y^*$ von ($J$-\MIPI) mit $\norm{x^* - y^*}\leq f(\Delta)$.
+\end{conjecture}
+
+Eine Abschätzung, die zusätzlich von der Dimension $n$ abhängt, lieferte bereits Cook in~\cite[Theorem 1 und Bemerkung 1]{Cook1986}:
+
+\begin{theorem}[Cook et al., 1986]\label{thm:cook}
+	Seien $I, J\subseteq\firstNumbers{n}$, sodass ($J$-\MIPI) eine optimale Lösung hat und entweder $I=\emptyset$ oder $J=\emptyset$ gilt.
+	Dann existiert für jede optimale Lösung $x^*$ von ($I$-\MIPI) eine optimale Lösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq n\Delta$.
+\end{theorem}
+
+Daraus kann leicht eine Abschätzung für allgemeine Indexmengen $I,J$ mit der oberen Schranke $2n\Delta$ gefolgert werden.
+Diese soll nun verstärkt werden, um die Schranke auf $\betrag{I\cup J}\Delta$ zu reduzieren, wobei $\betrag{I\cup J}$ die Anzahl ganzzahliger Variablen ist.
+

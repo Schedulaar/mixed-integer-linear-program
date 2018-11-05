@@ -1,0 +1,44 @@
+\documentclass[paper=a4, 	% Seitenformat
+fontsize=11pt, 		% Schriftgr\"o\ss{}e
+abstracton, 	% mit Abstrakt
+headsepline, 	% Trennlinie f\"ur die Kopfzeile
+notitlepage	% keine extra Titelseite
+]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zusammenfassung einiger nützlicher Pakete und Befehle
+\input{Header/kopf}			    % Befehle und Pakete für Titelseite
+\input{Header/theorem}			% Mathematische Befehle und Pakete
+\input{Header/referenz}			% Befehle und Pakete für Referenzen
+\input{Header/rest}			    % restliche Befehle und Pakete
+\input{Header/useful-commands}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Start des Dokuments
+\begin{document}
+	\ownautorefnames		% Änderung einiger automatischen Texte von hyperref (wie in referenz.tex definiert)
+	\parindent0em 			% kein Einzug nach einer Leerzeile
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Titelseite
+	\thispagestyle{empty}		% leerer Seitenstil, also keine Seitennummer
+	\seminarkopf 			% Titelblatt (wie in kopf.tex definiert)
+	~\\
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Eigentlicher Inhalt des Handouts; die einzelnen Teile werden hier (aus Gründen der Übersichtlichkeit) über \input{file} eingebunden
+	
+	\input{Handout/mixed-integer-program}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Literaturverzeichnis
+	\nocite*  % Nicht zitierte Quellen werden auch ins Literaturverzeichnis aufgenommen
+	\thispagestyle{empty}
+	\bibliography{Literatur/seminararbeit}  % Literaturverzeichnis liegt in der Datei seminararbeit
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Ende des Dokuments
+\end{document}		
