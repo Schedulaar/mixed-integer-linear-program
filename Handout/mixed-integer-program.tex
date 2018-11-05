@@ -26,5 +26,36 @@ Eine Abschätzung, die zusätzlich von der Dimension $n$ abhängt, lieferte bere
 \end{theorem}
 
 Daraus kann leicht eine Abschätzung für allgemeine Indexmengen $I,J$ mit der oberen Schranke $2n\Delta$ gefolgert werden.
-Diese soll nun verstärkt werden, um die Schranke auf $\betrag{I\cup J}\Delta$ zu reduzieren, wobei $\betrag{I\cup J}$ die Anzahl ganzzahliger Variablen ist.
+Diese soll nun verstärkt werden, indem die Schranke auf $\betrag{I\cup J}\Delta$ reduziert wird, wobei $\betrag{I\cup J}$ die Anzahl ganzzahliger Variablen ist.
 
+Dabei lässt sich aus der Theorie endlicher abelscher Gruppen ein wichtiges Hilfslemma beziehen, das auf einem Theorem von Olson in~\cite{Olson1969} beruht.
+Die sogenannte \emph{Davenport-Konstante $D(G)$} einer endlicher abelschen Gruppe $G$ bezeichnet dabei die kleinste natürliche Zahl $k$, für die gilt:
+$$
+\forall g^1,\dots,g^k \in G~~\exists I\subseteq\firstNumbers{k}\colon I\neq\emptyset \wedge \sum_{i\in I}g^i=0 .
+$$
+\begin{theorem}[Olson, 1969]
+	Für eine Primzahl $p$ ist $D(\Z^d/p\Z^d)=1+dp-p$.
+\end{theorem}
+\begin{corollary}
+	Seien $p\in\N$ eine Primzahl, $d\in\N$ und $f^1,\dots,f^r\in\Z^d$ mit $r\geq 1+dp-d$ gegeben.
+	Dann existiert eine nicht-leere Menge $I\subseteq\firstNumbers{r}$ mit $\sum_{i\in I}f^i\in p\Z^d$.
+\end{corollary}
+
+Mit Hilfe dieses Korollars kann eine Reihe weitere Aussagen gezeigt werden, die für den Beweis der Abschätzung notwendig sind:
+
+\begin{lemma}\label{lem:olson}
+	Seien $d,k\in\N, u^1,\dots, u^k\in\Z^d$ und $\alpha_1,\dots,\alpha_k\geq0$ mit $\sum_{i=1}^k \alpha_i\geq d$.
+	Dann existiert $\beta\in\bigtimes_{i=1}^k[0,\alpha_i]$ mit $\beta\neq0$ und $\sum_{i=1}^k\beta_i u^i \in\Z^d$.
+\end{lemma}
+
+\begin{lemma}\label{lem:maxgamma}
+	Seien $u^i\in\Z^d$, $\lambda_i\geq0$ für $i\in\firstNumbers{k}$ gegeben.
+	Dann existiert $\gamma\in\bigtimes_{i=1}^k [0,\lambda_i]$ mit $\sum_{i=1}^k \gamma_i u^i\in\Z^d$ und  $\sum_{i=1}^k(\lambda_i-\gamma_i)<d$.
+\end{lemma}
+
+Außerdem spielt das folgende Lemma über die Darstellung von polyedrischen Kegeln eine wichtige Rolle, das zum Beispiel in~\cite{bibid}:
+
+\begin{lemma}
+	Sei $A\in\Z^{m\times n}$ gegeben.
+	Der Polyeder $C:=\{ x\in\R^n \mid A x\leq 0 \}$ besitzt die Darstellung $C=\{\sum_{i=1}^k\lambda_i v^i \mid \forall i\in\firstNumbers{k} \colon\lambda_i\geq0 \}$ mit $v^i\in\Z^n$ und $\norm{v^i}\leq\Delta(A)$ für $i\in\firstNumbers{k}$.
+\end{lemma}
