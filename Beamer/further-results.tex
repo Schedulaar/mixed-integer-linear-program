@@ -32,10 +32,10 @@
 \begin{frame}{Abschätzung nur mit $\Delta$} 
 	\renewcommand{\thisthmnumber}{3.3}
 	\begin{lem}[Veselov-Chirkov, 2009]\label{lem:veselov}
-		Seien $A\in\Z^{m\times n}$, $b\in\Z^m$ und $c\in\R^n$ mit $\rang(A)=n$, und jede $n\times n$ Teilmatrix $Q$ von $A$ erfülle $\betrag{\det(Q)}\leq 2$.
+		Seien $A\in\Z^{m\times n}$, $b\in\Z^m$ mit $\rang(A)=n$, und jede $n\times n$ Teilmatrix $\tilde{A}$ von $A$ erfülle $\betrag{\det(\tilde{A})}\leq 2$.
 		
-		Seien $z$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$ und $Q:=\co{\{x\in\Z^n \mid A_\eq{x^*}x \leq b_\eq{x^*} \}}$.
-		Dann gelten:
+		Sei $z$ eine Ecke von $P:=\{x\in\R^n\mid Ax\leq b \}$. Mit  $Q:=\co{\{x\in\Z^n \mid A_\eq{z}x \leq b_\eq{z} \}}$
+		gelten:
 		\begin{enumerate}[(a)]
 			\item Jede Ecke von $Q$ liegt auf einer Kante von $P$, die $z$ enthält.
 			\item Jede Kante von $P$, die $z$ und einen ganzzahligen Punkt enthält, enthält auch einen ganzzahligen Punkt $y$ mit $\norm{z -y}\leq 1$.
