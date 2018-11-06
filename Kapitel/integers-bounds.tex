@@ -16,9 +16,12 @@ Mit Hilfe dieses Theorems kann nun für allgemeine Indexmengen eine ähnliche ob
 \end{corollary}
 \begin{proof}
 	Sei $x^*$ optimale Lösung von ($I$-\MIPR).
-	Nach Theorem~\ref{thm:cook} existiert eine optimale Lösung $z^*$ von ($\emptyset$-\MIPR) mit $\norm{x^*-z^*}\leq n\Delta$ und eine optimale Lösung $y^*$ von \mbox{($J$-\MIPR)} mit $\norm{z^*-y^*}\leq n\Delta$.
+	Ein Korollar aus dem Satz von Meyer in~\cite[Korollar 5.2]{Meyer1974} besagt, dass ein gemischt-ganzzahliges Problem genau dann eine optimale Lösung besitzt, wenn das entsprechende unrestringierte Problem, bei dem keine Entscheidungsvariable als ganzzahlig gefordert ist, eine optimale Lösung besitzt.
+	Also existiert eine optimale Lösung für ($\emptyset$-\MIPR).
 	
-	Nach Dreiecksungleichung ist $\norm{x^*-y^*}\leq\norm{x^*-z^*}+\norm{z^*-y^*}\leq 2 n\Delta$.
+	Daher folgt nach Theorem~\ref{thm:cook} die Existenz einer optimalen Lösung $z^*$ von ($\emptyset$-\MIPR) mit $\norm{x^*-z^*}\leq n\Delta$.
+	Wendet man das Theorem ein weiteres Mal folgt die Existenz einer optimalen Lösung $y^*$ von \mbox{($J$-\MIPR)} mit $\norm{z^*-y^*}\leq n\Delta$.
+	Mit Hilfe der Dreiecksungleichung gelangt man zur Abschätzung $\norm{x^*-y^*}\leq\norm{x^*-z^*}+\norm{z^*-y^*}\leq 2 n\Delta$.
 \end{proof}
 
 In diesem Abschnitt wollen wir nun diese Aussage verstärken, indem wir in der Abschätzung $2 n$ durch $\betrag{I\cup J}$ ersetzen, also durch die Anzahl der Variablen, die in ($I$-\MIPR) oder \mbox{($J$-\MIPR)} ganzzahlig sind.
