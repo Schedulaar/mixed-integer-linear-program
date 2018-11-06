@@ -14,10 +14,16 @@
 \usetikzlibrary{arrows, shapes}
 
 \include{Header/useful-commands}
-\setbeamertemplate{theorems}[numbered]
-\newtheorem{conjecture}[theorem]{Vermutung}
-\newtheorem{korollar}[theorem]{Korollar}
-\newtheorem{beispiel}[theorem]{Beispiel}
+\setbeamertemplate{theorems}[plain]
+\newcommand{\thisthmnumber}{0.0}
+\newtheorem{conjecture}[theorem]{Vermutung \thisthmnumber}
+\newtheorem{korollar}[theorem]{Korollar \thisthmnumber}
+\newtheorem{beispiel}[theorem]{Beispiel \thisthmnumber}
+\newtheorem{thm}[theorem]{Theorem \thisthmnumber}
+\newtheorem{lem}[theorem]{Lemma \thisthmnumber}
+\theoremstyle{definition}
+\newtheorem{defi}[theorem]{Definition \thisthmnumber}
+
 
 \definecolor{darkblue}{HTML}{00446B}
 

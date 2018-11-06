@@ -1,6 +1,7 @@
 \section{Problemdefinition und wichtige Größen}
 
 \begin{frame}
+	\renewcommand{\thisthmnumber}{}
 	\begin{definition}[Gemischt-ganzzahliges lineares Programm]
 		Für $A\in\Z^{n\times m}$, $b\in\Z^m$, $c\in\R^n$ und $I\subseteq\firstNumbers{n}:=\{1,\dots,n\}$ bezeichne ($I$-\MIPI) das Programm
 		$$\begin{array}{lc}
@@ -14,6 +15,7 @@
 	Mit $\Delta(A):=\max\{\betrag{ \det(Q)} \mid Q \text{ quadratische Untermatrix von } A \}$ formulieren wir folgende Vermutung:
 	
 	\pause
+	\renewcommand{\thisthmnumber}{1.1}
 	\begin{conjecture}
 		Es gibt eine Funktion $f: \N\rightarrow\R$, sodass für alle $I,J\subseteq\firstNumbers{n}$ gilt:
 		
@@ -23,12 +25,14 @@
 
 \subsection{Einfache Folgerung aus Theorem von Cook}
 \begin{frame}{Theorem von Cook}
-\begin{theorem}[Cook u. a., 1986]\label{thm:cook}
+\renewcommand{\thisthmnumber}{2.1}
+\begin{thm}[Cook u. a., 1986]\label{thm:cook}
 	Seien $I, J\subseteq\firstNumbers{n}$ mit $I=\emptyset$ oder $J=\emptyset$, sodass ($J$-\MIPI) eine Optimallösung hat.
 	
 	Dann existiert für jede Optimallösung $x^*$ von ($I$-\MIPI) eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq n\Delta$.
-\end{theorem}
+\end{thm}
 \pause
+\renewcommand{\thisthmnumber}{2.2}
 \begin{korollar}
 	Seien $I,J\subseteq\firstNumbers{n}$, sodass ($J$-\MIPI) eine Optimallösung hat.
 	

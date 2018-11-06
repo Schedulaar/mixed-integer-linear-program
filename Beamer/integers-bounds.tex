@@ -3,30 +3,34 @@
 \subsection{Beweis der Abschätzung}
 
 \begin{frame}{Hilfslemmata und Theorem}
-	\begin{lemma}
+	\renewcommand{\thisthmnumber}{2.10}
+	\begin{lem}
 		Sei $A\in\Z^{m\times n}$ eine Matrix, deren Zeilen in zwei Untermatrizen $A_1$ und $A_2$ aufgeteilt sind.
 		
 		Der Polyeder $C:=\{ x\in\R^n \mid A_1x\leq 0, A_2x\geq0 \}$ besitzt die Darstellung $C=\{\sum_{i=1}^k\lambda_i v^i \mid \forall i\in\firstNumbers{k} \colon\lambda_i\geq0 \}$ mit $v^i\in\Z^n$ und $\norm{v^i}\leq\Delta(A)$ für $i\in\firstNumbers{k}$.
-	\end{lemma}
+	\end{lem}
 	\pause
-	\begin{lemma}\label{lem:maxgamma}
+	\renewcommand{\thisthmnumber}{2.9}
+	\begin{lem}\label{lem:maxgamma}
 		Seien $u^i\in\Z^d$, $\lambda_i\geq0$ für $i\in\firstNumbers{k}$ gegeben.
 		Dann existiert $\gamma\in\bigtimes_{i=1}^k [0,\lambda_i]$ mit $\sum_{i=1}^k \gamma_i u^i\in\Z^d$ und  $\sum_{i=1}^k(\lambda_i-\gamma_i)<d$.
-	\end{lemma}
+	\end{lem}
 	\pause
-	\begin{theorem}\label{thm:theo2}
+	\renewcommand{\thisthmnumber}{2.11}
+	\begin{thm}\label{thm:theo2}
 		Seien $I,J\subseteq\firstNumbers{n}$, sodass ($J$-\MIPI) eine Optimallösung $\tilde{y}$ hat.
 		
 		Für jede Optimallösung $x^*$ von ($I$-\MIPI) existiert eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq\betrag{I\cup J}\cdot\Delta$.
-	\end{theorem}
+	\end{thm}
 \end{frame}
 
 \begin{frame}{Hilfslemmata und Theorem}
-\begin{theorem}\label{thm:theo2}
+\renewcommand{\thisthmnumber}{2.11}
+\begin{thm}\label{thm:theo2}
 Seien $I,J\subseteq\firstNumbers{n}$, sodass ($J$-\MIPI) eine Optimallösung $\tilde{y}$ hat.
 
 Für jede Optimallösung $x^*$ von ($I$-\MIPI) existiert eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq\betrag{I\cup J}\cdot\Delta$.
-\end{theorem}
+\end{thm}
 Zur Zulässigkeit von $y^*$ für ($J$-\MIPI) und $\tilde{x}$ für ($I$-\MIPI):
 \pause
 $$
@@ -42,20 +46,22 @@ $$
 \subsection{Folgerungen aus Theorie endlicher Gruppen}
 
 \begin{frame}{Das Theorem von Olson}
-
-	\begin{definition}[Davenport-Konstante]
+	\renewcommand{\thisthmnumber}{2.3}
+	\begin{defi}[Davenport-Konstante]
 		Sei $(G,+,0)$ eine endliche, abelsche Gruppe.
 		Die {\em Davenport-Konstante $D(G)$} ist die kleinste Zahl $k\in\N$ mit 
 		$$
 		\forall g^1,\dots,g^k \in G~~\exists I\subseteq\firstNumbers{k}\colon I\neq\emptyset \wedge \sum_{i\in I}g^i=0 .
 		$$
-	\end{definition}
+	\end{defi}
 
-	\begin{theorem}[Olson, 1969]
+	\renewcommand{\thisthmnumber}{2.6}
+	\begin{thm}[Olson, 1969]
 		Die Davenport-Konstante von $\Z^d/p\Z^d$ ist $1+dp-d$ für $p$ prim.
-	\end{theorem}
+	\end{thm}
 
 	\pause
+	\renewcommand{\thisthmnumber}{2.7}
 	\begin{korollar}
 		Seien $p\in\N$ eine Primzahl, $d\in\N$ und $f^1,\dots,f^r\in\Z^d$ mit $r\geq 1+dp-d$ gegeben.
 		
@@ -64,19 +70,22 @@ $$
 \end{frame}
 
 \begin{frame}{Beweis des Hilflemmas}
+\renewcommand{\thisthmnumber}{2.7}
 \begin{korollar}
 Seien $p\in\N$ eine Primzahl, $d\in\N$ und $f^1,\dots,f^r\in\Z^d$ mit $r\geq 1+dp-d$ gegeben.
 
 Dann existiert eine nicht-leere Menge $I\subseteq\firstNumbers{r}$ mit $\sum_{i\in I}f^i\in p\Z^d$.
 \end{korollar}
-\begin{lemma}\label{lem:olson}
+\renewcommand{\thisthmnumber}{2.8}
+\begin{lem}\label{lem:olson}
 	Seien $d,k\in\N, u^1,\dots, u^k\in\Z^d$ und $\alpha_1,\dots,\alpha_k\geq0$ mit $\sum_{i=1}^k \alpha_i\geq d$.
 	
 	Dann existiert $\beta\in\bigtimes_{i=1}^k[0,\alpha_i]$ mit $\beta\neq0$ und $\sum_{i=1}^k\beta_i u^i \in\Z^d$.
-\end{lemma}
+\end{lem}
 \pause
-\begin{lemma}\label{lem:maxgamma}
+\renewcommand{\thisthmnumber}{2.9}
+\begin{lem}\label{lem:maxgamma}
 	Seien $u^i\in\Z^d$, $\lambda_i\geq0$ für $i\in\firstNumbers{k}$ gegeben.
 	Dann existiert $\gamma\in\bigtimes_{i=1}^k [0,\lambda_i]$ mit $\sum_{i=1}^k \gamma_i u^i\in\Z^d$ und  $\sum_{i=1}^k(\lambda_i-\gamma_i)<d$.
-\end{lemma}
+\end{lem}
 \end{frame}
