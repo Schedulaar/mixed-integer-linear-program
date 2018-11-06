@@ -1,6 +1,6 @@
 \section{Lineare Abhängigkeit von $\Delta$}\label{sec:linear}
 
-Bisher haben wir Abschätzungen mit $b\in\R^m$ betrachtet.
+Bisher wurden nur Abschätzungen mit $b\in\R^m$ betrachtet.
 Schrijver hat in~\cite[Kapitel~17.2]{Schrijver1986} ein Beispiel angeführt, das $n\Delta$ als beste Abschätzung von optimalen Lösungen von ($\emptyset$-\MIPR) und ($\firstNumbers{n}$-\MIPR) besitzt.
 Schränkt man das Problem mit $b\in\Z^m$ ein, kann man mit folgendem Beispiel erkennen, dass der Abstand optimaler Lösungen zumindest linear von $\Delta$ abhängt:
 \begin{example}
@@ -14,10 +14,10 @@ Schränkt man das Problem mit $b\in\Z^m$ ein, kann man mit folgendem Beispiel er
 	c\transpose:=(0, -1).
 	$$
 	Es wird also die zweite Komponente minimiert unter der Nebenbedingung $Ax\leq b$, also $\delta x_1-x_2\leq0\Leftrightarrow\delta x_1\leq x_2$ und $\delta x_1\geq 1$.
-	Diese können wir zusammenfassen in $1\leq\delta x_1\leq x_2$.
+	Diese können zusammengefasst werden in $1\leq\delta x_1\leq x_2$.
 	Es gilt $\Delta=\delta$ und die optimale Lösung von ($\emptyset$-\MIPI) und (\{2\}-\MIPI) ist $x^*=(1/\delta,1)$.
 	Die optimale Lösung von ($\{1\}$-\MIPI) und ($\{1, 2\}$-\MIPI) ist jedoch $y^*=(1,\delta)$.
-	Entsprechend ist der Abstand $\norm{x^*-y^*}=\delta-1=\Omega(\Delta)$
+	Entsprechend ist der Abstand $\norm{x^*-y^*}=\delta-1=\Omega(\Delta)$.
 \end{example}
 
 Im restlichen Abschnitt wird das Problem weiter eingeschränkt, um in diesen Fällen die Vermutung~\ref{con:delta} zeigen zu können.
@@ -31,7 +31,7 @@ Dabei werden keine echt gemischt-ganzzahligen Programme mehr zugelassen, sondern
 	Für eine Menge $M\subseteq \R^n$ bezeichne $\co{M}$ ihre konvexe Hülle.
 \end{notation}
 
-Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV2009220}, um für einige Situationen die Vermutung~\ref{con:delta} zu bestätigen:
+Das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV2009220} wird nun benutzt, um für einige Situationen die Vermutung~\ref{con:delta} zu bestätigen:
 \begin{lemma}[Veselov-Chirkov, 2009]\label{lem:veselov}
 	Seien eine ganzzahlige Matrix $A\in\Z^{m\times n}$, $b\in\Z^m$ mit $\rang(A)=n$ gegeben und der Betrag jeder Determinante einer $n\times n$ Teilmatrix von $A$ sei kleinergleich 2.
 	
@@ -50,7 +50,7 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Da jede Untermatrix von $A$ auch eine Untermatrix von $\tilde{A}$ ist, folgt die Ungleichung $\Delta(A)\leq\Delta(\tilde{A})$.
 	
 	Sei nun $M$ eine quadratische Untermatrix von $\tilde{A}$, die keine Untermatrix von $A$ ist.
-	Wir können ohne Einschränkung davon ausgehen, dass $e$ als letzte Zeile an $A$ angefügt worden ist, da sich der Betrag der Determinante unter Transponieren und Zeilentausch nicht verändert.
+	Ohne Einschränkung kann davon ausgegangen werden, dass $e$ als letzte Zeile an $A$ angefügt worden ist, da sich der Betrag der Determinante unter Transponieren und Zeilentausch nicht verändert.
 	Die ersten Zeilen von $M$ bilden also eine Untermatrix von $A$, die letzte Zeile $\tilde{e}$ ist ein Untervektor von $e$.
 	
 	Ist $\tilde{e}=0$, so ist $\det(M)=0$.
@@ -61,7 +61,7 @@ Wir benutzen nun das folgende Lemma aus~\cite[Theorem 2 und Beweis]{VESELOV20092
 	Ist $B$ leer, so ist $\betrag{\det(M)}=1$, sonst gilt $\betrag{\det(M)}=\betrag{\det(B)}\leq\Delta(A)$.
 \end{proof}
 
-Als Nächstes wollen wir zeigen, dass für Probleme in Standardform mit einer total unimodularen Matrix alle Ecken ganzzahlig sind.
+Als Nächstes wird gezeigt, dass für Probleme in Standardform mit einer total unimodularen Matrix alle Ecken ganzzahlig sind.
 Eine \emph{total unimodulare Matrix} ist dabei eine Matrix, bei der die Determinante jeder quadratischen Untermatrix in $\{-1,0,1\}$ liegt.
 Da jede total unimodulare Matrix bereits ganzzahlig ist, kann die Eigenschaft auch durch $\Delta(A)\leq 1$ für ganzzahlige Matrizen $A$ charakterisiert werden.
 
@@ -82,8 +82,8 @@ Da jede total unimodulare Matrix bereits ganzzahlig ist, kann die Eigenschaft au
 \end{lemma}
 \begin{proof}
 	Für beliebiges $q\in Q\setminus\{x^*\}$ gilt:
-	Es existiert $\lambda\in[0,1)$ mit $\tilde{q}:=\lambda q+(1-\lambda)x^*\in P$, da wir uns für jede Ungleichung, die $q$ noch nicht erfüllt, solange an $x^*$ annähern können bis sie erfüllt ist und diese Ungleichung für $x^*$ keine Gleichheit erfüllt.
-	Ist $\lambda=0$, so ist $q\in P$ und $c\transpose q\leq c\transpose x^*$. Mit $c\transpose \tilde{q} \leq c\transpose x^*$ gilt sonst $c\transpose q=(c\transpose \tilde{q} - c\transpose(1-\lambda)x^*)/\lambda \leq c\transpose x^*$.
+	Es existiert $\lambda\in[0,1)$ mit $\tilde{q}:=\lambda q+(1-\lambda)x^*\in P$, da man sich für jede Ungleichung, die $q$ noch nicht erfüllt, solange an $x^*$ annähern kann bis sie erfüllt ist, und da diese Ungleichung für $x^*$ nicht straff ist.
+	Ist $\lambda=0$, so liegt $q$ in~$P$ und $c\transpose q\leq c\transpose x^*$. Mit $c\transpose \tilde{q} \leq c\transpose x^*$ gilt sonst $c\transpose q=(c\transpose \tilde{q} - c\transpose(1-\lambda)x^*)/\lambda \leq c\transpose x^*$.
 	Also ist $x\mapsto c\transpose x$ in $Q$ mit $c\transpose x^*$ nach oben beschränkt.
 \end{proof}
 
@@ -127,7 +127,7 @@ Zunächst wird die gewünschte Abschätzung für $J=\firstNumbers{n}$ und $I=\em
 		Da jede an $\tilde{x}$ straffe Ungleichung von $B$ auch in $\tilde{P}$ vorkommt, ist $\tilde{x}$ auch eine optimale Ecke von $\tilde{P}$.
 		
 		$\tilde{P}$ kann wieder durch eine ganzzahlige Matrix $\tilde{A}$  und einen ganzzahligen Vektor $\tilde{b}$ beschrieben werden, wobei $\tilde{A}$ nach Lemma~\ref{lem:same-delta} weiterhin $\rang(\tilde{A})=n$ und $\Delta(\tilde{A})=\Delta(A)$ erfüllt, da nur einige Zeilen mit einer einzelnen $\pm 1$ in einer der Spalten hinzukommen.
-		Nun können wir den Spezialfall anwenden und erhalten eine optimale Lösung $y^*\in\Z^n$ in $\tilde{P}$, also auch eine optimale Lösung von ($\firstNumbers{n}$-\MIPI), mit $\norm{\tilde{x} -y^*}\leq \Delta -1$.
+		Nun kann der Spezialfall angewandt werden und man erhält eine optimale Lösung $y^*\in\Z^n$ in $\tilde{P}$, also auch eine optimale Lösung von ($\firstNumbers{n}$-\MIPI), mit $\norm{\tilde{x} -y^*}\leq \Delta -1$.
 		Mittels Dreiecksungleichung folgt $\norm{x^* - y^*}\leq \Delta$.
 	\end{description}
 \end{proof}
@@ -146,7 +146,7 @@ Zunächst wird die gewünschte Abschätzung für $J=\firstNumbers{n}$ und $I=\em
 		Nach Definition einer Ecke, existiert ein Vektor $d\in\R^n$ mit $$\{ x\in\R^n \mid \forall \tilde{x}\in R: d\transpose x \geq d\transpose\tilde{x} \}=\{x^*\}.$$
 		Demnach ist $x^*$ der einzige Maximierer von $x\mapsto d\transpose x$ über $R$.
 		
-		Wir bezeichnen die Seitenfläche aller optimalen Lösungen von ($\emptyset$-\MIPI) mit $F$.
+		Die Seitenfläche aller optimalen Lösungen von ($\emptyset$-\MIPI) wird mit $F$ bezeichnet.
 		Ist $x^*\in F$, so ist $x^*$ bereits optimal für ($\emptyset$-\MIPI).
 		Sonst sei $y^*\in F$ eine Ecke, die $x\mapsto d\transpose x$ über $F$ maximiert.
 		Setze $\lambda\geq 0$ so groß, dass $\lambda\geq d\transpose (v-y^*)/c\transpose (y^*-v)$ für alle Ecken $v\in P\setminus F$ von $P$ gilt.
@@ -183,14 +183,14 @@ Die Ergebnisse der letzten beiden Lemmata werden in folgendem Theorem festgehalt
 \begin{proof}
 	Sei $x^*$ eine optimale Lösung von ($I$-\MIPI) gegeben.
 	Für $\Delta=0$ ist $A=0$ und damit jedes $x\in\R^n$ optimale Lösung.
-	Wir betrachten also $\Delta\in\{1,2\}$.
+	Man betrachte also $\Delta\in\{1,2\}$.
 	
 	Es existiert ein $U\in\N$, sodass die beschränkte Menge  $$P:=\{x\in\R^n\mid Ax\leq b\} \cap \{x\in\R^n \mid \forall i\in\firstNumbers{m}: -U \leq x_i \leq U \}$$
 	$x^*$ und eine optimale Lösung von ($J$-\MIPI) enthält.
 	Setzt man
 	$$\tilde{A}:=\begin{pmatrix} A \\ -\one \\ \one \end{pmatrix},\qquad\tilde{b}:=\begin{pmatrix} b \\ U \\ U \end{pmatrix},$$
 	gilt $\rang(\tilde{A})=n$ und nach Lemma~\ref{lem:same-delta} ist $\Delta(A)=\Delta(\tilde{A})$.
-	Wir können $P$ nun darstellen als $P=\{ x\in\R^n \mid \tilde{A}x \leq \tilde{b} \}$.
+	$P$ kann nun in der Form $P=\{ x\in\R^n \mid \tilde{A}x \leq \tilde{b} \}$ dargestellt werden.
 	Es genügt, ein $y^*$ in $P$ zu finden, das für ($J$-\MIPI) optimal ist und $\norm{x^* - y^*}\leq\Delta$ erfüllt.
 	
 	Mit Lemma~\ref{lem:i-n-j-e} und Lemma~\ref{lem:i-e-j-n} folgt die Behauptung.

@@ -14,8 +14,8 @@ Speziell erzeugen $A\in\Z^{n\times m}$, $b\in\Z^m$, $c\in\R^n$ und $I\subseteq\f
 \end{array}.
 \end{equation}
 
-Wir schreiben ($I$-\MIPR), falls zusätzlich $b\in\R^m$ zugelassen wird.
-Ist also beispielsweise $I=\emptyset$, erhält man ein Problem in Standardform; $I=\firstNumbers{n}$ bildet ein rein ganzzahliges lineares Programm.
+Die Notation ($I$-\MIPR) wird verwendet, falls zusätzlich $b\in\R^m$ zugelassen wird.
+Ist also beispielsweise $I=\emptyset$, erhält man ein Problem in Standardform; $I=\firstNumbers{n}$ erzeugt ein rein ganzzahliges lineares Programm.
 
 Gesucht ist nun für $I,J\subseteq\firstNumbers{n}$ eine möglichst kleine Schranke, die den Abstand zwischen jeder optimalen Lösung $x^*$ von ($I$-\MIPI) und einer zu $x^*$ nähesten optimalen Lösung $y^*$ von ($J$-\MIPI) beschränkt.
 Diese Schranke soll außerdem nur von $A$, $I$ und $J$ abhängen und der Abstand mittels Maximumsnorm ermittelt werden.
@@ -26,9 +26,23 @@ so erhält man die folgende in \cite{Paat2018} formulierte Vermutung.
 
 \begin{conjecture}\label{con:delta}
 	Es gibt eine Funktion $f: \N\rightarrow\R$, sodass für alle $I,J\subseteq\firstNumbers{n}$, unter denen ($J$-\MIPI) eine optimale Lösung besitzt, gilt:
-	Besitzt ($I$-\MIPI) eine optimale Lösung $x^*$, so existiert eine optimale 
+	Für jede Lösung $x^*$ von ($I$-\MIPI) existiert eine optimale 
 	Lösung $y^*$ von ($J$-\MIPI) mit $\norm{x^* - y^*}\leq f(\Delta)$.
 \end{conjecture}
 
-In dieser Arbeit werden wir eine etwas schwächere Aussage in Theorem~\ref{thm:theo2} zeigen, bei der der Abstand zusätzlich noch von $\betrag{I\cup J}$ abhängt.
-Des Weiteren werden wir in Abschnitt~\ref{sec:linear} Fälle diskutieren, in denen wir sogar die verstärkte Vermutung der Linearität von $f$ beweisen können.
+\begin{remark}\label{rem:feasibility}
+	Ein Korollar aus dem Theorem von Meyer in~\cite[Korollar 5.2]{Meyer1974} besagt, dass ein zulässiges gemischt-ganzzahliges Problem genau dann eine optimale Lösung besitzt, wenn das entsprechende unrestringierte Problem, bei dem keine Entscheidungsvariable als ganzzahlig gefordert ist, eine optimale Lösung besitzt.
+	
+	In der Vermutung~\ref{con:delta} kann also die Voraussetzung der Existenz einer optimalen Lösung von ($J$-\MIPI) ersetzt werden, falls im Gegenzug  nur Zulässigkeit von ($J$-\MIPI) verlangt wird.
+	Dies gilt unabhängig davon, ob $b$ in $\Z^m$ liegt.
+	
+	Um dieses Argument nicht unnötigerweise oft zu wiederholen, wurde diese Ersetzung hier und in folgenden Lemmata und Theoremen nicht durchgeführt.
+\end{remark}
+\begin{proof}
+	Sei eine optimale Lösung $x^*$ von ($I$-\MIPI) gegeben.
+	Nach dem genannten Korollar existiert also eine Optimallösung für ($\emptyset$-\MIPI).
+	Da ($J$-\MIPI) zulässig ist, kann das Korollar erneut angewandt werden -- nun in die andere Richtung --, wodurch man die Existenz einer optimalen Lösung von ($J$-\MIPI) erhält.
+\end{proof}
+
+In dieser Arbeit wird eine etwas schwächere Aussage in Theorem~\ref{thm:theo2} gezeigt, bei der der Abstand zusätzlich noch von $\betrag{I\cup J}$ abhängt.
+Des Weiteren werden in Abschnitt~\ref{sec:linear} Fälle diskutiert, in denen sogar die verstärkte Vermutung der Linearität von $f$ bewiesen werden kann.
