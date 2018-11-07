@@ -79,6 +79,8 @@ Mit diesen Grundlagen kann nun die gewünschte Abschätzung bewiesen werden:
 Man kann zeigen, dass eine Abschätzung wie in Vermutung~\ref{con:delta}, die nur $\Delta$ verwendet, mindestens linear von $\Delta$ abhängen muss.
 Betrachtet man nur $I,J\in\{\emptyset, \firstNumbers{n} \}$, gilt eine solche Abschätzung für $\Delta\leq 2$.
 Dies baut auf ein Theorem von Veselov-Chirkov aus~\cite[Theorem 2 und Beweis]{VESELOV2009220} auf:
+
+\renewcommand{\thelemma}{3.3}
 \begin{lemma}[Veselov-Chirkov, 2009]\label{lem:veselov}
 	Seien eine ganzzahlige Matrix $A\in\Z^{m\times n}$, $b\in\Z^m$ mit $\rang(A)=n$ gegeben und der Betrag jeder Determinante einer $n\times n$ Teilmatrix von $A$ sei kleinergleich 2.
 	
@@ -90,6 +92,7 @@ Dies baut auf ein Theorem von Veselov-Chirkov aus~\cite[Theorem 2 und Beweis]{VE
 	\end{enumerate}
 \end{lemma}
 
+\renewcommand{\thetheorem}{3.9}
 \begin{theorem}
 	Seien $\Delta\leq 2$ und $I,J\in\{\emptyset,\firstNumbers{n}\}$, sodass eine Optimallösung von \mbox{($J$-\MIPI)} existiert.
 	Für jede Optimallösung $x^*$ von ($I$-\MIPI) existiert eine Optimallösung $y^*$ von ($J$-\MIPI) mit $\norm{x^*-y^*}\leq \Delta$.
